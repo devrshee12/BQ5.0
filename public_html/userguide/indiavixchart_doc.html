@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html>
+    <head>
+        <title>India VIX CHART</title>   
+         <link rel="shortcut icon" href="../bliss_icon.ico" >
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+       <script src="../js/jquery-1.9.1.js"></script>
+      <!--   <script src="js/jquery-ui.js"></script>-->
+       
+       <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.4-dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.4-dist/css/custom.css" />
+      <link href="../font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet">
+        <script src="../bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+         <script type="text/javascript" language="javascript" src="../bootstrap-3.3.4-dist/js/jquery.carouFredSel-6.0.4-packed.js"></script>
+         <script type="text/javascript" language="javascript" src="../bootstrap-3.3.4-dist/js/news-ticker.js"></script>
+          <style>
+             .table>tbody>tr>th, .table>tbody>tr>td { 
+      
+        color: white;
+        
+        border-top: none !important; 
+        width:20%;
+        font-size: 13px;
+    }
+             </style>
+       
+    </head>
+    <body>         
+            <div class="row wrap">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle  btn-lg" data-toggle="collapse" data-target=".bliss-data-menu">
+                           
+                           
+                             <span class="title_all">Service-Menu</span><span class="glyphicon glyphicon-th"></span>
+                                   
+                        </button>
+                    </div> 
+                    <div class="navbar-collapse collapse bliss-data-menu">
+                      <ul class="nav nav-stacked nav-pills">
+                        <li ><a href="newsticker_doc.html">News Ticker</a></li>
+                         <li><a href="indiavixchart_doc.html"   class="active" >India VIX CHART</a></li>
+                        <li ><a href="companiesresulttable_doc.html" >Companies' Result Table</a></li>  
+                        <li><a href="economicresult_doc.html" >Financial Result Calender And Table</a></li>
+                       <li><a href="blissproduct.html" >Bliss Product</a></li>    
+                         <li><a href="Blissservices_doc.html">Bliss Services</a></li> 
+                          <li><a href="BlissAboutus_doc.html" >About Us</a></li> 
+                           <li><a href="worldindices_doc.html">World Indices</a></li>
+                             <li><a href="companychartandtooltip_doc.html" >Chart filtering and tooltip </a></li>
+                           <li><a href="PriceMovementandExpctedTime.html" >Price Movement and Expected Time</a></li>
+                     <li><a href="BlissCalc_doc.html">BlissCalc</a></li>
+                        <li><a href="Blissapi_doc.html" >Bliss API'S</a></li>
+                             <li><a href="DBConnectivity.html" >Database Connectivity</a></li>
+                                       <li><a href="DBTables_doc.html"  >Database Tables</a></li>
+                      </ul>
+                         </div>
+                 </div>
+           <div class="col-lg-8 col-md-8 col-sm-8">   
+               <div class="title_all text-center">
+                   <span style="padding-right: 30px">India VIX/CBOE/Nifty Chart Documentation  </span>  
+                   
+               </div>
+               <div >
+                 
+                 
+                  
+                   <div class="panel-body">In BlissIndiaVix.php :-<br>
+                       <div >
+                                <ul>
+                                    <li>We are showing comparison between India VIX and Nifty using amchart API </li> 
+                                </ul>
+                               </div>
+                       
+                   </div>
+                   <div class="panel-body">In BlissCboeVix.php:-<br>
+                       <div >
+                                <ul>
+                                    <li>We are showing comparison between India VIX and CBOE VIX using amchart API </li> 
+                                </ul>
+                               </div>
+                       
+                   </div>
+                   <br> 
+              
+                   <div class="row">
+                  
+                   
+                           <div class="col-lg-12">
+                              
+                               <table  class=" table table-striped text-center panel-body" width="100%">
+					<thead>
+						<tr>
+							<th>Method </th>
+							<th>URL</th>
+							<th>description </th>
+							<th>Page name </th>
+                                                       
+                            
+						</tr>
+					</thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>makeChart</td>
+                                                <td>-</td>
+                                                <td>Generate linechart for india vix v/s nifty and india vix v/s cboe vix</td>
+                                                <td>BlissIndiaVix2.js</td>
+                                            </tr>
+                                            <tr>
+                                                <td>range_sel_vq()</td>
+                                                <td>-</td>
+                                                <td>This function set the range of days for which chart data should be display eg:- displaying chart data for a week.</td>
+                                                <td>BlissIndiaVix2.js</td>
+                                            </tr>
+                                            <tr>
+                                                <td>generateChartData2()</td>
+                                                <td></td>
+                                                <td>This function generate chart data.</td>
+                                                <td>BlissIndiaVix2.js</td>
+                                            </tr>
+                                            <tr>
+                                                <td>setInterval()</td>
+                                                <td></td>
+                                                <td>This function automatically calls the function after particular time.</td>
+                                                <td>BlissIndiaVix2.js</td>
+                                            </tr>
+                                            <tr>
+                                                <td>$(document).ready()</td>
+                                                <td>-</td>
+                                                <td>This function calls any event or function when page is load.</td>
+                                                <td>BlissIndiaVix2.js</td>
+                                            </tr>
+                                        </tbody>
+			</table>
+                               
+                               <ul>
+                                    <br>
+                                   <div class="row">
+                       <div class="col-lg-4 col-md-4 col-sm-4 panel-heading ">makeChart Request Parameter</div>
+                       <br><br>
+                               
+                              <table  class=" table table-striped " >
+					<thead>
+						<tr>
+							<th>Attribute </th>
+							<th>Type</th>
+							<th>Note </th>
+							<th>Required?</th>
+                                                        <th>Default</th>
+                                                
+						</tr>
+					
+                                      
+                                            <tr>
+                                                <td>type</td>
+                                                <td>String</td>
+                                                <td>Type of a chart. Required when creating chart using JSON. Possible types are: serial, pie, xy, radar, funnel, gauge, map, stock. </td>
+                                                <td>Yes</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>theme</td>
+                                                <td>String</td>
+                                                <td>Theme of a chart. Config files of themes can be found in amcharts/themes/ folder.</td>
+                                                <td>Yes</td>
+                                                <td>none</td>
+                                            </tr>
+                                            <tr>
+                                                <td>color</td>
+                                               <td>Color</td>
+                                                <td>Text color.</td>
+                                                <td>Yes</td>
+                                                <td>#000000</td>
+                                            </tr>
+                                             <tr>
+                                                <td>pathToImages</td>
+                                                <td>String</td>
+                                                <td>Specifies path to the folder where images are store. </td>
+                                                <td>Yes</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>dataProvider</td>
+                                              <td>Array[Object]	</td>
+                                              <td>Array of data objects for example:-  chartData.push({<br>
+                                                  date2: newDate, //date<br>
+                                                  visits: visits, //india vix data<br>
+                                                  hits: hits,  // nifty data<br>
+                                                  iv_text:iv_balloon, //india vix text<br>
+                                                  nifty_text:nft_balloon, //nifty text<br>
+                                                  lineColor : line_color, //line color<br>
+                                                  ud_value : ud_value <br>
+                                                }); </td>
+                                                <td>Yes</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>valueAxes</td>
+                                               <td>Array[ValueAxis]</td>
+                                               <td>The array of value axes. Chart creates one value axis automatically, so if you need only one value axis, you don't need to create it.but as we have two values to show following paramenters are use to create axis value.
+                                                 </td>
+                                             
+                                                <td>Yes</td>
+                                                <td>ValueAxis</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>valueAxes:id</td>
+                                                <td>string</td>
+                                                <td>name of axes</td>
+                                                <td>yes</td>
+                                                 <td>-</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>valueAxes:axisColor</td>
+                                                <td>color</td>
+                                                <td>color for that axis</td>
+                                                <td>yes</td>
+                                                 <td>-</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>valueAxes:axisThickness</td>
+                                                <td>number</td>
+                                                <td>thickness of that axis line</td>
+                                                <td>yes</td>
+                                                 <td>-</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>valueAxes:gridAlpha</td>
+                                                <td>number</td>
+                                                <td>opacity of grid line</td>
+                                                <td>-</td>
+                                                 <td>-</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>valueAxes:axisAlpha</td>
+                                                <td>number</td>
+                                                <td>opacity of axis line</td>
+                                                <td>-</td>
+                                                 <td>-</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>valueAxes:position</td>
+                                                <td>string</td>
+                                                <td>position of axis line.left or right</td>
+                                                <td>yes</td>
+                                                 <td>-</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>valueAxes:color</td>
+                                                <td>color</td>
+                                                <td>color of text on that axis line</td>
+                                                <td>yes</td>
+                                                 <td>-</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>graphs</td>
+                                                <td>Array[AmGraph]</td>
+                                                <td>The array of graphs belonging to this chart.
+                                                   
+                                                    </td>
+                                                <td>Yes</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>graphs:valueAxis</td>
+                                                <td>string</td>
+                                                <td>id of axis to which this graph represent.</td>
+                                                <td>yes</td>
+                                                 <td>-</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>graphs:lineColor</td>
+                                                <td>color</td>
+                                                <td>line color</td>
+                                                <td>yes</td>
+                                                 <td>-</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>graphs:customBullet</td>
+                                                <td>string</td>
+                                                <td>image is shown at value point in line chart</td>
+                                                <td>optional</td>
+                                                 <td>-</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>graphs:bulletSize</td>
+                                                <td>number</td>
+                                                <td>size of bullet</td>
+                                                <td>optional</td>
+                                                 <td>-</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>graphs:bulletBorderThickness</td>
+                                                <td>number</td>
+                                                <td>border thickness</td>
+                                                <td>optional</td>
+                                                 <td>-</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>graphs:hideBulletsCount</td>
+                                                <td>number</td>
+                                                <td>maximum bullets limit</td>
+                                                <td>optional</td>
+                                                 <td>-</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>graphs:lineThickness</td>
+                                                <td>number</td>
+                                                <td>line thickness</td>
+                                                <td>optional</td>
+                                                 <td>-</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>graphs:title</td>
+                                                <td>string</td>
+                                                <td>title to be display in legend ,below chart</td>
+                                                <td>optional</td>
+                                                 <td>-</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>graphs:balloonText</td>
+                                                <td>string</td>
+                                                <td>values to be display in tooltip ,when cursor is move it shows values on tooltip.</td>
+                                                <td>optional</td>
+                                                 <td>-</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>graphs:valueField</td>
+                                                <td>string</td>
+                                                <td>values use to generate graph.</td>
+                                                <td>yes</td>
+                                                 <td>-</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>graphs:fillAlphas</td>
+                                                <td>number</td>
+                                                <td>opacity of graph.</td>
+                                                <td>optional</td>
+                                                 <td>-</td>
+                                                
+                                            </tr>
+                                       
+                                            
+                                            
+                                            
+                                             <tr>
+                                                <td>legend</td>
+                                                <td>AmLegend</td>
+                                                <td>Legend of a chart.legend is information which we are showning after the chart like names of graphs and there value with there color representation.there are some inner parameter are there of legend like below.</td>
+                                                <td>Yes</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>legend:color</td>
+                                                <td>color</td>
+                                                <td>color of text </td>
+                                                <td>yes</td>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <td>legend:verticalGap</td>
+                                                <td>number</td>
+                                                <td>it is use for vertical gap in legend</td>
+                                                <td>yes</td>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <td>legend:textClickEnabled</td>
+                                                <td>boolean</td>
+                                                <td>enable click on text in legend</td>
+                                                <td>yes</td>
+                                                <td>true</td>
+                                            </tr>
+                                            <tr>
+                                                <td>legend:switchable</td>
+                                                <td>boolean</td>
+                                                <td>enable or disable any particular graph by clicking at box in legend.</td>
+                                                <td>yes</td>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <td>legend:switchType</td>
+                                                <td>string</td>
+                                                <td>type of switch to be use from  "v" and "x";</td>
+                                                <td>yes</td>
+                                                <td>"x"</td>
+                                            </tr>
+                                            <tr>
+                                                <td>chartScrollbar</td>
+                                              <td>ChartScrollbar</td>
+                                                <td>Chart's scrollbar.scrollbar is use to customize view of chart by selecting particular range as per user requirement.scrollbar is shown at top of chart in white color </td>
+                                                <td>Yes</td>
+                                                <td></td>
+                                            </tr>
+                                             <tr>
+                                                <td>chartScrollbar:autoGridCount</td>
+                                                <td>boolean</td>
+                                                <td>divide chart in equal parts</td>
+                                                <td>yes</td>
+                                                <td>-</td>
+                                            </tr>
+                                             <tr>
+                                                <td>chartScrollbar:scrollbarHeight</td>
+                                                <td>number</td>
+                                                <td>thickness of scrollbar</td>
+                                                <td>yes</td>
+                                                <td>-</td>
+                                            </tr>
+                                             <tr>
+                                                <td>chartScrollbar:selectedBackgroundColor</td>
+                                                <td>color</td>
+                                                <td>background color</td>
+                                                <td>optional</td>
+                                                <td>-</td>
+                                            </tr>
+                                             <tr>
+                                                <td>chartScrollbar:selectedGraphLineColor</td>
+                                                <td>color</td>
+                                                <td>line color</td>
+                                                <td>optional</td>
+                                                <td>-</td>
+                                            </tr>
+                                             <tr>
+                                                <td>chartScrollbar:color</td>
+                                                <td>color</td>
+                                                <td>text color</td>
+                                                <td>optional</td>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <td>chartCursor</td>
+                                               <td>ChartCursor</td>
+                                                <td>Cursor of a chart.</td>
+                                                <td>Yes</td>
+                                                <td></td>
+                                            </tr>
+                                           <tr>
+                                                <td>chartCursor:cursorPosition</td>
+                                                <td>String</td>
+                                                <td>Specifies where the cursor line should be placed - on the beginning of the period (day, hour, etc) or in the middle (only when parseDates property of categoryAxis is set to true). If you want the cursor to follow mouse and not to glue to the nearest data point, set "mouse" here. Possible values are: start, middle, mouse.</td>
+                                                <td>optional</td>
+                                                <td>middle</td>
+                                            </tr>
+                                             <tr>
+                                                <td>chartCursor:categoryBalloonColor</td>
+                                                <td>Color</td>
+                                                <td>Color of the category balloon. cursorColor is used if not set.</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                            </tr>
+                                             <tr>
+                                                <td>chartCursor:categoryBalloonEnabled</td>
+                                                <td>Boolean</td>
+                                                <td>Specifies whether category balloon is enabled.</td>
+                                                <td>yes</td>
+                                                <td>true</td>
+                                            </tr>
+                                             <tr>
+                                                <td>chartCursor:categoryBalloonDateFormat</td>
+                                                <td>String</td>
+                                                <td>Category balloon date format (used only if category axis parses dates). </td>
+                                                <td>yes</td>
+                                                <td>MMM DD, YYYY</td>
+                                            </tr>
+                                            <tr>
+                                                <td>categoryAxis:parseDates</td>
+                                                <td>Boolean</td>
+                                                <td>dates will be shown at bottom of chart.</td>
+                                                <td>yes</td>
+                                                <td>false</td>
+                                            </tr>
+                                            <tr>
+                                                <td>categoryAxis:axisColor</td>
+                                                <td>color</td>
+                                                <td>color of axis</td>
+                                                <td>optional</td>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <td>categoryAxis:minorGridEnabled</td>
+                                                <td>Boolean</td>
+                                                <td>Specifies if minor grid should be displayed.</td>
+                                                <td>optional</td>
+                                                <td>false</td>
+                                            </tr>
+                                            <tr>
+                                                <td>categoryAxis:axisThickness</td>
+                                                <td>Number</td>
+                                                <td>Thickness of the axis.</td>
+                                                <td>optional</td>
+                                                <td>1</td>
+                                            </tr>
+                                       </thead> 
+			</table>
+                               
+                     </div>
+                                    <br>
+                       
+                               </ul>
+                           </div>
+                         
+                    </div>
+                        <div class="row">
+                       <div class="col-lg-4 col-md-4 col-sm-4">
+                           <div class=" panel-heading ">Response </div > </div><br><br>
+                            <div class="panel-body">
+                                   <div class="panel-body">In BlissIndiaVix.php :-<br>
+                                <div >
+                                <ul>
+                                    <li>It show comparision between IndiaVIX and Nifty,Where blue line show IndiaVIX and green line show Nifty while white line show more than 1% up or down in market</li> 
+                                </ul>
+                               </div>
+                       
+                              </div>
+                                 <div class="panel-body">In BlissCboeVix.php:-<br>
+                                <div >
+                                <ul>
+                                    <li>It show comparision between IndiaVIX and CBOE VIX,Where blue line show IndiaVIX and green line show CBOE VIX while white line show more than 10% up or down in market</li> 
+                                </ul>
+                               </div>
+                       
+                              </div>
+                            </div>                         
+                      
+                  
+               </div>
+                    <div class="row">
+                       <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class=" panel-heading ">Errors</div >   </div>
+                        <br><br>    
+                        <div class="panel-body">
+                                     
+                                    <ul>
+                                        <li>When more or less parameter than required is pass then it will show blank screen but no error will be display.</li>
+                                        <li>If website is open in internet explorer then also it display blank screen instead of chart.</li>
+                                    </ul>
+                                    
+                               
+                            </div>                         
+               
+                
+           
+               </div>
+                   
+                     <div class="row">
+                       <div class="col-lg-4 col-md-4 col-sm-4">
+                           <div class=" panel-heading ">Scenario </div > </div><br><br>
+                            <div class="panel-body">
+                                    <ul >
+                                    <li>When BlissIndiaVix.php or BlissCboeVix.php is called,it make call to BlissIndiaVix2.js or cboe_vix.js.</li>
+                                    <li>In .js file we are getting data from Database(Tables like:-cboevix,india_vix).</li>
+                                    <li>To get data from database we are calling iv_connect or cboe_vix_connect.php.</li>
+                                    <li>From this file we are getting data in form of JSON object</li>
+                                    <li>And this data is pass to amchart api to show chart.</li> 
+                                   
+                                    
+                                </ul>
+                            </div>                         
+               
+                  
+           
+               </div>
+              
+               
+                </div>
+            <div class="col-lg-2 col-md-2 col-sm-2">
+
+            </div>
+           </div>
+           </div>
+         <div id="wrapper1" class="footer1 panel-body">
+			
+			<?php
+                        include 'news_ticker_footer.php';
+                        
+                        ?>
+		</div>
+                     
+        <?php
+
+    include("html/footer.html");
+?>  
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html>
+    <head>
+        <title>Companies' Result Table</title>   
+         <link rel="shortcut icon" href="../bliss_icon.ico" >
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+       <script src="../js/jquery-1.9.1.js"></script>
+      <!--   <script src="js/jquery-ui.js"></script>-->
+       
+       <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.4-dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.4-dist/css/custom.css" />
+      <link href="../font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet">
+        <script src="../bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+         <script type="text/javascript" language="javascript" src="../bootstrap-3.3.4-dist/js/jquery.carouFredSel-6.0.4-packed.js"></script>
+         <script type="text/javascript" language="javascript" src="../bootstrap-3.3.4-dist/js/news-ticker.js"></script>
+          <style>
+             .table>tbody>tr>th, .table>tbody>tr>td { 
+        color: white;
+        border-top: none !important; 
+        width:20%;
+        font-size: 13px;
+        text-align: left;
+    }
+             </style>
+           
+      
+    </head>
+    <body>         
+            <div class="row wrap">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle  btn-lg" data-toggle="collapse" data-target=".bliss-data-menu">
+                           
+                           
+                             <span class="title_all">Service-Menu</span><span class="glyphicon glyphicon-th"></span>
+                                   
+                        </button>
+                    </div> 
+                    <div class="navbar-collapse collapse bliss-data-menu">
+                     <ul class="nav nav-stacked nav-pills">
+                        <li ><a href="newsticker_doc.html"  >News Ticker</a></li>
+                         <li><a href="indiavixchart_doc.html" >India VIX CHART</a></li>
+                        <li ><a href="companiesresulttable_doc.html" class="active" >Companies' Result Table</a></li>  
+                         <li><a href="economicresult_doc.html" >Financial Result Calender And Table</a></li>
+                    
+                       <li><a href="blissproduct.html" >Bliss Product</a></li>     
+                         <li><a href="Blissservices_doc.html" >Bliss Services</a></li> 
+                          <li><a href="BlissAboutus_doc.html" >About Us</a></li> 
+                           <li><a href="worldindices_doc.html">World Indices</a></li>
+                             <li><a href="companychartandtooltip_doc.html" >Chart filtering and tooltip </a></li>
+                                  <li><a href="PriceMovementandExpctedTime.html" >Price Movement and Expected Time</a></li>
+                     <li><a href="BlissCalc_doc.html">BlissCalc</a></li>
+                             <li><a href="Blissapi_doc.html"  >Bliss API'S</a></li>
+                                  <li><a href="DBConnectivity.html" >Database Connectivity</a></li>
+                                       <li><a href="DBTables_doc.html"  >Database Tables</a></li>
+                     </ul>
+                         </div>
+                 </div>
+           <div class="col-lg-8 col-md-8 col-sm-8">   
+               <div class="title_all text-center">
+                   <span style="padding-right: 30px">Companies' Result Table Documentation  </span>  
+                   
+               </div>
+               <div >
+                 
+                 
+                  
+                   <div class="panel-body">We are showing companies' upcoming result date with expected time of result and there movement range calculated base on previous data of that companie.This give rough idea to user about movment in that script at time of result.
+                     
+                       
+                   </div>
+                 
+                   <br> 
+                
+                   <div class="row">
+                  
+                       <div class="col-lg-4 col-md-4 col-sm-4"><div class="panel-heading">DataTable</div> </div>
+                           <div class="col-lg-12">
+                               <ul>
+                                   <li>DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, based upon the foundations of progressive enhancement, and will add advanced interaction controls to any HTML table.for more detail <a href="https://www.datatables.net/" target="_blank">www.datatables.net</a></li>
+                               </ul>
+                              
+                               
+                        
+                                    <br>
+                                   <div class="row">
+                       <div class="col-lg-4 col-md-4 col-sm-4"><div class="panel-heading ">DataTable Request Parameter </div>   </div>
+                       <br><br>
+                               
+                              <table  class=" table table-striped text-center" width="100%">
+					<thead>
+						<tr>
+							<th>Attribute </th>
+							<th>Type</th>
+							<th>Note </th>
+							<th>Required?</th>
+                                                        <th>Default</th>
+                                                       
+                            
+						</tr>
+					</thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>bDestroy</td>
+                                                <td>boolean</td>
+                                                <td>Destroy the previous table with new datatable.</td>
+                                                <td>Optional</td>
+                                                <td>false</td>
+                                            </tr>
+                                            <tr>
+                                                <td>processing</td>
+                                                <td>boolean</td>
+                                                <td>Enable or disable the display of a 'processing' indicator when the table is being processed</td>
+                                                <td>Optional</td>
+                                                <td>false</td>
+                                            </tr>
+                                            <tr>
+                                                <td>serverSide</td>
+                                               <td>boolean</td>
+                                                <td>By default DataTables operates in client-side processing mode, but can be switched <br>to server-side processing mode using this option.</td>
+                                                <td>Optional</td>
+                                                <td>false</td>
+                                            </tr>
+                                             <tr>
+                                                <td>deferRender</td>
+                                                <td>boolean</td>
+                                                <td>-</td>
+                                                <td>Optional</td>
+                                                <td>false</td>
+                                            </tr>
+                                            <tr>
+                                                <td>lengthMenu</td>
+                                              <td>Array</td>
+                                                <td>This parameter allows you to readily specify the entries in the length drop down.</td>
+                                                <td>Optional</td>
+                                                <td>[ 10, 25, 50, 100 ]</td>
+                                            </tr>
+                                            <tr>
+                                                <td>iDisplayLength</td>
+                                               <td>Number</td>
+                                                <td>Number of rows to be display.</td>
+                                                <td>Optional</td>
+                                                <td>10</td>
+                                            </tr>
+                                            <tr>
+                                                <td>columnDefs</td>
+                                                <td>Array</td>
+                                                <td>this parameter allows you to assign specific options to columns in the table,<br> although in this case the column options defined can be applied to one or more columns. </td>
+                                                <td>Optional</td>
+                                                <td></td>
+                                            </tr>
+                                             <tr>
+                                                <td>scrollY</td>
+                                                <td>string</td>
+                                                <td>Enable vertical scrolling. </td>
+                                                <td>Optional</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>sInfoFiltered</td>
+                                              <td>string</td>
+                                                <td>remove filter label text on searching</td>
+                                                <td>Optional</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>oPaginate.sNext</td>
+                                                <td>string</td>
+                                                <td>Text to use for the button.</td>
+                                                <td>Optional</td>
+                                                <td>Next</td>
+                                            </tr>
+                                            <tr>
+                                                <td>oPaginate.sPrevious</td>
+                                                <td>string</td>
+                                                <td>Text to use for the button.</td>
+                                                <td>Optional</td>
+                                                <td>Previous</td>
+                                            </tr>
+                                           
+                                             <tr>
+                                                <td>sEmptyTable</td>
+                                                <td>string</td>
+                                                <td>String to be display when there is no data in table</td>
+                                                <td>Optional</td>
+                                                <td>No data available in table</td>
+                                            </tr>
+                                             <tr>
+                                                <td>sInfoEmpty</td>
+                                                <td>string</td>
+                                                <td>Display information string for when the table is empty.</td>
+                                                <td>Optional</td>
+                                                <td>	Showing 0 to 0 of 0 entries</td>
+                                            </tr>
+                                             <tr>
+                                                <td>ajax.string</td>
+                                                <td>string</td>
+                                                <td>when given as a string will simply load the data from the given remote file.<br>eg:-"ajax":{
+						<br>data: { data1: date1 },										
+                                                <br>}	
+					</td>
+                                                <td>Optional</td>
+                                                <td></td>
+                                            </tr>
+                                             <tr>
+                                                <td>ajax.object</td>
+                                                <td>string</td>
+                                                <td> the ajax object is passed to jQuery.ajax allowing fine control of the Ajax request.<br> DataTables has a number of default parameters which you can override using this option.<br>
+                                                Eg:-"ajax":{
+						<br>url :"earning_connect.php", // json datasource
+						<br>type: "POST",  // method  , by default get
+						}
+                                                </td>
+                                                <td>Optional</td>
+                                                <td>	Showing 0 to 0 of 0 entries</td>
+                                            </tr>
+                                             <tr>
+                                                <td>ajax.function</td>
+                                                <td></td>
+                                                <td>As a function, making the Ajax call is left up to yourself allowing complete control of the <br>Ajax request.
+                                                    <br>Eg:-"ajax":{
+							<br>error: function(){  // error handling
+                                                        <br>$(".employee-grid-error").html("");
+                                                        <br>$("#employee-grid").append('-----');
+                                                        <br>$("#employee-grid_processing").css("display","none");							
+						}	
+					         </td>
+                                                <td>Optional</td>
+                                                <td>	Showing 0 to 0 of 0 entries</td>
+                                            </tr>
+                                        </tbody>
+			</table>
+                               
+                     </div>
+                                    <br>
+                           
+                       
+                           </div>
+                         
+                    </div>
+                              <div class="row">
+                       <div class="col-lg-4 col-md-4 col-sm-4"><div class="panel-heading ">DataTable Response Parameter </div>   </div>
+                       <br><br>
+                               
+                              <table  class=" table table-striped text-center" width="100%">
+					<thead>
+						<tr>
+							<th>Attribute </th>
+							<th>Type</th>
+							<th>Note </th>
+							<th>Required?</th>
+                                                        <th>Default</th>
+                                                       
+                            
+						</tr>
+					</thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Company Name</td>
+                                                <td>String</td>
+                                                <td>Display name of the company from database.</td>
+                                                <td>Optional</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Date</td>
+                                                <td>date</td>
+                                                <td>Date when result for particular company is announce.</td>
+                                                <td>Optional</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Time</td>
+                                               <td>time</td>
+                                                <td>Expected time for upcoming result and actual time of previous result date.</td>
+                                                <td>Optional</td>
+                                                <td></td>
+                                            </tr>
+                                             <tr>
+                                                <td>Change</td>
+                                                <td>number</td>
+                                                <td>overall % change between previous close and result day close difference.</td>
+                                                <td>Optional</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Movement(min-max(%))</td>
+                                              <td>number</td>
+                                              <td>Minimum and maximum movement of that script at time of result.<a href="PriceMovementandExpctedTime.html"> more...</a></td>
+                                                <td>Optional</td>
+                                                <td></td>
+                                            </tr>
+                                            
+                                        </tbody>
+			</table>
+                               
+                     </div>
+                    <div class="row">
+                       <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class=" panel-heading ">Errors</div >   </div>
+                        <br><br>    
+                        <div class="panel-body">
+                                     
+                                    <ul>
+                                        <li>When more or less parameter than required is pass then it will show blank screen but no error will be display.</li>
+                                   </ul>
+                                    
+                               
+                            </div>                         
+               
+                
+           
+               </div>
+                   
+                     <div class="row">
+                       <div class="col-lg-4 col-md-4 col-sm-4">
+                           <div class=" panel-heading ">Scenario </div > </div><br><br>
+                            <div class="panel-body">
+                                    <ul >
+                                    <li>When BlissEarnings.php is called it make call to bissearnings.js </li>
+                                    <li>In .js file it make call to blissearning_connect.php file where actual action take place.</li>
+                                    <li>In .php file by firing query to table earning2 in database we are getting data of upcoming result and then this data is pass to datatable as a response </li>
+                                    <li>then this data is display in datatable in order which we have decided.</li>
+                                   
+                                    
+                                </ul>
+                            </div>                         
+               
+                  
+           
+               </div>
+              
+               
+                </div>
+            <div class="col-lg-2 col-md-2 col-sm-2">
+
+            </div>
+           </div>
+           </div>
+         <div id="wrapper1" class="footer1 panel-body">
+			
+			<?php
+                        include 'news_ticker_footer.php';
+                        
+                        ?>
+		</div>
+                     
+        <?php
+
+    include("html/footer.html");
+?>  
+</body>
+</html>

@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://192.168.119.24:81/Bliss_Services.php -->
+<html class="gr__192_168_119_24">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=9">
+      <meta name="description" content="BlissQuants is an Implied Volatility Data Analytics company for Option delta hedging trading in Indian Derivatives market.">
+      <meta name="keywords" content="Implied Volatility, IV, Vol, Volatility, Options, Historical, Data,
+         Option Greek, Delta, Theta, Gamma, Vega, Average Volatility, Maximum, Max, Minimum, Min, Volatility, NSE, 
+         Future, Derivatives, Trading, Talk Delta, ODIN, Economic, Result, Quarterly, Implied Volatility movement, 
+         IV Chart,Charts, IV Projection, FII, DII data, watchlist, Long Gamma, Short gamma, Training,Result Data, Time, India Vix, At the money, ATM, Option Strategies, Spread, Price movement, 
+         Analysis, Analytic, Financial trading, Hedging">
+      <link rel="shortcut icon" href="http://192.168.119.24:81/images/bliss_icon.ico">
+      <!-- Link for Bliss icon-->
+      <link href="./BlissQuants - Delta Hedging _ About_files/css" rel="stylesheet" type="text/css">
+      <!--for open seance font--> 
+      <script src="./BlissQuants - Delta Hedging _ About_files/jquery-1.9.1.js.download"></script> <!-- for changing scripts(slides)--> 
+      <script src="./BlissQuants - Delta Hedging _ About_files/jquery-1.10.2.js.download"></script> <!-- for changing scripts(slides)--> 
+      <link rel="stylesheet" type="text/css" href="./BlissQuants - Delta Hedging _ About_files/bootstrap.min.css">
+      <script src="./BlissQuants - Delta Hedging _ About_files/bootstrap.min.js.download"></script>
+      <link href="./BlissQuants - Delta Hedging _ About_files/font-awesome.min.css" rel="stylesheet">
+      <!-- this link for a designing font on down-right side--> 
+      <script src="./BlissQuants - Delta Hedging _ About_files/validator.js.download"></script>
+      <link rel="stylesheet" href="./BlissQuants - Delta Hedging _ About_files/jquery-ui.css">
+      <link rel="stylesheet" type="text/css" href="./BlissQuants - Delta Hedging _ About_files/custom.css">
+      <script src="./BlissQuants - Delta Hedging _ About_files/jquery.min.js.download"></script>
+      <script>
+         /* $(document).ready(function () {
+              /*    $(window).keyup(function (e) {
+               if (e.keyCode === 44) {
+               copyToClipboard();
+               // $("body").hide();
+               
+               }
+               
+               });
+         $('#login-modal').on('shown.bs.modal', function() {
+         alert("Fdsf");
+         $(this).find('input:first').focus();
+         });
+         // alert("Fsd");
+          /*    $('#login-modal').on('shown.bs.modal', function () {
+                  alert("Fsd");
+                  $('#logintext').focus();
+              });
+          });*/
+         
+         
+          function detail_check(){
+              
+              em = document.getElementById('logintext').value;
+         pw1 = document.getElementById('pw1').value;
+         //alert(em);
+              $.post('email_password_check.php', {em : em, pw1 : pw1}, function (result) { //send data to blissdelta_delta_connect.php page
+                  var obj = jQuery.parseJSON(result);
+                 //alert(obj.b);
+                       if(obj.b === "FREE")
+                       {
+                           window.location.href='BlissDelta_Data.php';
+                       }
+                      else if(obj.a === "TRUE")
+                      {
+                          window.location.href='BlissDelta_Data.php';
+                        
+                      }
+                      else{
+                           alert(result);
+                           document.getElementById('pw1').value   = "";
+                           $('#pw1').focus();
+                      }
+         
+                  });
+          }
+         
+         
+      </script>
+      <style>
+         #flag{
+         color: #000;
+         }
+         .ui-datepicker {
+         background: #474545;
+         color: #ff0000;
+         width: 25%;
+         height: 40%;
+         font: Euromode;
+         position: relative;
+         z-index:1050 !important;
+         }
+         /*UI for selected date*/
+         .ui-datepicker-calendar .ui-state-active {  
+         background: #84C225; 
+         display: none;
+         }  
+         /* UI for header*/
+         .ui-datepicker-header {  
+         font: Euromode;
+         color: #FFFFFF;  
+         font-weight: bold;  
+         background:#4f4d4d;
+         color: #84C225;
+         } 
+         /*UI for DAY name*/
+         .ui-datepicker th {  
+         color: #84C225;  
+         background: #1a1919;
+         font: Euromode;
+         }  
+         .circle {
+         width: 100%;
+         height: 40px;
+         background: #ffffff;
+         }
+         #bar {
+         background: #ffffff;
+         border: 20px rgb(58, 53, 49);
+         height: 100%;
+         width: 100%;
+         content: " ";
+         }
+         #score {
+         height: 8px;
+         width: 0;
+         }
+         #grade{
+         font-size: 10px;
+         width : 25px;
+         color:black;
+         }
+         .form-signin
+         {
+         /*  //  max-width: 330px;*/
+         padding: 15px;
+         margin: 0 auto;
+         }
+         .form-signin .form-signin-heading, .form-signin .checkbox
+         {
+         margin-bottom: 10px;
+         }
+         .form-signin .checkbox
+         {
+         font-weight: normal;
+         }
+         .form-signin .form-control
+         {
+         position: relative;
+         font-size: 16px;
+         height: auto;
+         padding: 10px;
+         -webkit-box-sizing: border-box;
+         -moz-box-sizing: border-box;
+         box-sizing: border-box;
+         }
+         .form-signin .form-control:focus
+         {
+         z-index: 2;
+         }
+         .form-signin input[type="text"]
+         {
+         margin-bottom: -1px;
+         border-bottom-left-radius: 0;
+         border-bottom-right-radius: 0;
+         }
+         .form-signin input[type="password"]
+         {
+         margin-bottom: 0px;
+         border-top-left-radius: 0;
+         border-top-right-radius: 0;
+         }
+         #date-picker{
+         z-index: 200;
+         }
+         .account-wall
+         {
+         margin-top: 5px;
+         padding: 5px 0px 5px 0px;
+         background-color: rgb(58,53,49);;
+         -moz-box-shadow: 0 0 24px rgba(0, 0, 0, 0.8);
+         -webkit-box-shadow: 0 0 24px rgba(0, 0, 0, 0.8);
+         box-shadow: 0 0 24px rgba(0, 0, 0, 0.8);
+         }
+         .login-title
+         {
+         color: rgb(132,194,37);
+         font-size: 18px;
+         font-weight: 400;
+         display: block;
+         }
+         .profile-img
+         {
+         width: 96px;
+         height: 116px;
+         margin: 0 auto 10px;
+         display: block;
+         -moz-border-radius: 50%;
+         -webkit-border-radius: 50%;
+         border-radius: 50%;
+         }
+         .need-help
+         {
+         margin-top: 10px;
+         }
+         .new-account
+         {
+         display: block;
+         margin-top: 10px;
+         }
+         .btn-block{
+         background-color: rgb(132,194,37);;
+         background: linear-gradient(rgb(132,194,37), rgb(100,130,9));
+         color: black;
+         -moz-box-shadow: 0 0 24px rgba(0, 0, 0, 0.8);
+         -webkit-box-shadow: 0 0 24px rgba(0, 0, 0, 0.8);
+         box-shadow: 0 0 24px rgba(0, 0, 0, 0.8);
+         }
+         .dropdown-menu{
+         padding: 0;
+         width:100px;
+         }
+         .omb_btn-facebook {background: #3b5998;}
+         .omb_btn-twitter {background: #00aced;}
+         .omb_btn-google {background: #c32f10;}
+         .modal-dialog{
+         width:50%;
+         }
+         #hello{
+         color:white;
+         }
+      </style>
+   </head>
+   <body data-gr-c-s-loaded="true" style="">
+      <div class="" style="border-bottom: 1px solid #DDD;" role="navigation">
+         <!--This navbar class use for create navigation bar From bootstramp    -->
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+               <!-- for button pattorn -->
+               Menu   
+            </button>
+            <!-- button over -->
+            <a href="http://192.168.119.24:81/index.php">  <img class="navbar-brand" src="./BlissQuants - Delta Hedging _ About_files/BlissQuantsTM.jpg" alt="Bliss Image"></a> <!-- for link and image -->
+         </div>
+         <div class="navbar-collapse collapse">
+            <!-- this is a unordered list class --> 
+            <ul class="navbar-nav nav" id="main_navbar">
+               <!-- unordered list class-->          
+               <li><a href="http://192.168.119.24:81/index.php">Home</a></li>
+               <!-- this is Header list Option (1)Home --> 
+               <li class="dropdown dropdown-large">
+                  <a href="http://192.168.119.24:81/BlissData.php">Analytics</a> <!-- This is Header list option(2)Option data and its class is dropdown --> 
+                  <ul class="dropdown-menu dropdown-menu-large">
+                     <div class="row">
+                        <li class="col-sm-6">
+                           <ul>
+                              <li class="dropdown-header">IV Analytics</li>
+                              <li class="divider"></li>
+                              <li> <a href="http://192.168.119.24:81/BlissData.php">IV Analytics: Quarterly Average  </a></li>
+                              <li><a href="http://192.168.119.24:81/user_data.php">IV Analytics: Next Day Gap Difference</a></li>
+                              <li> <a href="http://192.168.119.24:81/huge_gap.php"> IV Analytics: Huge Gap Difference</a></li>
+                              <li> <a href="http://192.168.119.24:81/BlissIndexSpread.php"> IV Analytics: Index Spread</a></li>
+                              <li> <a href="http://192.168.119.24:81/BlissData2.php">IV Analytics: Last 3 Results </a></li>
+                              <li> <a href="http://192.168.119.24:81/BlissData3.php">IV Analytics: Last 2 Results </a></li>
+                              <li> <a href="http://192.168.119.24:81/recommend_iv.php">IV Analytics: Hedgers' experience</a></li>
+                              <li><a href="http://192.168.119.24:81/BlissDelta_Data.php"> <span style="color:yellow">  IV Analytics: Dashboard  </span></a></li>
+                              <li> <a href="http://192.168.119.24:81/BlissEye.php">IV: Chart Watchlist </a></li>
+                              <li> <a href="http://192.168.119.24:81/Watchlist.php">IV: Stock Watchlist </a></li>
+                              <li> <a href="http://192.168.119.24:81/BlissPricing.php">IV Analytics: Pricing </a></li>
+                              <li class="divider"></li>
+                           </ul>
+                        </li>
+                        <li class="col-sm-6">
+                           <ul>
+                              <li class="dropdown-header">Data</li>
+                              <li class="divider"></li>
+                              <li><a href="http://192.168.119.24:81/BlissEarnings.php">Result Data</a></li>
+                              <li><a href="http://192.168.119.24:81/BlissEventCalendar.php">Economics Data</a></li>
+                              <li><a href="http://192.168.119.24:81/Bliss_Fii_Dii_Data.php">FII / DII Data</a></li>
+                              <li><a href="http://192.168.119.24:81/BlissIndiaVix.php">IndiaVIX / Nifty Charts</a></li>
+                              <li><a href="http://192.168.119.24:81/cboe_vix.php">IndiaVIX / CBOEVIX Charts</a></li>
+                              <li class="divider"></li>
+                           </ul>
+                        </li>
+                        <li class=" "> 
+                        </li>
+                     </div>
+                     <div class="row footer_header">
+                        <div class="col-lg-8 col-md-8 col-sm-8">
+                           <div class="col-lg-6 col-md-6 col-sm-6">
+                              <div class="navbar-text">
+                                 Support : +91 9898032020
+                              </div>
+                           </div>
+                           <div class="col-lg-6 col-md-6 col-sm-6">
+                              <a href="http://192.168.119.24:81/Bliss_Services.php#" data-toggle="modal" data-target="#Register-modal"><input class=" btn-lg btn-block text-center" value="Request a Demo"></a>
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                           <ul class="social-network social-circle pull-right">
+                              <li style="display: inline"> Follow us :</li>
+                              <li style="display: inline"><a href="https://www.facebook.com/blissquants" target="_blank" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                              <!--<li style="display: inline"><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li> -->
+                              <li style="display: inline"><a href="https://plus.google.com/u/0/104418184884371093173" target="_blank" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                              <li style="display: inline"><a href="https://www.linkedin.com/company/10313538" target="_blank" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </ul>
+               </li>
+               <li class="dropdown dropdown-large">
+                  <a href="http://192.168.119.24:81/Solutions.php">Solutions</a> <!-- This is Header list option(2)Option data and its class is dropdown --> 
+                  <ul class="dropdown-menu dropdown-menu-large ">
+                     <div class="row">
+                        <li class="col-sm-6">
+                           <ul>
+                              <li class="dropdown-header">Analytics</li>
+                              <li class="divider"></li>
+                              <li> <a href="http://192.168.119.24:81/Solutions.php"> IV Analytics </a></li>
+                              <li> <a href="http://192.168.119.24:81/Solutions_DashBoard.php"> IV DashBoard </a></li>
+                              <li> <a href="http://192.168.119.24:81/Solutions_training.php"> Delta Hedging Training </a></li>
+                              <li> <a href="http://192.168.119.24:81/BlissKB.php"> Knowledge Base </a></li>
+                              <li class="divider"></li>
+                           </ul>
+                        </li>
+                        <li class="col-sm-6">
+                           <ul>
+                              <li class="dropdown-header">Tools</li>
+                              <li class="divider"></li>
+                              <li><a href="http://192.168.119.24:81/BlissMarginCalculator.php">Margin Calculator</a></li>
+                              <li><a href="http://192.168.119.24:81/BlissOptionCalculator.php">Option Calculator</a></li>
+                              <li><a href="http://192.168.119.24:81/BlissIV_projection.php">IV Projection</a></li>
+                              <li><a href="http://192.168.119.24:81/BlissIntraday.php">Historical IV</a></li>
+                              <li class="divider"></li>
+                           </ul>
+                        </li>
+                        <!--  <li class="col-sm-4">
+                           <ul>
+                               <li class="dropdown-header">Reports</li>
+                               <li class="divider"></li>
+                               <li><a href="Bliss_Daily_Data_table_admin.php">M2M</a></li>
+                               <li><a href="SmartDelta5.php">10% Up Down </a></li>
+                               <li><a href="SmartDelta3.php">Individual M2M</a></li>
+                              
+                           
+                               <li class="divider"></li>
+                           </ul>
+                           </li>-->
+                     </div>
+                     <div class="row footer_header">
+                        <div class="col-lg-8 col-md-8 col-sm-8">
+                           <div class="col-lg-6  col-md-6 col-sm-6">
+                              <div class="navbar-text">
+                                 Support : +91 9898032020
+                              </div>
+                           </div>
+                           <div class="col-lg-6 col-md-6 col-sm-6">
+                              <a href="http://192.168.119.24:81/Bliss_Services.php#" data-toggle="modal" data-target="#Register-modal"><input class=" btn-lg btn-block text-center" value="Request a Demo"></a> 
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                           <ul class="social-network social-circle pull-right">
+                              <li style="display: inline"> Follow us :</li>
+                              <li style="display: inline"><a href="https://www.facebook.com/blissquants" target="_blank" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                              <!--<li style="display: inline"><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li> -->
+                              <li style="display: inline"><a href="https://plus.google.com/u/0/104418184884371093173" target="_blank" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                              <li style="display: inline"><a href="https://www.linkedin.com/company/10313538" target="_blank" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </ul>
+               </li>
+               <li>
+                  <a href="http://192.168.119.24:81/Bliss_Services.php" style="color: white; opacity: 1;">Services</a><!--This is Header list option (6)About there are use of dropdown clas  -->
+               </li>
+               <li>
+                  <a href="http://192.168.119.24:81/BlissAboutUs.php#collapseOne">About</a><!--This is Header list option (6)About there are use of dropdown clas  -->
+               </li>
+               <li class="header_tag">
+                  <a id="hello" style="display:none;" value="" class="blink"> </a>
+               </li>
+               <script>
+                  var curr_link;
+                  //  var colour="black";
+                  //alert(document.URL);
+                  var splitname = document.URL.split("?", 1);
+                  //  alert(splitname);
+                  for (var i = 0; i < document.links.length; i++) {
+                  
+                  
+                  
+                      if (document.links[i].href == splitname) {
+                  
+                          document.links[i].style.color = "white";
+                          if (i > 2 && i < 17) {
+                              document.links[2].style.color = "white";
+                          } else if (i > 16 && i < 25) {
+                              document.links[17].style.color = "white";
+                          }
+                          document.links[i].style.opacity = 1;
+                          curr_link = document.links[i].href;
+                  //alert(curr_link);
+                          var filename = curr_link.substring(curr_link.lastIndexOf('/') + 1);
+                  
+                      } else
+                      {
+                          //document.links[i].style.color = "#737373";
+                  
+                      }
+                      // document.getElementById("drop").style.color = "#000";
+                  }
+               </script>
+               <li class="dropdown navbar-right"><a>
+                  Falguni</a>
+               </li>
+               <li class="dropdown navbar-right">
+                  <a href="http://192.168.119.24:81/Bliss_Services.php" style="color: white; opacity: 1;"><span class="glyphicon glyphicon-chevron-down"></span></a>
+                  <ul class="dropdown-menu ">
+                     <!--This is Unordered list of dropdown menu class of About  -->
+                     <li class="text-right"> <a href="http://192.168.119.24:81/Bliss_Services.php#" data-toggle="modal" data-target="#change-modal">Change Password</a></li>
+                     <li class="text-right"><a href="http://192.168.119.24:81/logout.php">Logout</a></li>
+                  </ul>
+               </li>
+            </ul>
+         </div>
+      </div>
+      <div class="modal" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+         <div class="modal-header">
+            <h3 class="text-center">Login to BlissQuants IV Analytics</h3>
+         </div>
+         <div class="modal-dialog" style="width: 30%">
+            <div class="account-wall">
+               <img class="profile-img" src="./BlissQuants - Delta Hedging _ About_files/bliss_tree_transpraent.gif" alt="">
+               <form class="form-signin" name="login" method="post" action="javascript:detail_check()">
+                  <input type="text" name="em" class="form-control" placeholder="Email Or Username" id="logintext" required="" autofocus=""><br>
+                  <input type="password" name="pw1" id="pw1" class="form-control" placeholder="Password" required=""><br>
+                  <button class="btn btn-lg btn-block" type="submit">
+                  Sign in
+                  </button>
+               </form>
+               <button class="btn btn-lg btn-block" type="submit" name="forget" onclick="window.location = &#39;forget_password.php&#39;">Forget password</button>
+            </div>
+         </div>
+      </div>
+      <div class="modal fade" id="Register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+         <div class="modal-header">
+            <h3 class="text-center">Register to BlissQuants IV Analytics</h3>
+         </div>
+         <div class="modal-dialog">
+            <div class="account-wall">
+               <!--     <div class="col-xs-4 col-sm-2 col-lg-8 col-md-offset-2 text-center">
+                  <a href="#" class=" btn-lg btn-block omb_btn-facebook">
+                          <i class="fa fa-facebook visible-xs"></i>
+                          <span class="hidden-xs">Register with Facebook</span>
+                  </a>
+                  </div>
+                  
+                  
+                  <br>
+                  <br> 
+                  <P> OR </p>-->
+               <form name="register" action="register_connect.php" data-toggle="validator" role="form" method="post" class="form-signin text-center" novalidate="true">
+                  <div class="row">
+                     <div class="col-xs-6 col-sm-6 col-lg-6 form-group">
+                        <input class="form-control" name="name" id="inputName" placeholder="Enter your Full Name" data-error="please Enter your name" required=""> 
+                        <div class="help-block with-errors"></div>
+                     </div>
+                     <div class="col-xs-6 col-sm-6 col-lg-6 form-group">
+                        <input type="tel" class="form-control" name="mobile" id="UserMobile" placeholder="Mobile Number" pattern="^\d{10}$" data-error="please enter valid mobile number(10 digit)" required="">
+                        <div class="help-block with-errors"></div>
+                     </div>
+                  </div>
+                  <br>
+                  <div class="row ">
+                     <div class="col-xs-6 col-sm-6 col-lg-6 form-group">
+                        <input type="email" class="form-control" name="em" id="inputEmail" placeholder="Email" data-error="email address is invalid" required="">
+                        <div class="help-block with-errors"></div>
+                     </div>
+                     <div class="col-xs-6 col-sm-6 col-lg-6 form-group">
+                        <input class="form-control" name="company" placeholder="Company" data-error="please fill the name of company" required="">
+                        <div class="help-block with-errors"></div>
+                     </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                     <div class="col-xs-6 col-sm-6 col-lg-6 ">
+                        <div class="col-lg-12  form-group" style="padding: 0">
+                           <input type="password" data-minlength="6" id="inputPassword" class="form-control" name="pw1" placeholder="Password"> 
+                           <!--    </div><div class="col-lg-2" style='padding: 3px'> <div class="circle"><div id="score"></div><div id="grade">strength</div> </div> 
+                              -->
+                           <div class="help-block">Minimum of 6 characters</div>
+                        </div>
+                     </div>
+                     <div class="col-xs-6 col-sm-6 col-lg-6  form-group">
+                        <input type="password" class="form-control" name="pw2" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don&#39;t match" placeholder="Confirm your Password" required="">
+                        <div class="help-block with-errors"></div>
+                     </div>
+                  </div>
+                  <br>
+                  <div class="row form-group">
+                     <div class="col-xs-6 col-sm-6 col-lg-6  form-group">
+                        <select name="countries" class="form-control" id="countries">
+                           <option value="ad" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ad" data-title="Andorra">Andorra</option>
+                           <option value="ae" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ae" data-title="United Arab Emirates">United Arab Emirates</option>
+                           <option value="af" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag af" data-title="Afghanistan">Afghanistan</option>
+                           <option value="ag" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ag" data-title="Antigua and Barbuda">Antigua and Barbuda</option>
+                           <option value="ai" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ai" data-title="Anguilla">Anguilla</option>
+                           <option value="al" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag al" data-title="Albania">Albania</option>
+                           <option value="am" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag am" data-title="Armenia">Armenia</option>
+                           <option value="an" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag an" data-title="Netherlands Antilles">Netherlands Antilles</option>
+                           <option value="ao" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ao" data-title="Angola">Angola</option>
+                           <option value="aq" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag aq" data-title="Antarctica">Antarctica</option>
+                           <option value="ar" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ar" data-title="Argentina">Argentina</option>
+                           <option value="as" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag as" data-title="American Samoa">American Samoa</option>
+                           <option value="at" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag at" data-title="Austria">Austria</option>
+                           <option value="au" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag au" data-title="Australia">Australia</option>
+                           <option value="aw" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag aw" data-title="Aruba">Aruba</option>
+                           <option value="ax" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ax" data-title="Aland Islands">Aland Islands</option>
+                           <option value="az" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag az" data-title="Azerbaijan">Azerbaijan</option>
+                           <option value="ba" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ba" data-title="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                           <option value="bb" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag bb" data-title="Barbados">Barbados</option>
+                           <option value="bd" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag bd" data-title="Bangladesh">Bangladesh</option>
+                           <option value="be" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag be" data-title="Belgium">Belgium</option>
+                           <option value="bf" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag bf" data-title="Burkina Faso">Burkina Faso</option>
+                           <option value="bg" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag bg" data-title="Bulgaria">Bulgaria</option>
+                           <option value="bh" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag bh" data-title="Bahrain">Bahrain</option>
+                           <option value="bi" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag bi" data-title="Burundi">Burundi</option>
+                           <option value="bj" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag bj" data-title="Benin">Benin</option>
+                           <option value="bm" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag bm" data-title="Bermuda">Bermuda</option>
+                           <option value="bn" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag bn" data-title="Brunei Darussalam">Brunei Darussalam</option>
+                           <option value="bo" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag bo" data-title="Bolivia">Bolivia</option>
+                           <option value="br" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag br" data-title="Brazil">Brazil</option>
+                           <option value="bs" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag bs" data-title="Bahamas">Bahamas</option>
+                           <option value="bt" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag bt" data-title="Bhutan">Bhutan</option>
+                           <option value="bv" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag bv" data-title="Bouvet Island">Bouvet Island</option>
+                           <option value="bw" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag bw" data-title="Botswana">Botswana</option>
+                           <option value="by" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag by" data-title="Belarus">Belarus</option>
+                           <option value="bz" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag bz" data-title="Belize">Belize</option>
+                           <option value="ca" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ca" data-title="Canada">Canada</option>
+                           <option value="cc" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag cc" data-title="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option>
+                           <option value="cd" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag cd" data-title="Democratic Republic of the Congo">Democratic Republic of the Congo</option>
+                           <option value="cf" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag cf" data-title="Central African Republic">Central African Republic</option>
+                           <option value="cg" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag cg" data-title="Congo">Congo</option>
+                           <option value="ch" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ch" data-title="Switzerland">Switzerland</option>
+                           <option value="ci" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ci" data-title="Cote D&#39;Ivoire (Ivory Coast)">Cote D'Ivoire (Ivory Coast)</option>
+                           <option value="ck" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ck" data-title="Cook Islands">Cook Islands</option>
+                           <option value="cl" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag cl" data-title="Chile">Chile</option>
+                           <option value="cm" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag cm" data-title="Cameroon">Cameroon</option>
+                           <option value="cn" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag cn" data-title="China">China</option>
+                           <option value="co" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag co" data-title="Colombia">Colombia</option>
+                           <option value="cr" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag cr" data-title="Costa Rica">Costa Rica</option>
+                           <option value="cs" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag cs" data-title="Serbia and Montenegro">Serbia and Montenegro</option>
+                           <option value="cu" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag cu" data-title="Cuba">Cuba</option>
+                           <option value="cv" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag cv" data-title="Cape Verde">Cape Verde</option>
+                           <option value="cx" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag cx" data-title="Christmas Island">Christmas Island</option>
+                           <option value="cy" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag cy" data-title="Cyprus">Cyprus</option>
+                           <option value="cz" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag cz" data-title="Czech Republic">Czech Republic</option>
+                           <option value="de" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag de" data-title="Germany">Germany</option>
+                           <option value="dj" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag dj" data-title="Djibouti">Djibouti</option>
+                           <option value="dk" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag dk" data-title="Denmark">Denmark</option>
+                           <option value="dm" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag dm" data-title="Dominica">Dominica</option>
+                           <option value="do" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag do" data-title="Dominican Republic">Dominican Republic</option>
+                           <option value="dz" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag dz" data-title="Algeria">Algeria</option>
+                           <option value="ec" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ec" data-title="Ecuador">Ecuador</option>
+                           <option value="ee" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ee" data-title="Estonia">Estonia</option>
+                           <option value="eg" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag eg" data-title="Egypt">Egypt</option>
+                           <option value="eh" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag eh" data-title="Western Sahara">Western Sahara</option>
+                           <option value="er" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag er" data-title="Eritrea">Eritrea</option>
+                           <option value="es" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag es" data-title="Spain">Spain</option>
+                           <option value="et" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag et" data-title="Ethiopia">Ethiopia</option>
+                           <option value="fi" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag fi" data-title="Finland">Finland</option>
+                           <option value="fj" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag fj" data-title="Fiji">Fiji</option>
+                           <option value="fk" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag fk" data-title="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</option>
+                           <option value="fm" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag fm" data-title="Federated States of Micronesia">Federated States of Micronesia</option>
+                           <option value="fo" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag fo" data-title="Faroe Islands">Faroe Islands</option>
+                           <option value="fr" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag fr" data-title="France">France</option>
+                           <option value="fx" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag fx" data-title="France, Metropolitan">France, Metropolitan</option>
+                           <option value="ga" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ga" data-title="Gabon">Gabon</option>
+                           <option value="gb" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag gb" data-title="Great Britain (UK)">Great Britain (UK)</option>
+                           <option value="gd" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag gd" data-title="Grenada">Grenada</option>
+                           <option value="ge" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ge" data-title="Georgia">Georgia</option>
+                           <option value="gf" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag gf" data-title="French Guiana">French Guiana</option>
+                           <option value="gh" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag gh" data-title="Ghana">Ghana</option>
+                           <option value="gi" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag gi" data-title="Gibraltar">Gibraltar</option>
+                           <option value="gl" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag gl" data-title="Greenland">Greenland</option>
+                           <option value="gm" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag gm" data-title="Gambia">Gambia</option>
+                           <option value="gn" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag gn" data-title="Guinea">Guinea</option>
+                           <option value="gp" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag gp" data-title="Guadeloupe">Guadeloupe</option>
+                           <option value="gq" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag gq" data-title="Equatorial Guinea">Equatorial Guinea</option>
+                           <option value="gr" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag gr" data-title="Greece">Greece</option>
+                           <option value="gs" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag gs" data-title="S. Georgia and S. Sandwich Islands">S. Georgia and S. Sandwich Islands</option>
+                           <option value="gt" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag gt" data-title="Guatemala">Guatemala</option>
+                           <option value="gu" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag gu" data-title="Guam">Guam</option>
+                           <option value="gw" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag gw" data-title="Guinea-Bissau">Guinea-Bissau</option>
+                           <option value="gy" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag gy" data-title="Guyana">Guyana</option>
+                           <option value="hk" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag hk" data-title="Hong Kong">Hong Kong</option>
+                           <option value="hm" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag hm" data-title="Heard Island and McDonald Islands">Heard Island and McDonald Islands</option>
+                           <option value="hn" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag hn" data-title="Honduras">Honduras</option>
+                           <option value="hr" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag hr" data-title="Croatia (Hrvatska)">Croatia (Hrvatska)</option>
+                           <option value="ht" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ht" data-title="Haiti">Haiti</option>
+                           <option value="hu" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag hu" data-title="Hungary">Hungary</option>
+                           <option value="id" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag id" data-title="Indonesia">Indonesia</option>
+                           <option value="ie" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ie" data-title="Ireland">Ireland</option>
+                           <option value="il" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag il" data-title="Israel">Israel</option>
+                           <option value="in" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag in" data-title="India" selected="selected">India</option>
+                           <option value="io" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag io" data-title="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                           <option value="iq" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag iq" data-title="Iraq">Iraq</option>
+                           <option value="ir" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ir" data-title="Iran">Iran</option>
+                           <option value="is" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag is" data-title="Iceland">Iceland</option>
+                           <option value="it" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag it" data-title="Italy">Italy</option>
+                           <option value="jm" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag jm" data-title="Jamaica">Jamaica</option>
+                           <option value="jo" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag jo" data-title="Jordan">Jordan</option>
+                           <option value="jp" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag jp" data-title="Japan">Japan</option>
+                           <option value="ke" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ke" data-title="Kenya">Kenya</option>
+                           <option value="kg" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag kg" data-title="Kyrgyzstan">Kyrgyzstan</option>
+                           <option value="kh" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag kh" data-title="Cambodia">Cambodia</option>
+                           <option value="ki" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ki" data-title="Kiribati">Kiribati</option>
+                           <option value="km" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag km" data-title="Comoros">Comoros</option>
+                           <option value="kn" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag kn" data-title="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                           <option value="kp" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag kp" data-title="Korea (North)">Korea (North)</option>
+                           <option value="kr" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag kr" data-title="Korea (South)">Korea (South)</option>
+                           <option value="kw" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag kw" data-title="Kuwait">Kuwait</option>
+                           <option value="ky" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ky" data-title="Cayman Islands">Cayman Islands</option>
+                           <option value="kz" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag kz" data-title="Kazakhstan">Kazakhstan</option>
+                           <option value="la" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag la" data-title="Laos">Laos</option>
+                           <option value="lb" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag lb" data-title="Lebanon">Lebanon</option>
+                           <option value="lc" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag lc" data-title="Saint Lucia">Saint Lucia</option>
+                           <option value="li" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag li" data-title="Liechtenstein">Liechtenstein</option>
+                           <option value="lk" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag lk" data-title="Sri Lanka">Sri Lanka</option>
+                           <option value="lr" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag lr" data-title="Liberia">Liberia</option>
+                           <option value="ls" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ls" data-title="Lesotho">Lesotho</option>
+                           <option value="lt" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag lt" data-title="Lithuania">Lithuania</option>
+                           <option value="lu" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag lu" data-title="Luxembourg">Luxembourg</option>
+                           <option value="lv" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag lv" data-title="Latvia">Latvia</option>
+                           <option value="ly" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ly" data-title="Libya">Libya</option>
+                           <option value="ma" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ma" data-title="Morocco">Morocco</option>
+                           <option value="mc" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag mc" data-title="Monaco">Monaco</option>
+                           <option value="md" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag md" data-title="Moldova">Moldova</option>
+                           <option value="mg" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag mg" data-title="Madagascar">Madagascar</option>
+                           <option value="mh" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag mh" data-title="Marshall Islands">Marshall Islands</option>
+                           <option value="mk" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag mk" data-title="Macedonia">Macedonia</option>
+                           <option value="ml" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ml" data-title="Mali">Mali</option>
+                           <option value="mm" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag mm" data-title="Myanmar">Myanmar</option>
+                           <option value="mn" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag mn" data-title="Mongolia">Mongolia</option>
+                           <option value="mo" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag mo" data-title="Macao">Macao</option>
+                           <option value="mp" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag mp" data-title="Northern Mariana Islands">Northern Mariana Islands</option>
+                           <option value="mq" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag mq" data-title="Martinique">Martinique</option>
+                           <option value="mr" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag mr" data-title="Mauritania">Mauritania</option>
+                           <option value="ms" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ms" data-title="Montserrat">Montserrat</option>
+                           <option value="mt" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag mt" data-title="Malta">Malta</option>
+                           <option value="mu" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag mu" data-title="Mauritius">Mauritius</option>
+                           <option value="mv" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag mv" data-title="Maldives">Maldives</option>
+                           <option value="mw" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag mw" data-title="Malawi">Malawi</option>
+                           <option value="mx" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag mx" data-title="Mexico">Mexico</option>
+                           <option value="my" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag my" data-title="Malaysia">Malaysia</option>
+                           <option value="mz" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag mz" data-title="Mozambique">Mozambique</option>
+                           <option value="na" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag na" data-title="Namibia">Namibia</option>
+                           <option value="nc" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag nc" data-title="New Caledonia">New Caledonia</option>
+                           <option value="ne" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ne" data-title="Niger">Niger</option>
+                           <option value="nf" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag nf" data-title="Norfolk Island">Norfolk Island</option>
+                           <option value="ng" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ng" data-title="Nigeria">Nigeria</option>
+                           <option value="ni" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ni" data-title="Nicaragua">Nicaragua</option>
+                           <option value="nl" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag nl" data-title="Netherlands">Netherlands</option>
+                           <option value="no" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag no" data-title="Norway">Norway</option>
+                           <option value="np" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag np" data-title="Nepal">Nepal</option>
+                           <option value="nr" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag nr" data-title="Nauru">Nauru</option>
+                           <option value="nu" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag nu" data-title="Niue">Niue</option>
+                           <option value="nz" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag nz" data-title="New Zealand (Aotearoa)">New Zealand (Aotearoa)</option>
+                           <option value="om" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag om" data-title="Oman">Oman</option>
+                           <option value="pa" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag pa" data-title="Panama">Panama</option>
+                           <option value="pe" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag pe" data-title="Peru">Peru</option>
+                           <option value="pf" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag pf" data-title="French Polynesia">French Polynesia</option>
+                           <option value="pg" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag pg" data-title="Papua New Guinea">Papua New Guinea</option>
+                           <option value="ph" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ph" data-title="Philippines">Philippines</option>
+                           <option value="pk" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag pk" data-title="Pakistan">Pakistan</option>
+                           <option value="pl" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag pl" data-title="Poland">Poland</option>
+                           <option value="pm" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag pm" data-title="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
+                           <option value="pn" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag pn" data-title="Pitcairn">Pitcairn</option>
+                           <option value="pr" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag pr" data-title="Puerto Rico">Puerto Rico</option>
+                           <option value="ps" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ps" data-title="Palestinian Territory">Palestinian Territory</option>
+                           <option value="pt" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag pt" data-title="Portugal">Portugal</option>
+                           <option value="pw" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag pw" data-title="Palau">Palau</option>
+                           <option value="py" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag py" data-title="Paraguay">Paraguay</option>
+                           <option value="qa" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag qa" data-title="Qatar">Qatar</option>
+                           <option value="re" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag re" data-title="Reunion">Reunion</option>
+                           <option value="ro" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ro" data-title="Romania">Romania</option>
+                           <option value="ru" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ru" data-title="Russian Federation">Russian Federation</option>
+                           <option value="rw" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag rw" data-title="Rwanda">Rwanda</option>
+                           <option value="sa" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag sa" data-title="Saudi Arabia">Saudi Arabia</option>
+                           <option value="sb" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag sb" data-title="Solomon Islands">Solomon Islands</option>
+                           <option value="sc" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag sc" data-title="Seychelles">Seychelles</option>
+                           <option value="sd" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag sd" data-title="Sudan">Sudan</option>
+                           <option value="se" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag se" data-title="Sweden">Sweden</option>
+                           <option value="sg" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag sg" data-title="Singapore">Singapore</option>
+                           <option value="sh" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag sh" data-title="Saint Helena">Saint Helena</option>
+                           <option value="si" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag si" data-title="Slovenia">Slovenia</option>
+                           <option value="sj" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag sj" data-title="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option>
+                           <option value="sk" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag sk" data-title="Slovakia">Slovakia</option>
+                           <option value="sl" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag sl" data-title="Sierra Leone">Sierra Leone</option>
+                           <option value="sm" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag sm" data-title="San Marino">San Marino</option>
+                           <option value="sn" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag sn" data-title="Senegal">Senegal</option>
+                           <option value="so" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag so" data-title="Somalia">Somalia</option>
+                           <option value="sr" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag sr" data-title="Suriname">Suriname</option>
+                           <option value="st" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag st" data-title="Sao Tome and Principe">Sao Tome and Principe</option>
+                           <option value="su" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag su" data-title="USSR (former)">USSR (former)</option>
+                           <option value="sv" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag sv" data-title="El Salvador">El Salvador</option>
+                           <option value="sy" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag sy" data-title="Syria">Syria</option>
+                           <option value="sz" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag sz" data-title="Swaziland">Swaziland</option>
+                           <option value="tc" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag tc" data-title="Turks and Caicos Islands">Turks and Caicos Islands</option>
+                           <option value="td" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag td" data-title="Chad">Chad</option>
+                           <option value="tf" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag tf" data-title="French Southern Territories">French Southern Territories</option>
+                           <option value="tg" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag tg" data-title="Togo">Togo</option>
+                           <option value="th" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag th" data-title="Thailand">Thailand</option>
+                           <option value="tj" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag tj" data-title="Tajikistan">Tajikistan</option>
+                           <option value="tk" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag tk" data-title="Tokelau">Tokelau</option>
+                           <option value="tl" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag tl" data-title="Timor-Leste">Timor-Leste</option>
+                           <option value="tm" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag tm" data-title="Turkmenistan">Turkmenistan</option>
+                           <option value="tn" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag tn" data-title="Tunisia">Tunisia</option>
+                           <option value="to" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag to" data-title="Tonga">Tonga</option>
+                           <option value="tp" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag tp" data-title="East Timor">East Timor</option>
+                           <option value="tr" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag tr" data-title="Turkey">Turkey</option>
+                           <option value="tt" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag tt" data-title="Trinidad and Tobago">Trinidad and Tobago</option>
+                           <option value="tv" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag tv" data-title="Tuvalu">Tuvalu</option>
+                           <option value="tw" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag tw" data-title="Taiwan">Taiwan</option>
+                           <option value="tz" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag tz" data-title="Tanzania">Tanzania</option>
+                           <option value="ua" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ua" data-title="Ukraine">Ukraine</option>
+                           <option value="ug" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ug" data-title="Uganda">Uganda</option>
+                           <option value="uk" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag uk" data-title="United Kingdom">United Kingdom</option>
+                           <option value="um" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag um" data-title="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
+                           <option value="us" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag us" data-title="United States">United States</option>
+                           <option value="uy" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag uy" data-title="Uruguay">Uruguay</option>
+                           <option value="uz" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag uz" data-title="Uzbekistan">Uzbekistan</option>
+                           <option value="va" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag va" data-title="Vatican City State (Holy See)">Vatican City State (Holy See)</option>
+                           <option value="vc" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag vc" data-title="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+                           <option value="ve" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ve" data-title="Venezuela">Venezuela</option>
+                           <option value="vg" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag vg" data-title="Virgin Islands (British)">Virgin Islands (British)</option>
+                           <option value="vi" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag vi" data-title="Virgin Islands (U.S.)">Virgin Islands (U.S.)</option>
+                           <option value="vn" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag vn" data-title="Viet Nam">Viet Nam</option>
+                           <option value="vu" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag vu" data-title="Vanuatu">Vanuatu</option>
+                           <option value="wf" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag wf" data-title="Wallis and Futuna">Wallis and Futuna</option>
+                           <option value="ws" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ws" data-title="Samoa">Samoa</option>
+                           <option value="ye" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag ye" data-title="Yemen">Yemen</option>
+                           <option value="yt" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag yt" data-title="Mayotte">Mayotte</option>
+                           <option value="yu" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag yu" data-title="Yugoslavia (former)">Yugoslavia (former)</option>
+                           <option value="za" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag za" data-title="South Africa">South Africa</option>
+                           <option value="zm" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag zm" data-title="Zambia">Zambia</option>
+                           <option value="zr" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag zr" data-title="Zaire (former)">Zaire (former)</option>
+                           <option value="zw" data-image="images/msdropdown/icons/blank.gif" data-imagecss="flag zw" data-title="Zimbabwe">Zimbabwe</option>
+                        </select>
+                     </div>
+                     <div class="col-xs-6 col-sm-6 col-lg-6  form-group">
+                        <input type="text" class="form-control" placeholder="pincode" name="pc" pattern="^.{5,10}$" data-error="Enter PIN/ZIP Code" required="">
+                        <div class="help-block with-errors"></div>
+                     </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                     <div class="col-xs-6 col-sm-6 col-lg-6  form-group">
+                        <!-- <input type="text" id="datepicker" class="form-control" placeholder="Year of Birth" name="birthyear"  required autofocus>-->
+                        <select class="form-control" id="year" name="birthyear" required="">
+                           <option disabled="" selected="">Year of Birth</option>
+                           <script>
+                              var myDate = new Date();
+                              var year = myDate.getFullYear();
+                              for (var i = 1950; i < year + 1; i++) {
+                                  document.write('<option value="' + i + '">' + i + '</option>');
+                              }
+                           </script>
+                           <option value="1950">1950</option>
+                           <option value="1951">1951</option>
+                           <option value="1952">1952</option>
+                           <option value="1953">1953</option>
+                           <option value="1954">1954</option>
+                           <option value="1955">1955</option>
+                           <option value="1956">1956</option>
+                           <option value="1957">1957</option>
+                           <option value="1958">1958</option>
+                           <option value="1959">1959</option>
+                           <option value="1960">1960</option>
+                           <option value="1961">1961</option>
+                           <option value="1962">1962</option>
+                           <option value="1963">1963</option>
+                           <option value="1964">1964</option>
+                           <option value="1965">1965</option>
+                           <option value="1966">1966</option>
+                           <option value="1967">1967</option>
+                           <option value="1968">1968</option>
+                           <option value="1969">1969</option>
+                           <option value="1970">1970</option>
+                           <option value="1971">1971</option>
+                           <option value="1972">1972</option>
+                           <option value="1973">1973</option>
+                           <option value="1974">1974</option>
+                           <option value="1975">1975</option>
+                           <option value="1976">1976</option>
+                           <option value="1977">1977</option>
+                           <option value="1978">1978</option>
+                           <option value="1979">1979</option>
+                           <option value="1980">1980</option>
+                           <option value="1981">1981</option>
+                           <option value="1982">1982</option>
+                           <option value="1983">1983</option>
+                           <option value="1984">1984</option>
+                           <option value="1985">1985</option>
+                           <option value="1986">1986</option>
+                           <option value="1987">1987</option>
+                           <option value="1988">1988</option>
+                           <option value="1989">1989</option>
+                           <option value="1990">1990</option>
+                           <option value="1991">1991</option>
+                           <option value="1992">1992</option>
+                           <option value="1993">1993</option>
+                           <option value="1994">1994</option>
+                           <option value="1995">1995</option>
+                           <option value="1996">1996</option>
+                           <option value="1997">1997</option>
+                           <option value="1998">1998</option>
+                           <option value="1999">1999</option>
+                           <option value="2000">2000</option>
+                           <option value="2001">2001</option>
+                           <option value="2002">2002</option>
+                           <option value="2003">2003</option>
+                           <option value="2004">2004</option>
+                           <option value="2005">2005</option>
+                           <option value="2006">2006</option>
+                           <option value="2007">2007</option>
+                           <option value="2008">2008</option>
+                           <option value="2009">2009</option>
+                           <option value="2010">2010</option>
+                           <option value="2011">2011</option>
+                           <option value="2012">2012</option>
+                           <option value="2013">2013</option>
+                           <option value="2014">2014</option>
+                           <option value="2015">2015</option>
+                           <option value="2016">2016</option>
+                           <option value="2017">2017</option>
+                           <option value="2018">2018</option>
+                        </select>
+                     </div>
+                     <div class="col-xs-6 col-sm-6 col-lg-6  form-group">
+                        <select id="message_subject" class="form-control" name="interest">
+                           <option>Basic</option>
+                           <option>Personal</option>
+                           <option>Pro</option>
+                           <option>Demo </option>
+                        </select>
+                     </div>
+                  </div>
+                  <br>
+                  <button class="btn btn-lg btn-block disabled" type="submit">
+                  Register
+                  </button>
+               </form>
+            </div>
+         </div>
+      </div>
+      <!-- *********** BY AANGI *************  -->
+      <div div="" class="modal fade" id="change-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+         <div class="modal-header">
+            <h3 class="modal-center">change password</h3>
+         </div>
+         <div class="modal-dialog" style="width: 30%">
+            <div class="account-wall">
+               <form class="form-signin" onsubmit=" return validateform()" id="differentForm" data-toggle="validator" name="form" method="post" action="http://192.168.119.24:81/changepass.php" novalidate="true">
+                  <div class="form-group">   
+                     <input class="form-control" type="password" id="oldpassword" name="oldpassword" placeholder="Enter old password" style="color:black" required="">
+                  </div>
+                  <div class="form-group">
+                     <input class="form-control" type="password" data-minlength="6" id="newPassword" name="newpassword" placeholder="Enter new password" style="color:black" required="">
+                     <div class="help-block with-errors"></div>
+                  </div>
+                  <div class="form-group">
+                     <input class="form-control" type="password" id="newPasswordConfirm" data-match="#newPassword" data-match-error="Whoops, these don&#39;t match" name="repeatnewpassword" placeholder="Repeat new password" style="color:black" required="">
+                     <div class="help-block with-errors"></div>
+                  </div>
+                  <button class="btn btn-lg btn-block disabled" name="submit" type="submit">change password</button>
+               </form>
+            </div>
+         </div>
+      </div>
+      <!-- *********** OVER *************  -->
+      <script>
+         function copyToClipboard() {
+         
+         
+             var copyText = document.getElementById("myInput");
+         // copyText.setAttribute("id","dummy_id");
+             document.getElementById("myInput").value = " ";
+             copyText.select();
+         
+             document.execCommand("Copy");
+          
+         
+         }
+         
+         
+         $(document).ready(function () {
+             $(window).keyup(function (e) {
+                 if (e.keyCode === 44) {
+         
+                     var para = document.createElement("input");
+                     para.setAttribute("id", "ip1");
+         
+                     var t = document.createTextNode("This is a paragraph.");
+                     para.appendChild(t);
+                     document.getElementById("main_navbar").appendChild(para);
+                     copyText = document.getElementById("ip1");
+                     document.getElementById("ip1").value = "No Copy please";
+         
+                     copyText.select();
+         
+                     document.execCommand("Copy");
+                     document.getElementById("main_navbar").removeChild(para);
+         
+                 }
+         
+             });
+         });
+         function set_options(option_num){
+         document.getElementById("message_subject").options[option_num].selected = true;
+         }
+         
+      </script>
+      <title> BlissQuants - Delta Hedging | About </title>
+      <style>
+         /**********************
+         /***** Services *******
+         /*********************/
+         .text-muted{
+         padding:15px 0px; 
+         }
+         section{
+         padding: 10px 0;
+         }
+         section .section-title{
+         text-align:center;
+         color: rgb(132,194,37);;
+         margin-bottom:5px;
+         text-transform:uppercase;
+         }
+         #what-we-do{
+         /*background:#ffffff;*/
+         }
+         #what-we-do .card{
+         padding: 1rem!important;
+         border: none;
+         margin-bottom:0rem;
+         background-color: transparent;
+         -webkit-transition: .5s all ease;
+         -moz-transition: .5s all ease;
+         transition: .5s all ease;
+         }
+         #what-we-do .card:hover{
+         -webkit-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+         -moz-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+         box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+         }
+         #what-we-do .card .card-block{
+         padding-left: 50px;
+         position: relative;
+         font-size: 12px;
+         }
+         #what-we-do .card .card-block a{
+         /*color: #007b5e !important;*/
+         color:  white;;
+         font-weight:700;
+         text-decoration:none;
+         }
+         #what-we-do .card .card-block a i{
+         display:none;
+         }
+         #what-we-do .card:hover .card-block a i{
+         display:inline-block;
+         font-weight:700;
+         }
+         #what-we-do .card .card-block:before{
+         font-family: FontAwesome;
+         position: absolute;
+         font-size: 39px;
+         color:  rgb(132,194,37);;
+         left: 0;
+         -webkit-transition: -webkit-transform .2s ease-in-out;
+         transition:transform .2s ease-in-out;
+         }
+         #what-we-do .card .block-1:before{
+         /*   content: "\f0e7";*/
+         content: "\f20e";
+         }
+         #what-we-do .card .block-2:before{
+         content: "\f0eb";
+         }
+         #what-we-do .card .block-3:before{
+         content: "\f0ee";
+         }
+         #what-we-do .card .block-4:before{
+         content: "\f209";
+         }
+         #what-we-do .card .block-5:before{
+         content: "\f0a1";
+         }
+         #what-we-do .card .block-6:before{
+         content: "\f218";
+         }
+         #what-we-do .card .block-7:before{
+         content: "\f0e7";
+         }
+         #what-we-do .card .block-8:before{
+         content: "\f095";
+         }
+         #what-we-do .card .block-9:before{
+         content: "\f02d";
+         }
+         #what-we-do .card:hover .card-block:before{
+         -webkit-transform: rotate(360deg);
+         transform: rotate(360deg); 
+         -webkit-transition: .5s all ease;
+         -moz-transition: .5s all ease;
+         transition: .5s all ease;
+         }  
+         .card-text{
+         color: #FFF;
+         font-size: 12px;
+         }  
+         .card-title{
+         color:  rgb(132,194,37);;
+         }  
+         .link{
+         color:  rgb(132,194,37)!important;
+         font-weight: normal!important;
+         }
+         .modal-body{
+         color: #000;
+         font-size: 28px!important;
+         font-family: 'Open Sans';
+         }
+      </style>
+      <!-- Services section -->
+      <section id="what-we-do">
+         <div class="container-fluid">
+            <h3 class="section-title h3">What we do</h3>
+            
+            <div class="row ">
+               <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                  <div class="card">
+                     <div class="card-block block-1">
+                        <h3 class="card-title">Software Development & Testing</h3>
+                        <p class="card-text"> Being a solution provider in this domain for many years, we have the right mix of expert talent to design, develop & test software product & provide maintenance.</p>
+                        <ul>
+                           <li>CMS Product Design & Development Services</li>
+                           <li>Clean code & APIs</li>
+                           <li>Performance, load, unit, integration & stress testing</li>
+                        </ul>
+                        <p></p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                  <div class="card">
+                     <div class="card-block block-2">
+                        <h3 class="card-title">Website Design & Development </h3>
+                        <p class="card-text"> Our team of web designers concept & design our award-winning, all-in-one templates. 
+                           They craft every details so that our templates set the industry standard.
+                        </p>
+                        <ul>
+                        <li>Custom Website Design & Application Development</li>
+                        <li>Responsive Web Design</li>
+                        <li>Multi-browser compatibility</li>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                  <div class="card">
+                     <div class="card-block block-3">
+                        <h3 class="card-title">Database Design & maintenance</h3>
+                        <p class="card-text">
+                           Go for top-notch security &amp; data protection in your software product.
+                        </p>
+                        <ul>
+                           <li>Logically design/restructure databases</li>
+                           <li>Creatively generate reports with data</li>
+                           <li>Discover data patterns through data analysis</li>
+                        </ul>
+                        <p></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                  <div class="card">
+                     <div class="card-block block-7">
+                        <h3 class="card-title">UX/UI Design</h3>
+                        <p class="card-text">Great frontend/UI application is an integral part of the software we create.
+                        </p>
+                        <ul>
+                           <li>User Interface design & application development</li>
+                           <li>Frontend design & re-writing website with latest framework</li>
+                           <li>UX design with UML MODELING</li>
+                        </ul>
+                        <p></p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                  <div class="card">
+                     <div class="card-block block-5">
+                        <h3 class="card-title">Articulate your ideas</h3>
+                        <p class="card-text">
+                           The information must be detailed written in a format to easily read & understandable for targeted audience.
+                        </p>
+                        <ul>
+                           <li>Technical writing : It is crucial for anyone working in a tech-related business to communicate & preserve their
+                              knowledge. We have engineers to articulate your ideas.
+                           </li>
+                           <li>Content Writing: We have web content writer specializes in providing relevant content for your websites.</li>
+                           <li>Blog writing : We have great story teller to reach targeted audience.</li>
+                        </ul>
+                        <p></p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                  <div class="card">
+                     <div class="card-block block-4">
+                        <h3 class="card-title">Financial Utilities & Data Analytics </h3>
+                        <p class="card-text">Our Project specialists focus on Financial utility development & customization. We provide option Delta hedging analysis software. 
+                           Macro data for delta hedgers & Derivates data analysis, quantitative services, & research.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                  <div class="card">
+                     <div class="card-block block-8">
+                        <h3 class="card-title">Our products & Projects</h3>
+                        Bliss products & platforms enable transformation solutions, banking solutions & unified communication collaboration solutions. 
+                        <p class="card-text">
+                           <a class="link" href="http://192.168.119.24:81/Bliss_Services.php#" data-toggle="modal" data-target="#modal_coach">Explore our Products</a>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                  <div class="card">
+                     <div class="card-block block-9">
+                        <h3 class="card-title">Option Delta Coaching</h3>
+                        <p class="card-text"> Delta Hedging is a scientific way of making consistent profit in the stock market. <br>
+                           <a href="http://192.168.119.24:81/Solutions_training.php" class="link">Read More &gt;&gt; </a> <br>
+                           Interested in joining as Delta hedger or learning option Delta hedging techniques? <a href="http://192.168.119.24:81/BlissAboutUs.php#collapseFive" class="link">Contact us </a>.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                  <div class="card">
+                     <div class="card-block block-8">
+                        <h3 class="card-title">Single point of contact
+                        </h3>
+                        <p class="card-text"> Never-ending support. Client support is available 24/7/365 by phone & email With supporting text below as a natural lead-in to additional content.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+            </div>
+         </div>
+      </section>
+      <div id="modal_coach" class="modal fade" role="dialog">
+         <div class="modal-dialog  ">
+            <div class="modal-content ">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">×</button>
+                  <img src="./BlissQuants - Delta Hedging _ About_files/blissquant2.jpg" alt="Bliss Image">
+               </div>
+               <div class="modal-body">
+                  <ul>
+                     <li>   BlissTrend: Bliss Trend is the software which will generate daily stop loss and target based on predefined system for successful trend following. </li>
+                     <li>   BlissCalc: Light - weight product to analyze Option strategies and Gamma neutral mechanism. </li>
+                     <li>   BlissQuants IV Analytics</li>
+                     <li>  BlissQuants IV Dashboard </li>
+                  </ul>
+                  <br> <br>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="modal_ux" class="modal fade" role="dialog">
+         <div class="modal-dialog  ">
+            <div class="modal-content ">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">×</button>
+                  <img src="./BlissQuants - Delta Hedging _ About_files/blissquant2.jpg" alt="Bliss Image">
+               </div>
+               <div class="modal-body">
+                  <ul>
+                     <li>Concept Analysis &amp; Testing</li>
+                     <li>UX/UI Design</li>
+                     <li>Low-to-high Level QA</li>
+                  </ul>
+                  <br> <br>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <style>
+         .modal-body{
+         color: #000;
+         font-size: 10px;
+         }
+         ol {
+         counter-reset: item;
+         }
+         ol > li {
+         counter-increment: item;
+         }
+         ol ol > li {
+         display: block;
+         }
+         ol ol > li:before {
+         content: counters(item, ".") ". ";
+         margin-left: -20px;
+         }
+         .modal-header, .modal-footer{
+         background-color: rgb(58,53,49);
+         }
+         .modal-header img{
+         height : 8%;
+         width: 40%;
+         }
+         .close{
+         color:white;
+         }
+         .modal-header{
+         text-align:center;
+         }
+         .modal-body{
+         text-align: left;
+         max-height: calc(80vh - 210px);
+         overflow-y: auto;
+         }
+         #myModal1{
+         top:5%;
+         }
+         #myModal2{
+         top:5%;
+         }
+         #myModal3{
+         top:5%;
+         }
+      </style>
+      <script>
+         var curr_link;
+         //  var colour="black";
+         //alert(document.URL);
+         var splitname = document.URL.split("?", 1);
+         //  alert(splitname);
+         for (var i = 0; i < document.links.length; i++) {
+         
+         
+         
+             if (document.links[i].href == splitname) {
+         
+                 document.links[i].style.color = "white";
+                 if (i > 2 && i < 17) {
+                     document.links[2].style.color = "white";
+                 } else if (i > 16 && i < 25) {
+                     document.links[17].style.color = "white";
+                 }
+                 document.links[i].style.opacity = 1;
+                 curr_link = document.links[i].href;
+         //alert(curr_link);
+                 var filename = curr_link.substring(curr_link.lastIndexOf('/') + 1);
+         
+             } else
+             {
+                 //document.links[i].style.color = "#737373";
+         
+             }
+             // document.getElementById("drop").style.color = "#000";
+         }
+      </script>
+      <div class="footer">
+         <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="navbar-text">
+               <span style="padding-right: 30px;">  BlissQuants 2015 © All rights reserved.</span>
+               visitors : 985787 
+            </div>
+         </div>
+         <div class="col-lg-5 col-md-5 col-sm-5">
+            <!-- <div class="navbar-text text-center" >-->
+            <span class="navbar-text">    | <a href="http://192.168.119.24:81/BlissAboutUs.php#collapseOne" onclick="company()"> Company</a> | <a href="http://192.168.119.24:81/BlissPeople.php">Team</a> | <a href="http://192.168.119.24:81/BlissAboutUs.php#collapseThree" onclick="career()">Career</a> | <a href="http://192.168.119.24:81/BlissAboutUs.php#collapseFive" onclick="contact()">ContactUs</a>  | <a href="http://192.168.119.24:81/Bliss_Services.php#" data-toggle="modal" data-target="#myModal1">Disclaimer</a> | <a href="http://192.168.119.24:81/Bliss_Services.php#" data-toggle="modal" data-target="#myModal3">Terms of Service</a> | <a href="http://192.168.119.24:81/Bliss_Services.php#" data-toggle="modal" data-target="#myModal2">Privacy Policy </a> |<br> </span>
+            <!-- </div>    -->
+            <!--    ABOUT:<a href="BlissAboutUs.php#collapseFour" onclick="location.reload();">Company</a>| <a href="BlissAboutUs.php#collapseThree" onclick="location.reload();" >Careers</a>| <a href="BlissAboutUs.php#collapseFive" onclick="location.reload();" >Contacts</a>| <a href="BlissPeople.php">Team</a>| <a href="BlissTrademarks.php">Trademarks</a>| <a href="BlissTermsofService.php">Terms of Service</a>| <a href="BlissPrivacyPolicy.php">Privacy Policy</a><br>
+               SUPPORT AND CONTACT:<a href="BlissContacts.php">Customer Support Contacts</a>| <a href="BlissFeedback.php">Feedback</a>| <a href="BlissHelp.php">Help</a>| <a href="BlissFAQ.php">FAQ</a>| <a href="BlissSitemap.php">Sitemap</a><br>
+               <!-- STAY CONNECTED:<a href="https://plus.google.com/102026315992894389242/about">Twitter</a>| Facebook| Linked In| goggle+<br>-->
+            <!--   MOBILE APPS:<a href="BlissCalc.php">BlissCalc</a>| <a href="BlissStrag.php">BlissStrag</a><br>-->
+         </div>
+         <div class="col-lg-3 col-md-3 col-sm-3">
+            <ul class="social-network social-circle pull-right">
+               <!-- <li style="display: inline"><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li> -->
+               <li style="display: inline"><a href="https://www.facebook.com/blissquants" target="_blank" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+               <!--<li style="display: inline"><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li> -->
+               <li style="display: inline"><a href="https://plus.google.com/u/0/104418184884371093173" target="_blank" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+               <li style="display: inline"><a href="https://www.linkedin.com/company/10313538" target="_blank" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+         </div>
+         <div class="modal fade " id="myModal1" role="dialog">
+            <div class="modal-dialog ">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal">×</button>
+                     <img src="./BlissQuants - Delta Hedging _ About_files/blissquant2.jpg" alt="Bliss Image">
+                  </div>
+                  <div class="modal-body ">
+                     <div class="panel-heading title_all text-center">  Disclaimer  </div>
+                     The information and material contained in these pages and the terms, conditions, and descriptions that appear are subject to change without prior notice. Investments in equity shares, debentures etc, are not obligations of or guaranteed by the BlissQuants, and are subject to investment risks.
+                     <br><br>
+                     The information contained in this website, including text, graphics, links or other items are provided on an 'as is', 'as available' basis. BlissQuants does not warrant the accuracy, adequacy or completeness of this information and material and expressly disclaims liability for errors or omissions in this information and material. No warranty of any kind, implied, express or statutory, including but not limited to the warranties of non-infringement of third party rights, title, merchantability, fitness for a particular purpose and freedom from computer virus, is given in conjunction with the information and materials.
+                     <br><br>
+                     In no event will BlissQuants be liable for any damages, including without limitation direct or indirect, special, incidental, or consequential damages, losses or expenses arising in connection with this website or use thereof or inability to use by any party, or in connection with any failure of performance, error, omission, interruption, defect, delay in operation or transmission, computer virus or line or system failure, even if BlissQuants, or representatives thereof, are advised of the possibility of such damages, losses or expenses. Hyperlinks from and to other websites are at your own risk; the content, accuracy, opinions expressed, and other links provided by these resources are not investigated, verified, monitored, or endorsed by BlissQuants.
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div id="myModal2" class="modal fade" role="dialog">
+            <div class="modal-dialog  ">
+               <div class="modal-content ">
+                  <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal">×</button>
+                     <img src="./BlissQuants - Delta Hedging _ About_files/blissquant2.jpg" alt="Bliss Image">
+                  </div>
+                  <div class="modal-body">
+                     <div class="panel-heading title_all text-center">   Privacy Policy  </div>
+                     The User's right to privacy is of paramount importance to BlissQuants. Any information provided by the User will not be shared with any third party, except for the intended purpose for which such information is provided by the User, in which case User’s consent is implied. BlissQuants reserves the right to use the information to provide the User a more personalized online experience.
+                     <br><br>
+                     If the Site provides links to web sites and access to content, products and services from third parties, including users, advertisers, affiliates and sponsors of the Site, you agree that BlissQuants is not responsible for the availability of, and content provided on, third party web sites. The User is requested to peruse the policies posted by other web sites regarding privacy and other topics before use. BlissQuants is not responsible for third party content accessible through the Site, including opinions, advice, statements and advertisements, and User shall bear all risks associated with the use of such content. BlissQuants is not responsible for any loss or damage of any sort which User may incur from dealing with any third party.
+                     <br><br>
+                     In general, you can visit BlissQuants’s websites without telling us who you are and without revealing any information about yourself. There are times, however, when BlissQuants may need information from you. BlissQuants does not rent, sell, or share personal information about you with other people or non-affiliated companies. 
+                     <br><br>
+                     User may choose to give BlissQuants personal information, such as your name and address or e-mail id that may be needed, for example, to correspond with you, or to provide you with a subscription. You may send or upload your personal profile, CV, with all your personal, academic and professional background however you agree that you shall not upload or post any obscene, defamatory annoying material on the website. If you tell us that you do not want us to use this information as a basis for further contact with you, BlissQuants will respect your decision. BlissQuants intends to protect the quality and integrity of your personally identifiable information. BlissQuants will make a sincere effort to respond in a timely manner to your requests to correct inaccuracies in your personal information. To correct inaccuracies in your personal information please return the message containing the inaccuracies to BlissQuants with details of the correction requested.
+                     <br><br>
+                     BlissQuants sometimes collects anonymous information from visits to the Site to help us provide better customer service. BlissQuants or its affiliates or vendors may use this data to analyze trends and statistics and to help us provide better customer service. BlissQuants maintains the highest levels of confidentiality for this information, our affiliates and vendors follow the same high levels of confidentiality. This anonymous information is used and analyzed only at an aggregate level to help us understand trends and patterns. None of this information is reviewed at an individual level. If you do not want your details to be used in this manner, you can either disable your cookies or opt-out at the download or request page.
+                     <br> <br>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="modal fade modal-fixed-footer" id="myModal3" role="dialog">
+            <div class="modal-dialog">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal">×</button>
+                     <img src="./BlissQuants - Delta Hedging _ About_files/blissquant2.jpg" alt="Bliss Image">
+                  </div>
+                  <div class="modal-body">
+                     <div class="panel-heading title_all text-center">  Terms of Service  </div>
+                     Website-Usage Terms and Conditions 
+                     <br> <br>
+                     1. The Site is owned, managed and operated by BlissQuants.
+                     <br> <br>
+                     2. You must be 18 years of age or older to visit or use the Site in any manner. In the event that you are below 18 yrs. of age, you are visiting the Site at your own risk and you alone shall be liable for your actions. By visiting this site or accepting these Terms of Use, you represent and warrant to the Company that you are 18 years of age or older, and that you have the right, authority and capacity to use the Site and agree to and abide by these Terms of Use. You also represent and warrant to the Company that you will use the Site in a manner consistent with any and all applicable laws and regulations.
+                     <br> <br>
+                     3. By using the Site, you agree to follow and be bound by all terms and conditions concerning your use of the Site. Certain areas of the Site may have different terms of use posted. If there is a conflict between the Terms of Use and terms of use posted for a specific area of the Site, the latter shall have precedence with respect to your use of that area of the Site.
+                     <br> <br>
+                     4. Our website may use cookies. By using our website and agreeing to these terms of use, you consent to our use of cookies in accordance with the terms of our privacy policy.
+                     <br> <br>
+                     5. BlissQuants may terminate User's access to the Site or any part thereof at any time and for any reason without any notice. The provisions regarding disclaimer of warranty, accuracy of information, software, database other system or functionality of website and indemnification shall survive such termination. BlissQuants may monitor User’s access to the Site.
+                     <br> <br>
+                     6. BlissQuants may change or discontinue any aspect of the Site at any time, including, its content or features. BlissQuants reserves the right to change the Terms of Use applicable to use of the Site. Such changes shall be effective immediately upon notice, which shall be placed on the Site.
+                     <br> <br>
+                     7. All contents on the Site are the exclusive property of BlissQuants except the third party content. The software, text, images, graphics, video and audio used on the Site belong to or are licensed to BlissQuants or its subsidiaries and affiliates. No material from the Site may be copied, modified, reproduced, republished, uploaded, transmitted, posted or distributed in any form without prior written permission from BlissQuants. All rights not expressly granted herein are reserved. Unauthorized use of the materials appearing on the Site may violate copyright, trademark and other applicable laws, and could result in criminal or civil penalties. You are granted a non-exclusive, non-transferable, limited right to access the Site and avail the services provided by BlissQuants on the Site.
+                     <br> <br>
+                     8. BlissQuants does not make any warranties, express or implied, with respect to any service, information, data, software, system, functionality, statements or products made available on the Site. The information contained in the Site has been obtained from sources believed to be reliable. The Site, and all content, materials, information, software and services provided on the Site, are provided on an "as is" and "as available" basis.
+                     <br> <br>
+                     9. BlissQuants does not warrant that the Site will operate error-free or that the Site and its servers are free of computer viruses or other harmful mechanisms. If your use of the Site or content therein results in the need for servicing or replacing equipment or data, BlissQuants is not responsible for any such costs. Site and content are provided on an "as is" basis without any warranties of any kind. BlissQuants to the fullest extent permitted by law, disclaims all warranties, whether express or implied, including the fitness for particular purpose and non-infringement. BlissQuants makes no warranties about the accuracy, reliability, completeness, or timeliness of the content, services, software, text, graphics, and links.
+                     <br> <br>
+                     10.   BlissQuants shall not be liable for any damage to User's computer system or loss of data that result from the download of any content, materials, and information from the Site or use of any software, systems, functionality, or other services on the Site. Under no circumstances will BlissQuants be liable in any way for any content, including, but not limited to, inaccurate, false, incomplete, threatening, defamatory, obscene, offensive, illegal content, infringement of other’s rights including intellectual property rights, for any errors or omissions in any content, or for any loss or damage of any kind incurred as a result of the use of any content posted or uploaded. Further, under no circumstances, BlissQuants shall be liable for any unlawful act of the User or its affiliates, relatives, employees, agents including misuse of any data, unfair trade practices, fraud, cyber squatting, hacking and other cyber crimes. In no event shall BlissQuants be liable for damages of any kind, including without limitation, direct, incidental or consequential damages (including, but not limited to, damages for lost profits, business interruption and loss of programs or information) arising out of the use of or inability to use Site, or any information provided thereon, or any claim attributable to errors, omissions or other inaccuracies in the Site.
+                     <br> <br>
+                     11.   You may not send, submit, post, or otherwise transmit, material or messages that contain software virus, or any other files that are designed to interrupt, destroy, and negatively affect in any manner whatsoever, any electronic equipment in connection with the use of the Site, or other user's ability to use the Site.
+                     <br> <br>
+                     12.   You may not conduct any systematic or automated data collection activities (including scraping, data mining, data extraction and data harvesting) on or in relation to our website without our express written consent.
+                     <br> <br>
+                     13.   You may not use our website to transmit or send unsolicited commercial communications.
+                     <br> <br>
+                     14.   You may not use our website for any purposes related to marketing without our express written consent.
+                     <br> <br>
+                     15.   User agrees to indemnify and hold BlissQuants, its subsidiaries, affiliates, officers and employees, harmless from any claim, demand or damage, including reasonable attorney’s fees, asserted by any third party due to or arising out of your use of or conduct on the Site BlissQuants reserves the right to disclosure any personal information about you and your use of the Site including its contents, without your prior permission if BlissQuants has a good faith belief that such action is necessary to :
+                     <br>          •   conform to legal requirements or comply with legal process;
+                     <br>• protect and defend the rights or property of BlissQuants or its affiliated companies;
+                     <br>• enforce the Terms of Use; or
+                     <br>• act to protect the interest of its members or others.
+                     <br> <br>
+                     16.   The User's right to privacy is of paramount importance to BlissQuants. Any information provided by the User will not be shared with any third party, except in the manner provided under these Terms of Use and for the intended purpose for which such information is provided by the User, in which case User’s consent is implied. BlissQuants reserves the right to use the information to provide the User a more personalized online experience.
+                     <br> <br>
+                     17.   If the Site provides links to web sites and access to content, products and services from third parties, including users, advertisers, affiliates and sponsors of the Site, you agree that BlissQuants is not responsible for the availability of, and content provided on, third party web sites or content. The User is requested to peruse the policies posted by other web sites regarding privacy and other topics before use. BlissQuants is not responsible for third party content accessible through the Site, including opinions, advice, statements and advertisements, and User shall bear all risks associated with the use of such content. BlissQuants is not responsible for any loss or damage of any sort which User may incur from dealing with any third party.
+                     <br> <br>
+                     18.   By using any third party content, User may leave the Site and be directed to an external website, or to a website maintained by an entity other than BlissQuants. If you decide to visit any such site, you do so at your own risk and it is your responsibility to take all protective measures to guard against viruses or any other destructive elements. BlissQuants makes no warranty or representation regarding, and does not endorse, any linked web sites or the information appearing thereon or any of the products or services described thereon. Links do not imply that BlissQuants or the Site sponsors, endorses, is affiliated or associated with, or is legally authorized to use any trademark, trade name, logo or copyright symbol displayed in or accessible through the links, or that any linked site is authorized to use any trademark, trade name, logo or copyright symbol of BlissQuants or any of its affiliates or subsidiaries. You hereby expressly acknowledge and agree that the linked sites are not under the control of BlissQuants and BlissQuants is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. BlissQuants is not responsible for webcasting or any other form of transmission received from any linked site. BlissQuants is providing these links to you only as a convenience, and the inclusion of any link shall not be construed to imply endorsement by BlissQuants in any manner of the website.
+                     <br> <br>
+                     19.   For availing the services under the Site, registration by the User is required. You will receive a password and account designation upon completing the registration on the Site. You are responsible for maintaining the confidentiality of the password and account and are fully responsible for all activities that occur under your password or account. By registering, you agree to the following terms in addition to any other specific terms which shall be posted at an appropriate location of the Site. Each registration is for a single individual user only. To access these services, you will be asked to enter your individual User Name and Password. Therefore, we do not permit any of the following:-
+                     <br>•   Any other person sharing your User Name and Password.
+                     <br>•   Any part of the Site being cached in proxy servers and accessed by individuals who have not registered with Site as users.
+                     <br>•   Access through a single User Name and Password being made available to multiple users on a network.
+                     <br> <br>
+                     20.   If we reasonably believe that a User Name and Password are being used / misused in any manner as clarified above, we reserve the right to cancel access rights immediately without notice, and block access to all users from that IP address.
+                     <br> <br>
+                     21.   You specifically agree that BlissQuants shall not be responsible for unauthorized access to or alteration of your transmissions or data, any material or data sent or received or not sent or received through the Site.
+                     <br> <br>
+                     22.   Specific Prohibited Uses:
+                     <br>
+                     The Site may be used only for lawful purposes by individuals for personal, non-commercial use only. BlissQuants specifically prohibits any other use of the Site, and all Users agree not to do any of the following:
+                     <br>•    Post or submit to the Site any incomplete, false or inaccurate biographical information or information which is not your own;
+                     <br>•    Send unsolicited mail or e-mail, making unsolicited phone calls or send unsolicited faxes regarding promotions and/or advertising of products or services to a user of the Site;
+                     <br>•    Delete or revise any material posted by any other person or entity;
+                     <br>•    Take any action that imposes an unreasonable or disproportionately large load on the Site's infrastructure;
+                     <br>•    Attempt to decipher, decompile, disassemble or reverse engineer any of the software comprising or in any way making up a part of the Site;
+                     <br>•    Aggregate, copy or duplicate in any manner any of the content or information available from the Site; or
+                     <br>•    The Users agree not to use / insert any of the User's URL, weblink, e mail address and website while accessing any material on the Site.
+                     <br> 
+                     On non-conformance by users of any of the aforesaid terms, BlissQuants may in its sole discretion, restrict or terminate the offending User's ability to access the Site and determine whether to take any other actions whether to remove or request the removal of the User’s content. BlissQuants shall have no liability or responsibility whatsoever to Users for performance or nonperformance of such activities.
+                     <br> <br>
+                     23.   BlissQuants reserves the right in its sole discretion to investigate and take legal action against anyone who engages in any illegal or prohibited conduct or otherwise violates these Terms of Use, including without limitation, removing the User content from the Site and/or terminating the offending User's ability to access the Site and/or use services therein. BlissQuants may take any other action with respect to User content or User actions that it deems necessary or appropriate in its sole discretion if it believes it may create liability for BlissQuants or may cause BlissQuants to lose (in whole or in part) the services of its ISPs or other suppliers.
+                     <br> <br>
+                     24.   The User hereby specifically agrees to comply with the requirements of the Information Technology Act, 2000 as also rules, regulations, guidelines, bye laws and notifications made thereunder, while on the Site. The user also undertakes that the content provided by him/her is not defamatory, obscene, threatening, abusive or hateful. The User shall alone be responsible for all his acts, deeds and things and that he alone shall be liable for civil and criminal liability there under or under any other law for the time being in force.
+                     <br> <br>
+                     25.   BlissQuants recognizes the receipt, transmission or distribution of spam emails (unsolicited bulk emails) as a major concern and has taken reasonable measures to minimize the transmission and effect of spam emails in its computing environment. All emails received by BlissQuants, are subject to spam check. Any email identified as spam will be rejected with sufficient information to the Sender for taking necessary action. With this measure, along with other technical spam reduction measures, BlissQuants hopes to minimize the effect of spam emails. BlissQuants reserves the right to reject and/or report any suspicious spam emails, to the authorities concerned, for necessary action, from time to time.
+                     <br> <br>
+                     26.   No failure or delay by BlissQuants in exercising any right, power or privilege under the Terms of Use will operate as a waiver of it, nor will any single or partial exercise of it preclude any further exercise or the exercise of any right, power or privilege under the Terms of Use.
+                     <br> <br>
+                     27.   The Site is controlled, operated and administered by BlissQuants from its offices within India. BlissQuants makes no representation that Materials on this site are appropriate or available for use at any other location(s) outside India. Any access to this site from territories where their contents are illegal is prohibited. You may not use the site or export the materials in violation of any applicable export laws and regulations. If you access this site from a location outside India, you are responsible for compliance with all local laws.
+                     <br> <br>
+                     28.   The Terms of Use shall be governed by the Laws of India. The Courts of law at Mumbai shall have exclusive jurisdiction over any disputes arising under the Terms of Use.
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

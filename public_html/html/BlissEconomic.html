@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html>
+    <head>
+        <title>Bliss Earnings</title>
+        <script src="BlissEconomic2.js"></script>
+    </head>
+    <body >   
+        <div class="text-center">                              
+            <form class="form-inline" role="form">                        
+                            <div class="form-group" id="b1_qe">    
+                              <input type='button' class="form-control" name='b1' onclick="range_sel_qe(this.value)" value="<<" >                        
+                            </div>                
+                            <div class="form-group" id="range_text_qe">                       
+                                <input type='text' class="form-control" size="15" name='day' id='day1_qe'   readonly>       -                 
+                            </div> 
+                            <div class="form-group" >                
+                             <input type='text' class="form-control " size="30" name='day' id='day2_qe' readonly>                        
+                            </div>
+                            <div class="form-group" id="b2_qe">                       
+                                <input type='button' class="form-control " name='b2' onclick="range_sel_qe(this.value)" value=">>">                        
+                            </div>
+                            <div class="form-group" id="b3_qe">                       
+                                <input type='button' class="form-control" name='b3' style="background-color: rgb(132,194,37)" onclick="range_sel_qe(this.value)" value="Go">                        
+                            </div>
+                            <div class="form-group">
+                              <select name="range" class="form-control" onchange="range_sel_qe(this.value)" style="width: 100%" id="range_qe">                    
+                                <option value="today" >Today</option>
+                                <option value="week" selected="selected">Week</option>
+                                <option value="month"> Month</option>
+                                <option value="range">Range</option>
+                              </select>
+                            </div>                     
+            </form>
+
+            <table class="table table-striped text-center"  id="dyn_t_qe"  >
+                            <thead>
+                                <tr >
+                                    <td >Data 
+                                      <label  onclick="sorting_qe('sort1')" style=" color:black; width: 12%; height:12%"  id="sort1">▼▲</label></td>
+                                    <td id="edate" >Date   <label onclick="sorting_qe('sort2')" style="color:black;"  id="sort2">▼▲</label>   </td>
+                                    <td id="exp_time" >Time</td>
+                                    <td >Actual%</td>
+                                   
+                                    <td id="forcast">Forecast</td>
+                                    <td  >Previous</td>
+                                </tr>
+                                <tr>                
+                                     
+                                </tr>    
+                            </thead>
+                        </table>   
+            </div>
+</body>
+</html>
+
+

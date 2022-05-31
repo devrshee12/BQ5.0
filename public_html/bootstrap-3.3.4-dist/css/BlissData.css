@@ -1,0 +1,41 @@
+#chartdiv_vol {
+                width		: 60%;
+                position        :fixed;
+                z-index         : 10; 
+                height		: 60%;
+
+                border          : 5px solid;
+                border-color    : white;
+                font-size	: 11px;
+                background-color: rgb(58, 53, 49);  
+                overflow-y:auto;
+                display: none;
+            }
+            /*.table-striped>thead>tr:first-child>td, 
+            .table-striped>thead>tr:first-child>th {
+                background-color: rgb(132,194,37);
+                font-size: 14px;
+                color: blue;
+                text-align: center;
+                padding: 2px;
+                white-space:nowrap;
+            }*/
+             table.table-bordered > tfoot >tr > td{
+                border:1px solid black;
+            }
+            
+              .table-bordered > thead > tr > th{
+                border:1px solid black;
+            }
+            table.table-bordered > tbody > tr > td{
+                border:1px solid black;
+            }
+            #clear_watch{
+                display: none;
+            }
+            #search2{
+                display: none;
+            }
+            #add_watch{
+                display: none;
+            }

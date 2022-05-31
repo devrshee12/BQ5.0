@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html>
+    <head>
+        <title>Database Connection Document</title>   
+         <link rel="shortcut icon" href="../bliss_icon.ico" >
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+       <script src="../js/jquery-1.9.1.js"></script>
+      <!--   <script src="js/jquery-ui.js"></script>-->
+       
+       <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.4-dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.4-dist/css/custom.css" />
+      <link href="../font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet">
+        <script src="../bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+         <script type="text/javascript" language="javascript" src="../bootstrap-3.3.4-dist/js/jquery.carouFredSel-6.0.4-packed.js"></script>
+         <script type="text/javascript" language="javascript" src="../bootstrap-3.3.4-dist/js/news-ticker.js"></script>
+          <style>
+             .table>tbody>tr>th, .table>tbody>tr>td { 
+        color: white;
+        border-top: none !important; 
+        width:20%;
+        font-size: 13px;
+        text-align: left;
+    }
+             </style>
+           
+      
+    </head>
+    <body>         
+            <div class="row wrap">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle  btn-lg" data-toggle="collapse" data-target=".bliss-data-menu">
+                           
+                           
+                             <span class="title_all">Service-Menu</span><span class="glyphicon glyphicon-th"></span>
+                                   
+                        </button>
+                    </div> 
+                    <div class="navbar-collapse collapse bliss-data-menu">
+                     <ul class="nav nav-stacked nav-pills">
+                        <li ><a href="newsticker_doc.html"  >News Ticker</a></li>
+                         <li><a href="indiavixchart_doc.html" >India VIX CHART</a></li>
+                        <li ><a href="companiesresulttable_doc.html">Companies' Result Table</a></li>  
+                         <li><a href="economicresult_doc.html" >Financial Result Calender And Table</a></li>
+                    
+                       <li><a href="blissproduct.html" >Bliss Product</a></li>     
+                         <li><a href="Blissservices_doc.html" >Bliss Services</a></li> 
+                          <li><a href="BlissAboutus_doc.html" >About Us</a></li> 
+                           <li><a href="worldindices_doc.html">World Indices</a></li>
+                             <li><a href="companychartandtooltip_doc.html" >Chart filtering and tooltip </a></li>
+                                  <li><a href="PriceMovementandExpctedTime.html" >Price Movement and Expected Time</a></li>
+                     <li><a href="BlissCalc_doc.html">BlissCalc</a></li>
+                             <li><a href="Blissapi_doc.html"  >Bliss API'S</a></li>
+                             <li><a href="DBConnectivity.html"  >Database Connectivity</a></li>
+                                       <li><a href="DBTables_doc.html" class="active" >Database Tables</a></li>
+                     </ul>
+                         </div>
+                 </div>
+           <div class="col-lg-8 col-md-8 col-sm-8">   
+               <div class="title_all text-center">
+                   <span style="padding-right: 30px">Database Connection Documentation  </span>  
+                   
+               </div>
+               <div >
+                 
+                 
+                  
+                   <div class="panel-body">This documentation explain database tables and its structures.
+                     
+                       
+                   </div>
+                 
+                   <br> 
+                
+                   <div class="row">
+                  
+                           <div class="col-lg-12">
+                              
+                                   <table  class=" table table-striped text-center panel-body" width="100%">
+					<thead>
+						<tr>
+							<th>Tables </th>
+							<th>Column</th>
+							<th>description </th>
+							<th>Page name </th>
+                                                       
+                            
+						</tr>
+					</thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>earning2</td>
+                                                <td>20</td>
+                                                <td>Stores companies quarterly result information</td>
+                                                <td>BlissEarnings.php and BlissEventCalendar.php</td>
+                                            </tr>
+                                            <tr>
+                                                <td>india_vix</td>
+                                                <td>19</td>
+                                                <td>Stores daily data of IndiaVIX and nifty.</td>
+                                                <td>BlissIndiaVix.php</td>
+                                            </tr>                                        
+                                            <tr>
+                                                <td>cboevix</td>
+                                                <td>6</td>
+                                                <td>Stores daily data(OHLC) of CBOEVIX.</td>
+                                                <td>cboe_vix.php</td>
+                                            </tr>
+                                            <tr>
+                                                <td>economic_data</td>
+                                                <td>7</td>
+                                                <td>Stores economical event information like budget,fomc meeting.</td>
+                                                <td>BlissEventCalendar.php</td>
+                                            </tr>
+                                            
+                                        </tbody>
+			</table>
+                        
+                                    <br>
+                                   <div class="row">
+                       <div class="col-lg-6 col-md-6 col-sm-6"><div class="panel-heading ">earning2 structure </div>   </div>
+                       <br><br>
+                               
+                              <table  class=" table table-striped text-center" width="100%">
+					<thead>
+						<tr>
+							<th>column </th>
+							<th>Type</th>
+							<th>Description </th>
+							                       
+						</tr>
+					</thead>
+                                        <tbody>
+                                            
+                                            <tr>
+                                                <td>id</td>
+                                                <td>int(5)</td>
+                                                <td>record identification number</td>
+                                              
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>name</td>
+                                                <td>varchar(30)</td>
+                                                <td>Stock NSE Code</td>
+                                               
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>d_name</td>
+                                               <td>varchar(50)</td>
+                                                <td>Stock name for display</td>
+                                                
+                                                
+                                            </tr>
+                                             <tr>
+                                                <td>date</td>
+                                                <td>date</td>
+                                                <td>date on which quarterly result declared</td>
+                                                                                                
+                                            </tr>
+                                            <tr>
+                                                <td>time</td>
+                                                <td>time</td>
+                                                <td>time at which quarterly result announced</td>
+                                                                                                
+                                            </tr>
+                                             <tr>
+                                                <td>max_change</td>
+                                               <td>float</td>
+                                                <td>maximum change on result day from all records of particular stock</td>
+                                                
+                                                
+                                            </tr>
+                                             <tr>
+                                                <td>change</td>
+                                                <td>float</td>
+                                                <td>Change in percent in stock value from previous close to close</td>
+                                                                                                
+                                            </tr>
+                                            <tr>
+                                                <td>open</td>
+                                                <td>float</td>
+                                                <td>open price of stock on result declaration day</td>
+                                              
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>high</td>
+                                                <td>float</td>
+                                                <td>high price of stock on result declaration day</td>
+                                               
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>low</td>
+                                               <td>float</td>
+                                                <td>low price of stock on result declaration day</td>
+                                                
+                                                
+                                            </tr>
+                                             <tr>
+                                                <td>close</td>
+                                                <td>float</td>
+                                                <td>close price of stock on result declaration day</td>
+                                                                                                
+                                            </tr>
+                                            <tr>
+                                                <td>p_close</td>
+                                                <td>float</td>
+                                                <td>previous close price of stock on result declaration day</td>
+                                                                                                
+                                            </tr>
+                                             <tr>
+                                                <td>movement</td>
+                                               <td>float</td>
+                                                <td>change in high with respect to low</td>
+                                                
+                                                
+                                            </tr>
+                                             <tr>
+                                                <td>max_Movement</td>
+                                                <td>float</td>
+                                                <td>maximum movement on result day from all records of particular stock</td>
+                                                                                                
+                                            </tr>
+                                            <tr>
+                                                <td>min_Movement</td>
+                                                <td>float</td>
+                                                <td>minimum movement on result day from all records of particular stock</td>
+                                                                                                
+                                            </tr>
+                                        </tbody>
+			</table>
+                               
+                     </div>
+                               
+                                    <br>
+                                      <div class="row">
+                       <div class="col-lg-6 col-md-6 col-sm-6"><div class="panel-heading ">indiavix structure </div>   </div>
+                       <br><br>
+                               
+                              <table  class=" table table-striped text-center" width="100%">
+					<thead>
+						<tr>
+							<th>column </th>
+							<th>Type</th>
+							<th>Description </th>
+							                       
+						</tr>
+					</thead>
+                                        <tbody>
+                                            
+                                            <tr>
+                                                <td>id</td>
+                                                <td>int(5)</td>
+                                                <td>record identification number</td>
+                                              
+                                                
+                                            </tr>
+                                             <tr>
+                                                <td>date</td>
+                                                <td>date</td>
+                                                <td>date of trading</td>
+                                                                                                
+                                            </tr>
+                                             <tr>
+                                                <td>open</td>
+                                                <td>float</td>
+                                                <td>open price of indiavix on  day</td>
+                                              
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>high</td>
+                                                <td>float</td>
+                                                <td>high price of indiavix on day</td>
+                                               
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>low</td>
+                                               <td>float</td>
+                                                <td>low price of indiavix on  day</td>
+                                                
+                                                
+                                            </tr>
+                                             <tr>
+                                                <td>close</td>
+                                                <td>float</td>
+                                                <td>close price of indiavix on day</td>
+                                                                                                
+                                            </tr>
+                                            <tr>
+                                                <td>p_close</td>
+                                                <td>float</td>
+                                                <td>previous close price of indiavix on  day</td>
+                                                                                                
+                                            </tr>
+                                             <tr>
+                                                <td>change</td>
+                                                <td>float</td>
+                                                <td>Change in stock value from previous close to close</td>
+                                                                                                
+                                            </tr>
+                                             <tr>
+                                                <td>per_change</td>
+                                                <td>float</td>
+                                                <td>Change in percent in stock value from previous close to close</td>
+                                                                                                
+                                            </tr>
+                                             <tr>
+                                                <td>nse_open</td>
+                                                <td>float</td>
+                                                <td>open price of nifty on  day</td>
+                                              
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>nse_high</td>
+                                                <td>float</td>
+                                                <td>high price of nifty on day</td>
+                                               
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>nse_low</td>
+                                               <td>float</td>
+                                                <td>low price of nifty on  day</td>
+                                                
+                                                
+                                            </tr>
+                                             <tr>
+                                                <td>nse_close</td>
+                                                <td>float</td>
+                                                <td>close price of nifty on day</td>
+                                                                                                
+                                            </tr>
+                                            <tr>
+                                                <td>nse_pre_close</td>
+                                                <td>float</td>
+                                                <td>previous close price of nifty on  day</td>
+                                                                                                
+                                            </tr>
+                                             <tr>
+                                                <td>nse_change</td>
+                                                <td>float</td>
+                                                <td>Change in nifty value from previous close to close</td>
+                                                                                                
+                                            </tr>
+                                             <tr>
+                                                <td>nse_per_change</td>
+                                                <td>float</td>
+                                                <td>Change in percent in nifty value from previous close to close</td>
+                                                                                                
+                                            </tr>
+                                            
+                                        </tbody>
+			</table>
+                               
+                     </div>
+                                       <div class="row">
+                       <div class="col-lg-6 col-md-6 col-sm-6"><div class="panel-heading ">cboevix structure </div>   </div>
+                       <br><br>
+                               
+                              <table  class=" table table-striped text-center" width="100%">
+					<thead>
+						<tr>
+							<th>column </th>
+							<th>Type</th>
+							<th>Description </th>
+							                       
+						</tr>
+					</thead>
+                                        <tbody>
+                                            
+                                           <tr>
+                                                <td>id</td>
+                                                <td>int(5)</td>
+                                                <td>record identification number</td>
+                                              
+                                                
+                                            </tr>
+                                             <tr>
+                                                <td>date</td>
+                                                <td>date</td>
+                                                <td>date of trading</td>
+                                                                                                
+                                            </tr>
+                                             <tr>
+                                                <td>open</td>
+                                                <td>float</td>
+                                                <td>open price of cboevix on  day</td>
+                                              
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>high</td>
+                                                <td>float</td>
+                                                <td>high price of cboevix on day</td>
+                                               
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>low</td>
+                                               <td>float</td>
+                                                <td>low price of cboevix on  day</td>
+                                                
+                                                
+                                            </tr>
+                                             <tr>
+                                                <td>close</td>
+                                                <td>float</td>
+                                                <td>close price of cboevix on day</td>
+                                                                                                
+                                            </tr>
+                                            
+                                             </tbody>
+			</table>
+                               
+                     </div>
+                                <div class="row">
+                       <div class="col-lg-6 col-md-6 col-sm-6"><div class="panel-heading ">economic structure </div>   </div>
+                       <br><br>
+                               
+                              <table  class=" table table-striped text-center" width="100%">
+					<thead>
+						<tr>
+							<th>column </th>
+							<th>Type</th>
+							<th>Description </th>
+							                       
+						</tr>
+					</thead>
+                                        <tbody>
+                                            
+                                            <tr>
+                                                <td>id</td>
+                                                <td>int(5)</td>
+                                                <td>record identification number</td>
+                                              
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>event</td>
+                                                <td>varchar(50)</td>
+                                                <td>Financial/Business Event name</td>
+                                               
+                                                
+                                            </tr>
+                                            
+                                             <tr>
+                                                <td>date</td>
+                                                <td>date</td>
+                                                <td>date on which quarterly result declared</td>
+                                                                                                
+                                            </tr>
+                                            <tr>
+                                                <td>time</td>
+                                                <td>time</td>
+                                                <td>time at which quarterly result announced</td>
+                                                                                                
+                                            </tr>
+                                            <tr>
+                                                <td>actual</td>
+                                               <td>varchar(15)</td>
+                                                <td>actual impact of event</td>
+                                                
+                                                
+                                            </tr>
+                                             <tr>
+                                                <td>forecast</td>
+                                               <td>varchar(20)</td>
+                                                <td>impact assumption</td>
+                                                
+                                                
+                                            </tr>
+                                             <tr>
+                                                <td>previous</td>
+                                                <td>varchar(20)</td>
+                                                <td>Last impact of event</td>
+                                                                                                
+                                            </tr>
+                                            
+                                             </tbody>
+			</table>
+                               
+                     </div>
+                       
+                           </div>
+                         
+                    </div>
+                       
+              
+                   
+                
+              
+               
+                </div>
+            <div class="col-lg-2 col-md-2 col-sm-2">
+
+            </div>
+           </div>
+           </div>
+         <div id="wrapper1" class="footer1 panel-body">
+			
+			<?php
+                        include 'news_ticker_footer.php';
+                        
+                        ?>
+		</div>
+                     
+        <?php
+
+    include("html/footer.html");
+?>  
+</body>
+</html>

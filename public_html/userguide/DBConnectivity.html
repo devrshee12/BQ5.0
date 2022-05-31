@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html>
+    <head>
+        <title>Database Connection Document</title>   
+         <link rel="shortcut icon" href="../bliss_icon.ico" >
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+       <script src="../js/jquery-1.9.1.js"></script>
+      <!--   <script src="js/jquery-ui.js"></script>-->
+       
+       <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.4-dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.4-dist/css/custom.css" />
+      <link href="../font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet">
+        <script src="../bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+         <script type="text/javascript" language="javascript" src="../bootstrap-3.3.4-dist/js/jquery.carouFredSel-6.0.4-packed.js"></script>
+         <script type="text/javascript" language="javascript" src="../bootstrap-3.3.4-dist/js/news-ticker.js"></script>
+          <style>
+             .table>tbody>tr>th, .table>tbody>tr>td { 
+        color: white;
+        border-top: none !important; 
+        width:20%;
+        font-size: 13px;
+        text-align: left;
+    }
+             </style>
+           
+      
+    </head>
+    <body>         
+            <div class="row wrap">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle  btn-lg" data-toggle="collapse" data-target=".bliss-data-menu">
+                           
+                           
+                             <span class="title_all">Service-Menu</span><span class="glyphicon glyphicon-th"></span>
+                                   
+                        </button>
+                    </div> 
+                    <div class="navbar-collapse collapse bliss-data-menu">
+                     <ul class="nav nav-stacked nav-pills">
+                        <li ><a href="newsticker_doc.html"  >News Ticker</a></li>
+                         <li><a href="indiavixchart_doc.html" >India VIX CHART</a></li>
+                        <li ><a href="companiesresulttable_doc.html" >Companies' Result Table</a></li>  
+                         <li><a href="economicresult_doc.html" >Financial Result Calender And Table</a></li>
+                    
+                       <li><a href="blissproduct.html" >Bliss Product</a></li>     
+                         <li><a href="Blissservices_doc.html" >Bliss Services</a></li> 
+                          <li><a href="BlissAboutus_doc.html" >About Us</a></li> 
+                           <li><a href="worldindices_doc.html">World Indices</a></li>
+                             <li><a href="companychartandtooltip_doc.html" >Chart filtering and tooltip </a></li>
+                                  <li><a href="PriceMovementandExpctedTime.html" >Price Movement and Expected Time</a></li>
+                     <li><a href="BlissCalc_doc.html">BlissCalc</a></li>
+                             <li><a href="Blissapi_doc.html"  >Bliss API'S</a></li>
+                              <li><a href="DBConnectivity.html" class="active" >Database Connectivity</a></li>
+                                       <li><a href="DBTables_doc.html"  >Database Tables</a></li>
+                     </ul>
+                         </div>
+                 </div>
+           <div class="col-lg-8 col-md-8 col-sm-8">   
+               <div class="title_all text-center">
+                   <span style="padding-right: 30px">Database Connection Documentation  </span>  
+                   
+               </div>
+               <div >
+                 
+                 
+                  
+                   <div class="panel-body">This documentation explain database connectivity of mysql with php and functions used in connection.
+                     
+                       
+                   </div>
+                 
+                   <br> 
+                
+                   <div class="row">
+                  
+                           <div class="col-lg-12">
+                              
+                                   <table  class=" table table-striped text-center panel-body" width="100%">
+					<thead>
+						<tr>
+							<th>Method </th>
+							<th>Type</th>
+							<th>description </th>
+							<th>Page name </th>
+                                                       
+                            
+						</tr>
+					</thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>mysqli_connect</td>
+                                                <td>boolean</td>
+                                                <td>Open a new connection to the MySQL server.</td>
+                                                <td>db_connect.php</td>
+                                            </tr>
+                                            <tr>
+                                                <td>mysqli_select_db</td>
+                                                <td>boolean</td>
+                                                <td>Selects the default database to be used when performing queries against the database.</td>
+                                                <td>db_connect.php</td>
+                                            </tr>                                        
+                                            <tr>
+                                                <td>mysqli_set_charset</td>
+                                                <td>boolean</td>
+                                                <td>Sets the default client character set.</td>
+                                                <td>db_connect.php</td>
+                                            </tr>
+                                            <tr>
+                                                <td>mysqli_query</td>
+                                                <td><a href="http://php.net/manual/en/language.pseudo-types.php#language.types.mixed"> mixed </a></td>
+                                                <td>Performs a SQL queries(insert,update,delete...) on the database.</td>
+                                                <td>All connection pages</td>
+                                            </tr>
+                                            <tr>
+                                                <td>mysqli_num_rows</td>
+                                                <td> integer </a></td>
+                                                <td>Retrieves the number of rows from a result set.</td>
+                                                <td>All connection pages</td>
+                                            </tr>
+                                            <tr>
+                                                <td>mysqli_fetch_row</td>
+                                                <td><a href="http://php.net/manual/en/language.pseudo-types.php#language.types.mixed"> mixed </a></td>
+                                                <td>Get a result row as an enumerated array</td>
+                                                <td>All connection pages</td>
+                                            </tr>
+                                            <tr>
+                                                <td>mysqli_close</td>
+                                                <td>boolean</td>
+                                                <td>Closes a previously opened database connection.</td>
+                                                <td>All connection pages</td>
+                                            </tr>
+                                        </tbody>
+			</table>
+                        
+                                    <br>
+                                   <div class="row">
+                       <div class="col-lg-6 col-md-6 col-sm-6"><div class="panel-heading ">mysqli_connect Response Parameter </div>   </div>
+                       <br><br>
+                               
+                              <table  class=" table table-striped text-center" width="100%">
+					<thead>
+						<tr>
+							<th>Name </th>							
+							<th>Note </th>
+							<th>Required?</th>
+                                                        <th>Default</th>                       
+						</tr>
+					</thead>
+                                        <tbody>
+                                            
+                                            <tr>
+                                                <td>host</td>
+                                                
+                                                <td>Can be a host name or IP address</td>
+                                                <td>Required</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>username</td>
+                                                
+                                                <td>The MySQL user name</td>
+                                                <td>Required</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Password</td>
+                                               
+                                                <td>MySQL authentication password</td>
+                                                <td>Required</td>
+                                                <td></td>
+                                            </tr>
+                                             <tr>
+                                                <td>database</td>
+                                              
+                                                <td>Default database to be used when performing queries</td>
+                                                <td>Optional</td>    
+                                                <td></td>
+                                            </tr>
+                                             <tr>
+                                                <td>Port</td>
+                                               
+                                                <td>Specifies port number to attempt to connect to the MySQL server.</td>
+                                                <td>Optional</td>
+                                             <td>3306</td>
+                                            </tr>
+                                             <tr>
+                                                <td>socket</td>
+                                               
+                                                <td>Specify the socket or named pipe that should be used</td>
+                                                <td>Optional</td> 
+                                                <td>TCP</td>
+                                            </tr>
+                                        </tbody>
+			</table>
+                               
+                     </div>
+                                    <br>
+                           <div class="row">
+                       <div class="col-lg-6 col-md-6 col-sm-6"><div class="panel-heading ">mysqli_select_db Response Parameter </div>   </div>
+                       <br><br>
+                               
+                              <table  class=" table table-striped text-center" width="100%">
+					<thead>
+						<tr>
+							<th>Name </th>
+							
+							<th>Note </th>
+							<th>Required?</th>
+                                                        
+						</tr>
+                                                
+                                            <tr>
+                                                <td>link</td>
+                                                
+                                                <td>A link identifier returned by mysqli_connect</td>
+                                                <td>Required</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>dbname</td>
+                                               
+                                                <td>The Database Name</td>
+                                                <td>Required</td>                                                
+                                            </tr>
+                                           
+					</thead>
+                                        <tbody>
+                                            
+                                        </tbody>
+			</table>
+                               
+                     </div>
+                                    <div class="row">
+                       <div class="col-lg-6 col-md-6 col-sm-6"><div class="panel-heading ">mysqli_set_charset Response Parameter </div>   </div>
+                       <br><br>
+                               
+                              <table  class=" table table-striped text-center" width="100%">
+					<thead>
+						<tr>
+							<th>Name </th>
+							
+							<th>Note </th>
+							<th>Required?</th>
+                                                                    
+						</tr>
+					</thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>link</td>
+                                               
+                                                <td>A link identifier returned by mysqli_connect</td>
+                                                <td>Required</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>charset</td>
+                                               
+                                                <td>The charset to be set as default.</td>
+                                                <td>Required</td>
+                                                
+                                            </tr>
+                                           
+                                        </tbody>
+			</table>
+                               
+                     </div>
+                       
+                           </div>
+                         
+                    </div>
+                              <div class="row">
+                       <div class="col-lg-6 col-md-6 col-sm-6"><div class="panel-heading ">mysqli_query Response Parameter </div>   </div>
+                       <br><br>
+                               
+                              <table  class=" table table-striped text-center" width="100%">
+					<thead>
+						<tr>
+							<th>Attribute </th>
+							
+							<th>Note </th>
+							<th>Required?</th>
+                                                        <th>Default</th>                 
+						</tr>
+					</thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>link</td>
+                                                
+                                                <td>A link identifier returned by mysqli_connect() or mysqli_init().</td>
+                                                <td>Required</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>query</td>
+                                               
+                                                <td>The SQL query string.</td>
+                                                <td>Required</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>resultmode</td>
+                                             
+                                                <td>Either the constant MYSQLI_USE_RESULT or MYSQLI_STORE_RESULT depending on the desired behavior..</td>
+                                                <td>Optional</td>
+                                                <td>MYSQLI_STORE_RESULT</td>
+                                            </tr>
+                                            
+                                        </tbody>
+			</table>
+                               
+                     </div>
+                    <div class="row">
+                       <div class="col-lg-6 col-md-6 col-sm-6"><div class="panel-heading ">mysqli_num_rows Response Parameter </div>   </div>
+                       <br><br>
+                               
+                              <table  class=" table table-striped text-center" width="100%">
+					<thead>
+						<tr>
+							<th>Name </th>
+							
+							<th>Note </th>
+							<th>Required?</th>
+                                                        
+						</tr>
+                                                
+                                           <tr>
+                                                <td>result</td>
+                                               
+                                                <td> A result set identifier returned by mysqli_query(), mysqli_store_result() or mysqli_use_result().</td>
+                                                <td>Required</td>
+                                                
+                                            </tr>
+                                            
+                                           
+					</thead>
+                                        
+			</table>
+                               
+                     </div>
+                   <div class="row">
+                       <div class="col-lg-6 col-md-6 col-sm-6"><div class="panel-heading ">mysqli_fetch_row Response Parameter </div>   </div>
+                       <br><br>
+                               
+                              <table  class=" table table-striped text-center" width="100%">
+					<thead>
+						<tr>
+							<th>Name </th>
+							
+							<th>Note </th>
+							<th>Required?</th>
+                                                        
+						</tr>
+                                                
+                                            <tr>
+                                                <td>result</td>
+                                               
+                                                <td> A result set identifier returned by mysqli_query(), mysqli_store_result() or mysqli_use_result().</td>
+                                                <td>Required</td>
+                                                
+                                            </tr>
+                                            
+                                           
+					</thead>
+                                        
+			</table>
+                               
+                     </div>
+                  
+                   <div class="row">
+                       <div class="col-lg-6 col-md-6 col-sm-6"><div class="panel-heading ">mysqli_close Request Parameter </div>   </div>
+                       <br><br>
+                               
+                              <table  class=" table table-striped text-center" width="100%">
+					<thead>
+						<tr>
+							<th>Name </th>
+							
+							<th>Note </th>
+							<th>Required?</th>
+                                                        
+						</tr>
+                                                
+                                            <tr>
+                                                <td>link</td>
+                                              
+                                                <td>A link identifier returned by mysqli_connect() or mysqli_init()</td>
+                                                <td>Required</td>
+                                                
+                                            </tr>
+                                            
+					</thead>
+                                        
+			</table>
+                               
+                     </div>
+            
+                   
+                     <div class="row">
+                       <div class="col-lg-4 col-md-4 col-sm-4">
+                           <div class=" panel-heading ">Scenario </div > </div><br><br>
+                            <div class="panel-body">
+                                    <ul >
+                                    <li>open a new connection by mysqli_connect by passing server name, username and password and then select database by mysqli_select_db</li>
+                                    <li>select character set utf8 by mysqli_set_charset.</li>
+                                    <li>run mysql queries by mysqli_query function by passing queries in function</li>
+                                    <li>get the number of rows by mysql_num_rows and fetch the row data one by one by mysql_fetch_row function, by passing object  return from mysqli_query function</li>
+                                    <li>after receiving all data, close mysql connection by mysqli_close function</li>
+                                    
+                                </ul>
+                            </div>                         
+               
+                  
+           
+               </div>
+              
+               
+                </div>
+            <div class="col-lg-2 col-md-2 col-sm-2">
+
+            </div>
+           </div>
+           </div>
+         <div id="wrapper1" class="footer1 panel-body">
+			
+			<?php
+                        include 'news_ticker_footer.php';
+                        
+                        ?>
+		</div>
+                     
+        <?php
+
+    include("html/footer.html");
+?>  
+</body>
+</html>

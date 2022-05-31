@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html>
+    <head>
+        <title>World Indices</title>   
+         <link rel="shortcut icon" href="../bliss_icon.ico" >
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+       <script src="../js/jquery-1.9.1.js"></script>
+      <!--   <script src="js/jquery-ui.js"></script>-->
+       
+       <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.4-dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.4-dist/css/custom.css" />
+      <link href="../font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet">
+        <script src="../bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+         <script type="text/javascript" language="javascript" src="../bootstrap-3.3.4-dist/js/jquery.carouFredSel-6.0.4-packed.js"></script>
+         <script type="text/javascript" language="javascript" src="../bootstrap-3.3.4-dist/js/news-ticker.js"></script>
+          <style>
+             .table>tbody>tr>th, .table>tbody>tr>td { 
+        color: white;
+        border-top: none !important; 
+        width:20%;
+        font-size: 13px;
+        text-align: left;
+    }
+             </style>
+      
+    </head>
+    <body>         
+            <div class="row wrap">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle  btn-lg" data-toggle="collapse" data-target=".bliss-data-menu">
+                           
+                           
+                             <span class="title_all">Service-Menu</span><span class="glyphicon glyphicon-th"></span>
+                                   
+                        </button>
+                    </div> 
+                    <div class="navbar-collapse collapse bliss-data-menu">
+                     <ul class="nav nav-stacked nav-pills">
+                        <li ><a href="newsticker_doc.html"  >News Ticker</a></li>
+                         <li><a href="indiavixchart_doc.html" >India VIX CHART</a></li>
+                        <li ><a href="companiesresulttable_doc.html" >Companies' Result Table</a></li>  
+                        <li><a href="economicresult_doc.html"  >Financial Result Calender And Table</a></li>
+                        <li><a href="blissproduct.html">Bliss Product</a></li>    
+                        <li><a href="Blissservices_doc.html" >Bliss Services</a></li> 
+                        <li><a href="BlissAboutus_doc.html" >About Us</a></li>
+                         <li><a href="worldindices_doc.html" class="active">World Indices</a></li>
+                           <li><a href="companychartandtooltip_doc.html" >Chart filtering and tooltip </a></li>
+                      <li><a href="PriceMovementandExpctedTime.html" >Price Movement and Expected Time</a></li>
+                     <li><a href="BlissCalc_doc.html">BlissCalc</a></li>
+                        <li><a href="Blissapi_doc.html" >Bliss API'S</a></li>
+                             <li><a href="DBConnectivity.html" >Database Connectivity</a></li>
+                                       <li><a href="DBTables_doc.html"  >Database Tables</a></li>
+                     </ul>
+                         </div>
+                 </div>
+           <div class="col-lg-8 col-md-8 col-sm-8">   
+               <div class="title_all text-center">
+                   <span style="padding-right: 30px">World Indices Documentation</span>  
+                   
+               </div>
+               <div >
+                 
+                 
+                  
+                   <div class="panel-body">World Indices page shows live market price of various countries in tabular formate.It shows prices of sensex,nifty,cac,dac etc.
+                     
+                       
+                   </div>
+                    <table  class=" table table-striped  " >
+					<thead>
+						<tr>
+							<th>Method </th>
+							<th>URL</th>
+							<th>description </th>
+							<th>Page name </th>
+                                                       
+                            
+						</tr>
+					
+                                       
+                                            <tr>
+                                                <td>Google API</td>
+                                                <td><a href="Blissapi_doc.html" target="_blank">Google API DOC</a></td>
+                                                <td>Returns live price of script</td>
+                                                <td>world_indices_connect.php</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Yahoo API</td>
+                                                <td><a href="Blissapi_doc.html" target="_blank">Yahoo API DOC</a></td>
+                                                <td>Returns live price of script</td>
+                                                <td>world_indices_connect.php</td>
+                                            </tr>
+                                            <tr>
+                                                <td>JSON API</td>
+                                                <td><a href="Blissapi_doc.html" target="_blank">JSON API DOC</a></td>
+                                                <td>Returns value of scripts In JSON object later converted to array</td>
+                                                <td>Blissworldindex.js</td>
+                                            </tr>
+                                             <tr>
+                                                 <td>display_wi_table()</td>
+                                                <td>-</td>
+                                                <td>Use to create table dynamically</td>
+                                                <td>Blissworldindex.js</td>
+                                            </tr>
+                                             <tr>
+                                                <td>convertsystemtimeless25()</td>
+                                                <td>-</td>
+                                                <td>Use to get 25 minutes delay(-10) time then current time</td>
+                                                <td>Blissworldindex.js</td>
+                                            </tr>
+                                             <tr>
+                                                <td>convertsystemtimemore10()</td>
+                                                <td>-</td>
+                                                <td>Use to get 10 minutes ahead(+10) time then current time</td>
+                                                <td>Blissworldindex.js</td>
+                                            </tr>
+                                             <tr>
+                                                 <td>ConvertTimeformat()</td>
+                                                <td>-</td>
+                                                <td>Use to convert 24 hour time in to 12 hour time formate.</td>
+                                                <td>Blissworldindex.js</td>
+                                            </tr>
+                                            <tr>
+                                                <td>setInterval(function())</td>
+                                                <td>-</td>
+                                                <td>This function automatically run function after particular interval of time.</td>
+                                                <td>Blissworldindex.js</td>
+                                            </tr>
+                                            <tr>
+                                                <td>$(document).ready(function())</td>
+                                                <td>-</td>
+                                                <td>This will run the function when the page is loaded.</td>
+                                                <td>Blissworldindex.js</td>
+                                            </tr>
+                                       </thead>
+			</table>
+                   <br> 
+                
+               
+                    
+            
+                   
+                     <div class="row">
+                       <div class="col-lg-4 col-md-4 col-sm-4">
+                           <div class=" panel-heading ">World Indices table data scenario</div > </div><br><br>
+                            <div class="panel-body">
+                                    <ul >
+                                   <li>Data in world indices table come using JSON API.</li>
+                                   <li>When BlissWorldIndex.php is call it make call to BlissWorldIndex.js</li>
+                                   <li>In .js File initially it make call to display_wi_table() function which is use to create table dynamically. </li>
+                                   <li>From this function we are makeing call to world_indices_connect.php page. where we are taking live data from google and yahoo API.</li>
+                                   <li>In world_indices_connect.php firstly we are fatching data from yahoo API for various countries live data with there time and date and for some countries data we are using google API Where we are fatching same data.</li>
+                                   <li>All data comes in file formate which is then extracted to string using "file_get_contents()"this function reads entire file to string.</li>
+                                   <li>Then json_decode() is use to decode json object to string.</li>
+                                   <li>this this is string is divided in to multipule value and this values are save in multipule variable.</li>
+                                   <li>And lastly time is converted into GMT formate and all this data is send back to BlissWorldIndex.js File in form of json object.</li>
+                                   <li>In .js file this object is decoded and value is displayed in table using display_wi_function().</li>
+                                    </ul>
+                            </div>                         
+               
+                           <br>
+                             <div class="col-lg-4 col-md-4 col-sm-4  panel-heading ">
+                           World Indices table data color coding scenario</div > <br><br>
+                            <div class="panel-body">
+                                    <ul >
+                                        <li>In world indices page we are using various color to indicate various thing such as:-</li>
+                                        <li>Grey color :- Indicate market close.</li>
+                                        <li>White color :- Indicate Live Market.</li>
+                                        <li>Green color in last 3 column :- Indicate positive market.</li>
+                                        <li>Red color in last 3 column :- Indicate negative market.</li>
+                                        <li>To impliment this color various conditions are use.</li>
+                                        <li> firstly to show live or close market we are comparing last trade time with 15 minutes before and after system time,if last trade time is less then 15 below system time and greater then 15 minutes above system time then market is live else it is close.</li>
+                                        <li>if market is live then to determine where market is positive or negative we are comparing last trade price with zero,if it is greater then zero positive else negative .</li>
+                                    </ul>
+                            </div>                         
+               
+           
+               </div>
+               <div class="row">
+                       <div class="col-lg-4 col-md-4 col-sm-4">
+                           <div class=" panel-heading ">Response </div > </div><br><br>
+                            <div class="panel-body">
+                                   <div class="panel-body">In world indices :-<br>
+                                <div >
+                                <ul>
+                                    <li>It show world indices data in tabular format.all data are either coming from yahoo api or google api.when market is open it is shown in whilte color while close it is shown in grey color,same way when market goes up it is shown in green color while it is down it is shown in red color.</li> 
+                                </ul>
+                               </div>
+                       
+                              </div>
+                                 
+                            </div>                         
+                      
+                  
+               </div>
+               
+                </div>
+            <div class="col-lg-2 col-md-2 col-sm-2">
+
+            </div>
+           </div>
+           </div>
+         <div id="wrapper1" class="footer1 panel-body">
+			
+			<?php
+                        include 'news_ticker_footer.php';
+                        
+                        ?>
+		</div>
+                     
+        <?php
+
+    include("html/footer.html");
+?>  
+</body>
+</html>

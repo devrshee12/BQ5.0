@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html>
+    <head>
+        <title>Financial Result Calender And Table</title>   
+         <link rel="shortcut icon" href="../bliss_icon.ico" >
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+       <script src="../js/jquery-1.9.1.js"></script>
+      <!--   <script src="js/jquery-ui.js"></script>-->
+       
+       <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.4-dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.4-dist/css/custom.css" />
+      <link href="../font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet">
+        <script src="../bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+         <script type="text/javascript" language="javascript" src="../bootstrap-3.3.4-dist/js/jquery.carouFredSel-6.0.4-packed.js"></script>
+         <script type="text/javascript" language="javascript" src="../bootstrap-3.3.4-dist/js/news-ticker.js"></script>
+          <style>
+             .table>tbody>tr>th, .table>tbody>tr>td { 
+        color: white;
+        border-top: none !important; 
+        width:20%;
+        font-size: 13px;
+        text-align: left;
+    }
+             </style>
+      
+    </head>
+    <body>         
+            <div class="row wrap">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle  btn-lg" data-toggle="collapse" data-target=".bliss-data-menu">
+                           
+                           
+                             <span class="title_all">Service-Menu</span><span class="glyphicon glyphicon-th"></span>
+                                   
+                        </button>
+                    </div> 
+                    <div class="navbar-collapse collapse bliss-data-menu">
+                    <ul class="nav nav-stacked nav-pills">
+                        <li ><a href="newsticker_doc.html"  >News Ticker</a></li>
+                         <li><a href="indiavixchart_doc.html" >India VIX CHART</a></li>
+                        <li ><a href="companiesresulttable_doc.html" >Companies' Result Table</a></li>  
+                        <li><a href="economicresult_doc.html" class="active">Financial Result Calender And Table</a></li>
+                         <li><a href="blissproduct.html" >Bliss Product</a></li>      
+                           <li><a href="Blissservices_doc.html">Bliss Services</a></li> 
+                            <li><a href="BlissAboutus_doc.html" >About Us</a></li> 
+                             <li><a href="worldindices_doc.html">World Indices</a></li>
+                             <li><a href="companychartandtooltip_doc.html" >Chart filtering and tooltip </a></li>
+                          <li><a href="PriceMovementandExpctedTime.html" >Price Movement and Expected Time</a></li>
+                     <li><a href="BlissCalc_doc.html">BlissCalc</a></li>
+                        <li><a href="Blissapi_doc.html">Bliss API'S</a></li>
+                             <li><a href="DBConnectivity.html" >Database Connectivity</a></li>
+                                       <li><a href="DBTables_doc.html"  >Database Tables</a></li>
+                    </ul>
+                         </div>
+                 </div>
+           <div class="col-lg-8 col-md-8 col-sm-8">   
+               <div class="title_all text-center">
+                   <span style="padding-right: 30px">Financial Result Calender And Table Documentation  </span>  
+           
+               </div>
+               <div >
+                 
+                 
+                  
+                   <div class="panel-body">In this page we are showing data is two ways in calender and in table format.in both formate we are showing economic event and companies result at that particular day with any market holiday.
+                     
+                       
+                   </div>
+                   <table  class=" table table-striped  " >
+					<thead>
+						<tr>
+							<th>Method </th>
+							<th>URL</th>
+							<th>description </th>
+							<th>Page name </th>
+                                                       
+                            
+						</tr>
+					
+                                       
+                                            <tr>
+                                                <td>JSON API</td>
+                                                <td><a href="Blissapi_doc.html" target="_blank">JSON API DOC</a></td>
+                                                <td>Returns value of scripts In JSON object later converted to array</td>
+                                                <td>BlissEventCalender.js</td>
+                                            </tr>
+                                             <tr>
+                                                 <td>$.post()</td>
+                                                <td>-</td>
+                                                <td>Use to fetch data from calender_connect.php.</td>
+                                                <td>BlissEventCalender.js</td>
+                                            </tr>
+                                             <tr>
+                                                <td>createcalender()</td>
+                                                <td>-</td>
+                                                <td>Use to create calender</td>
+                                                <td>BlissEventCalender.js</td>
+                                            </tr>
+                                             <tr>
+                                                <td>changedate() </td>
+                                                <td>-</td>
+                                                <td>Use to change current date to next or previous date.</td>
+                                                <td>BlissEventCalender.js</td>
+                                            </tr>
+                                             <tr>
+                                                 <td>checkevents() </td>
+                                                <td>-</td>
+                                                <td>Use to check whether any event is there or not on that day.</td>
+                                                <td>BlissEventCalender.js</td>
+                                            </tr>
+                                             <tr>
+                                                 <td>showevents()</td>
+                                                <td>-</td>
+                                                <td>Use to show event for that day on tooltip.</td>
+                                                <td>BlissEventCalender.js</td>
+                                            </tr>
+                                       </thead>
+			</table>
+                 
+                   <br> 
+                
+                   <div class="row">
+                  
+                       <div class="col-lg-4 col-md-4 col-sm-4"><div class="panel-heading">Financial Calender Scenario</div> </div>
+                       <br><br>
+                           <div class="panel-body">
+                                    <ul >
+                                   <li>When BlissEventCalender.php is call it make call to BlissEventCalender.js.</li>
+                                   <li>In .js file to create financial calender we are using various functions.</li>
+                                   <li>At first using $.post() function we are fetching data from calender_connect.php to display it in calender.</li>
+                                   <li>After data is fetch createcalender() function is use to create calender.</li>
+                                   <li>changedate() function is use to change current date to previous date or next date.using this function we are also changing month and year.</li>
+                                   <li>checkevents() function is use to check whether any event is there or not at that particular date.</li>
+                                   <li>showevents() function is use to display event for that particular date.To show events for particular date we are using tooltip,when we place mouse cursor at particular date then if event isthere then at that time events will be display using tooltip.</li>
+                                   
+                                    </ul>
+                            </div> 
+                       <br>
+                       <div class="col-lg-4 col-md-4 col-sm-4"><div class="panel-heading">Financial Table Scenario</div> </div>
+                       <br><br>
+                           <div class="panel-body">
+                                    <ul>
+                                   <li>When BlissEventCalender.php is call it make call to BlissEventCalender.js.</li>
+                                   <li>In .js file to create financial table we are using datatable api and to know more about it please refer <a href="companiesresulttable_doc.html">Companiesresulttable_doc.html</a>.</li>
+                                   <li>At first using $.post() function we are fetching data from calender_connect.php to display it in calender.</li>
+                                   <li>To provide data to datatable we are getting data from EventCalender_connect.php.</li>
+                                   <li>In EventCalender_connect.php we are getting data of economic as well as companies result data.</li>
+                                   
+                                    </ul>
+                            </div>  
+                       
+                      
+                    </div>
+                   <div class="row">
+                       <div class="col-lg-4 col-md-4 col-sm-4">
+                           <div class=" panel-heading ">Response </div > </div><br><br>
+                            <div class="panel-body">
+                                   <div class="panel-body">In Calender :-<br>
+                                <div >
+                                <ul>
+                                    <li>It show companies result or economic event for particular day in calender view.if there is any result or event it is indicated using green color box,while white color circle indicate current date and blue color circle indicate holidays.</li> 
+                                </ul>
+                               </div>
+                       
+                              </div>
+                                 <div class="panel-body">In tabular form:-<br>
+                                <div >
+                                <ul>
+                                    <li>It show same data which is shown in calender in tabular format.here user can see week data together or month data together using filter mechanism</li> 
+                                </ul>
+                               </div>
+                       
+                              </div>
+                            </div>                         
+                      
+                  
+               </div>
+              
+               
+                </div>
+            <div class="col-lg-2 col-md-2 col-sm-2">
+
+            </div>
+           </div>
+           </div>
+         <div id="wrapper1" class="footer1 panel-body">
+			
+			<?php
+                        include 'news_ticker_footer.php';
+                        
+                        ?>
+		</div>
+                     
+        <?php
+
+    include("html/footer.html");
+?>  
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html>
+    <head>
+        <title>Chart filtering and tooltip</title>   
+         <link rel="shortcut icon" href="../bliss_icon.ico" >
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+       <script src="../js/jquery-1.9.1.js"></script>
+      <!--   <script src="js/jquery-ui.js"></script>-->
+       
+       <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.4-dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.4-dist/css/custom.css" />
+      <link href="../font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet">
+        <script src="../bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+         <script type="text/javascript" language="javascript" src="../bootstrap-3.3.4-dist/js/jquery.carouFredSel-6.0.4-packed.js"></script>
+         <script type="text/javascript" language="javascript" src="../bootstrap-3.3.4-dist/js/news-ticker.js"></script>
+          <style>
+             .table>tbody>tr>th, .table>tbody>tr>td { 
+        color: white;
+        border-top: none !important; 
+        width:20%;
+        font-size: 13px;
+        text-align: left;
+    }
+             </style>
+      
+    </head>
+    <body>         
+            <div class="row wrap">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle  btn-lg" data-toggle="collapse" data-target=".bliss-data-menu">
+                           
+                           
+                             <span class="title_all">Service-Menu</span><span class="glyphicon glyphicon-th"></span>
+                                   
+                        </button>
+                    </div> 
+                    <div class="navbar-collapse collapse bliss-data-menu">
+                     <ul class="nav nav-stacked nav-pills">
+                        <li ><a href="newsticker_doc.html"  >News Ticker</a></li>
+                         <li><a href="indiavixchart_doc.html" >India VIX CHART</a></li>
+                        <li ><a href="companiesresulttable_doc.html" >Companies' Result Table</a></li>  
+                        <li><a href="economicresult_doc.html">Financial Result Calender And Table</a></li>
+                         <li><a href="blissproduct.html" >Bliss Product</a></li>      
+                           <li><a href="Blissservices_doc.html">Bliss Services</a></li> 
+                            <li><a href="BlissAboutus_doc.html" >About Us</a></li> 
+                             <li><a href="worldindices_doc.html">World Indices</a></li>
+                             <li><a href="companychartandtooltip_doc.html" class="active">Chart filtering and tooltip </a></li>
+                         <li><a href="PriceMovementandExpctedTime.html" >Price Movement and Expected Time</a></li>
+                     <li><a href="BlissCalc_doc.html">BlissCalc</a></li>
+                        <li><a href="Blissapi_doc.html"  >Bliss API'S</a></li>
+                             <li><a href="DBConnectivity.html" >Database Connectivity</a></li>
+                                       <li><a href="DBTables_doc.html"  >Database Tables</a></li>
+                     </ul>
+                         </div>
+                 </div>
+           <div class="col-lg-8 col-md-8 col-sm-8">   
+               <div class="title_all text-center">
+                   <span style="padding-right: 30px">Chart filtering and tooltip Documentation  </span>  
+           
+               </div>
+               <div >
+                 
+                 
+                  
+                   <div class="panel-body">
+                     Filtering mechanism is use to display data day wise,month wise,year wise or any custom range selected by user.this mechanism is use in companies result page,financial calander page,india vix page. 
+                       
+                   </div>
+             
+                   <br> 
+                
+                   <div class="row">
+                  
+                       <div class="col-lg-4 col-md-4 col-sm-4"><div class="panel-heading">Filtering mechanism</div> </div>
+                       <br><br>
+                           <div class="panel-body">
+                                    <ul >
+                                   <li>Filtering mechanism is created using javascript.</li>
+                                   <li>In this mechanism by default day is selected.when day is selected data for that particular day is display.</li>
+                                   <li>If user select week from dropdown then data of last seven days from current date is display in table.</li>
+                                   <li>When week is selected firstly we are fetching current system date and store it in one variable and to get 7 th day date we are subtracting 7 from current date.</li>
+                                   <li>same process is done when month is selected we subtract 30 from current date and when year is selected we are adding 1 to year.</li>
+                                   <li>when user click this "<<" we are showing previous data according to the selected range.if week is selected then previous week ,if month then previous month etc</li>
+                                   <li>When user click this ">>" we are showing next data according to the selected range.if week is selected then next week,if month then next month etc. </li>
+                                   <li>When user enter custom range then for that particular period data is display.</li>
+                                   
+                                    </ul>
+                            </div> 
+                       <br>
+                       <div class="col-lg-4 col-md-4 col-sm-4"><div class="panel-heading">Tooltip</div> </div>
+                       <br><br>
+                           <div class="panel-body">
+                                    <ul>
+                                   <li>Tooltip is use to display information on mouse hover at particular position on chart.</li>
+                                   <li>Using tooltip we are displaying OHLC information with date,previous change,close info also.</li>
+                                   <li>For tooltip generateChartData() Function is use.</li>
+                                   <li>In this function first we are getting data from ohlc_connect.php in JSON object.</li>
+                                   <li>Then this data is store in variables and this variables are display useing "Baloon Text" in chart.</li>
+                                    </ul>
+                            </div> 
+                       
+                        <table  class=" table table-striped text-center panel-body" width="100%">
+					<thead>
+						<tr>
+							<th>Method </th>
+							<th>URL</th>
+							<th>description </th>
+							<th>Page name </th>
+                                                       
+                            
+						</tr>
+					</thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>make_chart</td>
+                                                <td>-</td>
+                                                <td>Generate OHLC chart for companies result data.</td>
+                                                <td>BlissEarnings.js</td>
+                                            </tr>
+                                            <tr>
+                                                <td>generateChartData</td>
+                                                <td>-</td>
+                                                <td>generate data for ohlc chart.</td>
+                                                <td>BlissEarnings.js</td>
+                                            </tr>
+                                            <tr>
+                                                <td>zoomchart</td>
+                                                <td>-</td>
+                                                <td>Use to fetch data on mouse movement in amChart</td>
+                                                <td>BlissEarnings.js</td>
+                                            </tr>
+                                             <tr>
+                                                <td>showchart</td>
+                                                <td>-</td>
+                                                <td>Use to show ohlc chart on click event</td>
+                                                <td>BlissEarnings.js</td>
+                                            </tr>
+                                             <tr>
+                                                <td>tconvert</td>
+                                                <td>-</td>
+                                                <td>converting time to 12 hr format.</td>
+                                                <td>BlissEarnings.js</td>
+                                            </tr>
+                                           
+                                            <tr>
+                                                <td>$(document).on('click', function(e))</td>
+                                                <td>-</td>
+                                                <td>This function run when user perform click event then particular function is run.</td>
+                                                <td>BlissEarnings.js</td>
+                                            </tr>
+                                            <tr>
+                                                <td>$(document).ready(function())</td>
+                                                <td>-</td>
+                                                <td>This function runs the function when page is load.</td>
+                                                <td>BlissEarnings.js</td>
+                                            </tr>
+                                        </tbody>
+			</table>
+                       
+                       <br><br>
+                            <div class="row">
+                       <div class="col-lg-4 col-md-4 col-sm-4"><div class="panel-heading ">makeChart Request Parameter </div>   </div>
+                       <br><br>
+                               
+                              <table  class=" table table-striped text-center" width="100%">
+					<thead>
+						<tr>
+							<th>Attribute </th>
+							<th>Type</th>
+							<th>Note </th>
+							<th>Required?</th>
+                                                        <th>Default</th>
+                                                       
+                            
+						</tr>
+					</thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>type</td>
+                                                <td>String</td>
+                                                <td>Type of a chart. Required when creating chart using JSON.<br> Possible types are: serial, pie, xy, radar, funnel, gauge, map, stock. </td>
+                                                <td>Yes</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>theme</td>
+                                                <td>String</td>
+                                                <td>Theme of a chart. Config files of themes can be found in amcharts/themes/ folder.</td>
+                                                <td>Yes</td>
+                                                <td>none</td>
+                                            </tr>
+                                            <tr>
+                                                <td>color</td>
+                                               <td>Color</td>
+                                                <td>Text color.</td>
+                                                <td>Yes</td>
+                                                <td>#000000</td>
+                                            </tr>
+                                             <tr>
+                                                <td>pathToImages</td>
+                                                <td>String</td>
+                                                <td>Specifies path to the folder where images are store. </td>
+                                                <td>Yes</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>dataProvider</td>
+                                              <td>Array[Object]	</td>
+                                                <td>Array of data objects </td>
+                                                <td>Yes</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>valueAxes</td>
+                                               <td>Array[ValueAxis]</td>
+                                                <td>The array of value axes. Chart creates one value axis automatically, <br>so if you need only one value axis, you don't need to create it.</td>
+                                                <td>Yes</td>
+                                                <td>ValueAxis</td>
+                                            </tr>
+                                            <tr>
+                                                <td>graphs</td>
+                                                <td>Array[AmGraph]</td>
+                                                <td>The array of graphs belonging to this chart.details like:- id, BalloonText :- 'text to be display in tool tip<br>type :- 'type of chart to be display.', lineThickness etc.</td>
+                                                <td>Yes</td>
+                                                <td></td>
+                                            </tr>
+                                             <tr>
+                                                <td>legend</td>
+                                                <td>AmLegend</td>
+                                                <td>Legend of a chart.details at end of chart like company name,close > Previous close,close < Previous close. </td>
+                                                <td>Yes</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>chartScrollbar</td>
+                                              <td>ChartScrollbar</td>
+                                                <td>Chart's scrollbar. </td>
+                                                <td>Yes</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>chartCursor</td>
+                                               <td>ChartCursor</td>
+                                                <td>Cursor of a chart.</td>
+                                                <td>Yes</td>
+                                                <td></td>
+                                            </tr>
+                                          
+                                        </tbody>
+			</table>
+                               
+                     </div>
+                    </div>
+                  
+              
+               
+                </div>
+            <div class="col-lg-2 col-md-2 col-sm-2">
+
+            </div>
+           </div>
+           </div>
+         <div id="wrapper1" class="footer1 panel-body">
+			
+			<?php
+                        include 'news_ticker_footer.php';
+                        
+                        ?>
+		</div>
+                     
+        <?php
+
+    include("html/footer.html");
+?>  
+</body>
+</html>

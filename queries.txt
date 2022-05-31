@@ -1,0 +1,131 @@
+9// select data from table and insert to another table
+
+INSERT INTO spread_adanipower_adaniports( s_name, date, time, vol1, vol2, vol_difference )
+SELECT "Adani Power - Adani Ports", vol_adaniports.date, vol_adaniports.Time, ROUND( vol_adanipower.ATM_vol, 2 ) , ROUND( vol_adaniports.ATM_vol, 2 ) , ROUND( vol_adaniports.ATM_vol - vol_adanipower.ATM_vol, 2 )
+FROM vol_adaniports, vol_adanipower
+WHERE vol_adaniports.date = vol_adanipower.date
+AND vol_adaniports.time = vol_adanipower.time
+
+// for particular date
+
+INSERT INTO spread_adanipower_adaniports( s_name, date, time, vol1, vol2, vol_difference )
+SELECT "Adani Power - Adani Ports", vol_adaniports.date, vol_adaniports.Time, ROUND( vol_adanipower.ATM_vol, 2 ) , ROUND( vol_adaniports.ATM_vol, 2 ) , ROUND( vol_adaniports.ATM_vol - vol_adanipower.ATM_vol, 2 )
+FROM vol_adaniports, vol_adanipower
+WHERE vol_adaniports.date = vol_adanipower.date
+AND vol_adaniports.time = vol_adanipower.time AND vol_adaniports.date > '2015-03-09'
+
+// create table structure same as another table
+
+CREATE TABLE spread_axis_icici AS
+   SELECT *
+   FROM spread_adanipower_adaniports where 1 = 2;
+
+SELECT ROUND( vol_adanipower.ATM_vol, 2 ) , ROUND( vol_adaniports.ATM_vol, 2 ) , ROUND( vol_adaniports.ATM_vol - vol_adanipower.ATM_vol, 2 )FROM vol_adanipower, vol_adaniports WHERE vol_adanipower.date = vol_adaniports.date  AND vol_adanipower.time = vol_adaniports.time order by id DESC limit 1
+
+//create table same as another table.
+CREATE TABLE vol_BAJFINANCE LIKE vol_acc;
+
+//change table type
+ALTER TABLE table_name ENGINE=InnoDB;
+
+//delete same data
+DELETE e1 FROM earning2 AS e1 JOIN earning2 AS e2 WHERE 
+e1.name=e2.name AND e1.date=e2.date AND e1.time=e2.time AND e1.changes=e2.changes
+AND e1.id < e2.id
+
+//calculating maximum movement in earning table
+UPDATE earning2,
+(
+SELECT name, Min( Abs( movement ) ) AS minmovForUser
+FROM earning2  where movement <> 0
+GROUP BY name
+)t
+SET min_Movement = ROUND(t.minmovForUser,1) WHERE earning2.name = t.name
+
+//calculating minimum movement in earning table
+UPDATE earning2,
+(
+SELECT name, Max( Abs( movement ) ) AS maxmovForUser
+FROM earning2  where movement <> 0
+GROUP BY name
+)t
+SET max_Movement = ROUND(t.maxmovForUser,1) WHERE earning2.name = t.name
+
+//Calcutaing movement in percentage
+UPDATE `earning2`,
+(
+SELECT `id`, `high` as h,`low` as l 
+FROM earning2
+)t
+SET `movement` = ROUND(((t.h-t.l)/t.l)*100,2) WHERE earning2.id = t.id
+
+*Query For Delete same data:
+
+DELETE n1 FROM vol_kscl n1, vol_kscl n2 WHERE n1.entry_number > n2.entry_number AND n1.date = n2.date and n1.ATM = n2.ATM and n1.volume = n2.volume and n1.options = n2.options 
+
+
+*Query For Drope (change) Primary key :
+
+ALTER TABLE `equity_data` DROP PRIMARY KEY, CHANGE entry_number entry_number int(11), add primary key(name,date, volume) 
+
+//to add new column in all vol_* table...
+SELECT CONCAT( 'ALTER TABLE `', table_name, '`  ADD COLUMN volume FLOAT NOT NULL, ADD COLUMN delta FLOAT NOT NULL;' ) AS ddl
+FROM information_schema.tables
+WHERE table_schema = 'bliss'
+AND table_name LIKE 'vol%'
+
+
+SELECT CONCAT( 'UPDATE `', table_name, '` SET result = CurrentID + 1
+WHERE ID = "1" ;' ) AS ddl
+FROM information_schema.tables
+WHERE table_schema = 'bliss_vol_all'
+AND table_name LIKE 'vol%'
+
+
+//to update auto increment table
+SET @a = 0;  
+UPDATE `vol_ibulhsgfin` SET entry_number = @a:=@a+1;
+
+//replace value in table
+ UPDATE `earning2`
+ SET `d_name` = replace(d_name, 'BHEL', 'Bharat Heavy ELectricals')
+
+//get occurence of scrip in sudden_movement table
+SELECT script,COUNT(*) as count FROM `sudden_movement` where date between '2016-09-01' and '2016-09-09' GROUP BY script ORDER BY count ASC
+
+//get queriies for collar(get atm of call and put)
+select ctable.a,ctable.p,ctable.v,ctable.o,ctable.d, ptable.a,ptable.p,ptable.v,ptable.o,ptable.d from (select ATM as a ,ATM_price as p,ATM_vol as v,Options as o,delta as d from `vol_ashokley` where date = '2016-11-18' and time = '10:35:56' and options='CE' and delta between '0.1' and '0.4' limit 1) as ctable,(select ATM as a ,ATM_price as p,ATM_vol as v,Options as o,delta as d from `vol_ashokley` where date = '2016-11-18' and time = '10:35:56' and options='PE' and delta between '0.1' and '0.4' limit 1) as ptable
+
+select "vol_zeel",ctable.a,ctable.p,ctable.v,ctable.o,ctable.d, ptable.a,ptable.p,ptable.v,ptable.o,ptable.d from (select ATM as a ,ATM_price as p,ATM_vol as v,Options as o,delta as d from `vol_zeel` where date = "2016-11-18" and time = "10:35:56" and options="CE" and delta between "0.1" and "0.4" limit 1) as ctable,(select ATM as a ,ATM_price as p,ATM_vol as v,Options as o,delta as d from `vol_zeel` where date = "2016-11-18" and time = "10:35:56" and options="PE" and delta between "0.1" and "0.4" limit 1) as ptable
+
+
+SELECT CONCAT( 'select "', table_name , '",ctable.a,ctable.p,ctable.v,ctable.o,ctable.d, ptable.a,ptable.p,ptable.v,ptable.o,ptable.d from (select ATM as a ,ATM_price as p,ATM_vol as v,Options as o,delta as d from `', table_name, '` where date = "2016-11-18" and time = "10:35:56" and options="CE" and delta between "0.1" and "0.4" order by delta desc limit 1) as ctable,(select ATM as a ,ATM_price as p,ATM_vol as v,Options as o,delta as d from `', table_name, '` where date = "2016-11-18" and time = "10:35:56" and options="PE" and delta between "0.1" and "0.4" order by delta desc limit 1) as ptable ;' ) AS ddl FROM information_schema.tables WHERE table_schema = 'bliss_vol_all' AND table_name LIKE 'vol%'
+
+SELECT CONCAT( 'select "', table_name , '",ctable.s,ctable.a,ctable.p,ctable.v,ctable.o,ctable.d, ptable.a,ptable.p,ptable.v,ptable.o,ptable.d from (select spot as s,ATM as a ,ATM_price as p,ATM_vol as v,Options as o,delta as d from `', table_name, '` where date = "2016-11-18" and time between "10:00:00" and "11:00:00" and options="CE" and delta between "0.1" and "0.4" order by delta desc limit 1) as ctable,(select ATM as a ,ATM_price as p,ATM_vol as v,Options as o,delta as d from `', table_name, '` where date = "2016-11-18" and time between "10:00:00" and "11:00:00" and options="PE" and delta between "0.1" and "0.4" order by delta desc limit 1) as ptable ;' ) AS ddl FROM information_schema.tables WHERE table_schema = 'bliss_vol_all' AND table_name LIKE 'vol%'
+
+//delete wrong value of vol in between
+SET @a = 0;  
+UPDATE `vol_ibulhsgfin` SET entry_number = @a:=@a+1;
+/*first set entry number and then delete*/
+DELETE n2 FROM `vol_arvind` n1, `vol_arvind` n2,`vol_arvind` n3 WHERE n1.entry_number < n2.entry_number and n2.entry_number < n3.entry_number AND n2.entry_number < n1.entry_number + 3 AND n3.entry_number < n2.entry_number + 3 AND ABS(n1.ATM_vol - n2.ATM_vol) > 8 and ABS(n2.ATM_vol - n3.ATM_vol) > 8
+//get delete redundant data
+DELETE entry_number FROM entry_number n1, entry_number n2 WHERE n1.id > n2.id AND n1.date = n2.date and n1.
+
+//get list of max and min value for particular date
+SELECT date AS daygroup, MAX(ATM_vol) AS max_value, MIN(ATM_vol) AS min_value FROM `vol_dlf` WHERE date >= (CURDATE() - INTERVAL 7 DAY) GROUP BY daygroup
+//get max and min value with their time
+SELECT t.date ,t.time, t.ATM_vol FROM `vol_dlf` as t Inner JOIN (select date AS daygroup,time,MAX(ATM_vol) AS max_value from `vol_dlf` WHERE date >= (CURDATE() - INTERVAL 7 DAY) GROUP BY daygroup) AS p ON t.ATM_vol = p.max_value and t.date = p.daygroup
+SELECT t.date ,t.time, t.ATM_vol FROM `vol_dlf` as t Inner JOIN (select date AS daygroup,time,MIN(ATM_vol) AS min_value from `vol_dlf` WHERE date >= (CURDATE() - INTERVAL 7 DAY) GROUP BY daygroup) AS p ON t.ATM_vol = p.min_value and t.date = p.daygroup
+
+//SELECT t.date ,p.time, t.ATM_vol FROM `vol_dlf` as t Inner JOIN (select date AS daygroup,time,MAX(ATM_vol) AS max_value from `vol_dlf` Having MAX(ATM_vol) = ATM_vol) AS p ON t.ATM_vol = p.max_value and t.date = p.daygroup and t.time = p.time
+
+//SELECT t.date ,p.time, t.ATM_vol FROM `vol_dlf` as t Inner JOIN (select date AS daygroup,time,MAX(ATM_vol) AS max_value from `vol_dlf` WHERE date >= (CURDATE() - INTERVAL 7 DAY) GROUP BY daygroup) AS p ON t.ATM_vol = p.max_value and t.date = p.daygroup and t.time = p.time
+
+//replace text or time to change hour format
+UPDATE `vol_mcx` SET `time` = replace(time, '01:', '13:')
+
+// update on duplicate same entry according to primary/unique key
+INSERT INTO daily_m2m(date,Leader_Name,code,Name,odin_code,yesterdaym2m,todaym2m,theta,sheet,current_margin,margin_limit,day_before_yesterday_m2m,morning_attendance,position,ten_up,ten_down) VALUES ('2017-05-05','Rupak','J678','Vineet Jain','ZZJ 211','','','','','','','','','','','') ON DUPLICATE KEY UPDATE yesterdaym2m='',todaym2m='',theta='',sheet='',day_before_yesterday_m2m='',current_margin='',morning_attendance='',position='',ten_up='',ten_down=''
+
+//get special character from column
+SELECT * FROM `companies` WHERE `c_name` REGEXP '[^a-zA-Z0-9]'

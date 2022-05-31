@@ -1,0 +1,291 @@
+<style>
+      .modal-body{
+          color: #000;
+          font-size: 10px;
+      }
+      ol {
+    counter-reset: item;
+}
+
+ol > li {
+    counter-increment: item;
+}
+
+ol ol > li {
+    display: block;
+}
+
+ol ol > li:before {
+    content: counters(item, ".") ". ";
+    margin-left: -20px;
+}
+.modal-header, .modal-footer{
+    background-color: rgb(58,53,49);
+}
+.modal-header img{
+    height : 8%;
+    width: 40%;
+}
+.close{
+    color:white;
+}
+.modal-header{
+	text-align:center;
+}
+.modal-body{
+    text-align: left;
+	
+    max-height: calc(80vh - 210px);
+    overflow-y: auto;
+	
+}
+
+#myModal1{
+	top:5%;
+}
+#myModal2{
+	top:5%;
+	}
+#myModal3{
+	top:5%;
+}
+ 
+      </style> 
+ <script>
+                    var curr_link;
+                    //  var colour="black";
+                    //alert(document.URL);
+                    var splitname = document.URL.split("?", 1);
+                    //  alert(splitname);
+                    for (var i = 0; i < document.links.length; i++) {
+
+
+
+                        if (document.links[i].href == splitname) {
+
+                            document.links[i].style.color = "white";
+                            if (i > 2 && i < 17) {
+                                document.links[2].style.color = "white";
+                            } else if (i > 16 && i < 25) {
+                                document.links[17].style.color = "white";
+                            }
+                            document.links[i].style.opacity = 1;
+                            curr_link = document.links[i].href;
+//alert(curr_link);
+                            var filename = curr_link.substring(curr_link.lastIndexOf('/') + 1);
+
+                        } else
+                        {
+                            //document.links[i].style.color = "#737373";
+
+                        }
+                        // document.getElementById("drop").style.color = "#000";
+                    }
+                </script>
+ <div class="footer">    
+    	 
+         <div class="col-lg-4 col-md-4 col-sm-4">
+                    
+                   <div class="navbar-text">
+                    <span style="padding-right: 30px;">  BlissQuants 2015 © All rights reserved.</span>
+                      <?php include('counter.php');?> 
+                   </div>
+                   
+                       
+               </div>
+            <div class="col-lg-5 col-md-5 col-sm-5">
+               
+               <!-- <div class="navbar-text text-center" >-->
+                    
+               <span class="navbar-text">    | <a href="BlissAboutUs.php#collapseOne" onclick="company()"> Company</a> | <a href="BlissPeople.php">Team</a> | <a href="BlissAboutUs.php#collapseThree" onclick="career()" >Career</a> | <a href="BlissAboutUs.php#collapseFive" onclick="contact()" >ContactUs</a>  | <a href="#"  data-toggle="modal" data-target="#myModal1">Disclaimer</a> | <a href="#" data-toggle="modal" data-target="#myModal3">Terms of Service</a> | <a href="#"  data-toggle="modal" data-target="#myModal2">Privacy Policy </a> |<br> </span>
+                    
+              <!-- </div>    -->
+             <!--    ABOUT:<a href="BlissAboutUs.php#collapseFour" onclick="location.reload();">Company</a>| <a href="BlissAboutUs.php#collapseThree" onclick="location.reload();" >Careers</a>| <a href="BlissAboutUs.php#collapseFive" onclick="location.reload();" >Contacts</a>| <a href="BlissPeople.php">Team</a>| <a href="BlissTrademarks.php">Trademarks</a>| <a href="BlissTermsofService.php">Terms of Service</a>| <a href="BlissPrivacyPolicy.php">Privacy Policy</a><br>
+              SUPPORT AND CONTACT:<a href="BlissContacts.php">Customer Support Contacts</a>| <a href="BlissFeedback.php">Feedback</a>| <a href="BlissHelp.php">Help</a>| <a href="BlissFAQ.php">FAQ</a>| <a href="BlissSitemap.php">Sitemap</a><br>
+              <!-- STAY CONNECTED:<a href="https://plus.google.com/102026315992894389242/about">Twitter</a>| Facebook| Linked In| goggle+<br>-->
+            <!--   MOBILE APPS:<a href="BlissCalc.php">BlissCalc</a>| <a href="BlissStrag.php">BlissStrag</a><br>-->
+               
+         </div>
+           
+           <div class="col-lg-3 col-md-3 col-sm-3">
+                    <ul class="social-network social-circle pull-right">
+                        <!-- <li style="display: inline"><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li> -->
+                        <li style="display: inline"><a href="https://www.facebook.com/blissquants" target="_blank" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <!--<li style="display: inline"><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li> -->
+                        <li style="display: inline"><a href="https://plus.google.com/u/0/104418184884371093173" target="_blank" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                        <li style="display: inline"><a href="https://www.linkedin.com/company/10313538" target="_blank" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>	
+           </div>
+ 
+ 
+     <div id="myModal2" class="modal fade" role="dialog" >
+    <div class="modal-dialog  ">
+      <div class="modal-content ">
+        <div class="modal-header">
+             <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <img src="blissquant2.jpg" alt="Bliss Image" >
+        </div>
+        <div class="modal-body">
+           
+       
+<div class="panel-heading title_all text-center">   Privacy Policy  </div>    
+
+The User's right to privacy is of paramount importance to BlissQuants. Any information provided by the User will not be shared with any third party, except for the intended purpose for which such information is provided by the User, in which case User’s consent is implied. BlissQuants reserves the right to use the information to provide the User a more personalized online experience.
+<br><br>
+
+
+If the Site provides links to web sites and access to content, products and services from third parties, including users, advertisers, affiliates and sponsors of the Site, you agree that BlissQuants is not responsible for the availability of, and content provided on, third party web sites. The User is requested to peruse the policies posted by other web sites regarding privacy and other topics before use. BlissQuants is not responsible for third party content accessible through the Site, including opinions, advice, statements and advertisements, and User shall bear all risks associated with the use of such content. BlissQuants is not responsible for any loss or damage of any sort which User may incur from dealing with any third party.
+<br><br>
+
+In general, you can visit BlissQuants’s websites without telling us who you are and without revealing any information about yourself. There are times, however, when BlissQuants may need information from you. BlissQuants does not rent, sell, or share personal information about you with other people or non-affiliated companies. 
+<br><br>
+
+User may choose to give BlissQuants personal information, such as your name and address or e-mail id that may be needed, for example, to correspond with you, or to provide you with a subscription. You may send or upload your personal profile, CV, with all your personal, academic and professional background however you agree that you shall not upload or post any obscene, defamatory annoying material on the website. If you tell us that you do not want us to use this information as a basis for further contact with you, BlissQuants will respect your decision. BlissQuants intends to protect the quality and integrity of your personally identifiable information. BlissQuants will make a sincere effort to respond in a timely manner to your requests to correct inaccuracies in your personal information. To correct inaccuracies in your personal information please return the message containing the inaccuracies to BlissQuants with details of the correction requested.
+<br><br>
+
+BlissQuants sometimes collects anonymous information from visits to the Site to help us provide better customer service. BlissQuants or its affiliates or vendors may use this data to analyze trends and statistics and to help us provide better customer service. BlissQuants maintains the highest levels of confidentiality for this information, our affiliates and vendors follow the same high levels of confidentiality. This anonymous information is used and analyzed only at an aggregate level to help us understand trends and patterns. None of this information is reviewed at an individual level. If you do not want your details to be used in this manner, you can either disable your cookies or opt-out at the download or request page.
+
+  <br> <br>
+            
+        
+                 
+</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+       </div>
+    
+      <div class="modal fade modal-fixed-footer" id="myModal3" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+             <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <img src="blissquant2.jpg" alt="Bliss Image" >
+        </div>
+        <div class="modal-body">
+          
+         
+          
+        <div class="panel-heading title_all text-center">  Terms of Service  </div>     
+        Website-Usage Terms and Conditions 
+             <br> <br>
+            1.	The Site is owned, managed and operated by BlissQuants.
+             <br> <br>
+2.	You must be 18 years of age or older to visit or use the Site in any manner. In the event that you are below 18 yrs. of age, you are visiting the Site at your own risk and you alone shall be liable for your actions. By visiting this site or accepting these Terms of Use, you represent and warrant to the Company that you are 18 years of age or older, and that you have the right, authority and capacity to use the Site and agree to and abide by these Terms of Use. You also represent and warrant to the Company that you will use the Site in a manner consistent with any and all applicable laws and regulations.
+ <br> <br>
+3.	By using the Site, you agree to follow and be bound by all terms and conditions concerning your use of the Site. Certain areas of the Site may have different terms of use posted. If there is a conflict between the Terms of Use and terms of use posted for a specific area of the Site, the latter shall have precedence with respect to your use of that area of the Site.
+ <br> <br>
+4.	Our website may use cookies. By using our website and agreeing to these terms of use, you consent to our use of cookies in accordance with the terms of our privacy policy.
+ <br> <br>
+5.	BlissQuants may terminate User's access to the Site or any part thereof at any time and for any reason without any notice. The provisions regarding disclaimer of warranty, accuracy of information, software, database other system or functionality of website and indemnification shall survive such termination. BlissQuants may monitor User’s access to the Site.
+ <br> <br>
+6.	BlissQuants may change or discontinue any aspect of the Site at any time, including, its content or features. BlissQuants reserves the right to change the Terms of Use applicable to use of the Site. Such changes shall be effective immediately upon notice, which shall be placed on the Site.
+ <br> <br>
+7.	All contents on the Site are the exclusive property of BlissQuants except the third party content. The software, text, images, graphics, video and audio used on the Site belong to or are licensed to BlissQuants or its subsidiaries and affiliates. No material from the Site may be copied, modified, reproduced, republished, uploaded, transmitted, posted or distributed in any form without prior written permission from BlissQuants. All rights not expressly granted herein are reserved. Unauthorized use of the materials appearing on the Site may violate copyright, trademark and other applicable laws, and could result in criminal or civil penalties. You are granted a non-exclusive, non-transferable, limited right to access the Site and avail the services provided by BlissQuants on the Site.
+ <br> <br>
+8.	BlissQuants does not make any warranties, express or implied, with respect to any service, information, data, software, system, functionality, statements or products made available on the Site. The information contained in the Site has been obtained from sources believed to be reliable. The Site, and all content, materials, information, software and services provided on the Site, are provided on an "as is" and "as available" basis.
+ <br> <br>
+9.	BlissQuants does not warrant that the Site will operate error-free or that the Site and its servers are free of computer viruses or other harmful mechanisms. If your use of the Site or content therein results in the need for servicing or replacing equipment or data, BlissQuants is not responsible for any such costs. Site and content are provided on an "as is" basis without any warranties of any kind. BlissQuants to the fullest extent permitted by law, disclaims all warranties, whether express or implied, including the fitness for particular purpose and non-infringement. BlissQuants makes no warranties about the accuracy, reliability, completeness, or timeliness of the content, services, software, text, graphics, and links.
+ <br> <br>
+10.	BlissQuants shall not be liable for any damage to User's computer system or loss of data that result from the download of any content, materials, and information from the Site or use of any software, systems, functionality, or other services on the Site. Under no circumstances will BlissQuants be liable in any way for any content, including, but not limited to, inaccurate, false, incomplete, threatening, defamatory, obscene, offensive, illegal content, infringement of other’s rights including intellectual property rights, for any errors or omissions in any content, or for any loss or damage of any kind incurred as a result of the use of any content posted or uploaded. Further, under no circumstances, BlissQuants shall be liable for any unlawful act of the User or its affiliates, relatives, employees, agents including misuse of any data, unfair trade practices, fraud, cyber squatting, hacking and other cyber crimes. In no event shall BlissQuants be liable for damages of any kind, including without limitation, direct, incidental or consequential damages (including, but not limited to, damages for lost profits, business interruption and loss of programs or information) arising out of the use of or inability to use Site, or any information provided thereon, or any claim attributable to errors, omissions or other inaccuracies in the Site.
+ <br> <br>
+11.	You may not send, submit, post, or otherwise transmit, material or messages that contain software virus, or any other files that are designed to interrupt, destroy, and negatively affect in any manner whatsoever, any electronic equipment in connection with the use of the Site, or other user's ability to use the Site.
+ <br> <br>
+12.	You may not conduct any systematic or automated data collection activities (including scraping, data mining, data extraction and data harvesting) on or in relation to our website without our express written consent.
+ <br> <br>
+13.	You may not use our website to transmit or send unsolicited commercial communications.
+ <br> <br>
+14.	You may not use our website for any purposes related to marketing without our express written consent.
+ <br> <br>
+
+         15.	User agrees to indemnify and hold BlissQuants, its subsidiaries, affiliates, officers and employees, harmless from any claim, demand or damage, including reasonable attorney’s fees, asserted by any third party due to or arising out of your use of or conduct on the Site BlissQuants reserves the right to disclosure any personal information about you and your use of the Site including its contents, without your prior permission if BlissQuants has a good faith belief that such action is necessary to :
+ <br>          •	conform to legal requirements or comply with legal process;
+<br>•	protect and defend the rights or property of BlissQuants or its affiliated companies;
+<br>•	enforce the Terms of Use; or
+<br>•	act to protect the interest of its members or others.
+     <br> <br>
+16.	The User's right to privacy is of paramount importance to BlissQuants. Any information provided by the User will not be shared with any third party, except in the manner provided under these Terms of Use and for the intended purpose for which such information is provided by the User, in which case User’s consent is implied. BlissQuants reserves the right to use the information to provide the User a more personalized online experience.
+ <br> <br>
+17.	If the Site provides links to web sites and access to content, products and services from third parties, including users, advertisers, affiliates and sponsors of the Site, you agree that BlissQuants is not responsible for the availability of, and content provided on, third party web sites or content. The User is requested to peruse the policies posted by other web sites regarding privacy and other topics before use. BlissQuants is not responsible for third party content accessible through the Site, including opinions, advice, statements and advertisements, and User shall bear all risks associated with the use of such content. BlissQuants is not responsible for any loss or damage of any sort which User may incur from dealing with any third party.
+ <br> <br>
+18.	By using any third party content, User may leave the Site and be directed to an external website, or to a website maintained by an entity other than BlissQuants. If you decide to visit any such site, you do so at your own risk and it is your responsibility to take all protective measures to guard against viruses or any other destructive elements. BlissQuants makes no warranty or representation regarding, and does not endorse, any linked web sites or the information appearing thereon or any of the products or services described thereon. Links do not imply that BlissQuants or the Site sponsors, endorses, is affiliated or associated with, or is legally authorized to use any trademark, trade name, logo or copyright symbol displayed in or accessible through the links, or that any linked site is authorized to use any trademark, trade name, logo or copyright symbol of BlissQuants or any of its affiliates or subsidiaries. You hereby expressly acknowledge and agree that the linked sites are not under the control of BlissQuants and BlissQuants is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. BlissQuants is not responsible for webcasting or any other form of transmission received from any linked site. BlissQuants is providing these links to you only as a convenience, and the inclusion of any link shall not be construed to imply endorsement by BlissQuants in any manner of the website.
+ <br> <br>
+19.	For availing the services under the Site, registration by the User is required. You will receive a password and account designation upon completing the registration on the Site. You are responsible for maintaining the confidentiality of the password and account and are fully responsible for all activities that occur under your password or account. By registering, you agree to the following terms in addition to any other specific terms which shall be posted at an appropriate location of the Site. Each registration is for a single individual user only. To access these services, you will be asked to enter your individual User Name and Password. Therefore, we do not permit any of the following:-
+  <br>•   Any other person sharing your User Name and Password.
+
+ <br>•   Any part of the Site being cached in proxy servers and accessed by individuals who have not registered with Site as users.
+
+ <br>•   Access through a single User Name and Password being made available to multiple users on a network.
+ <br> <br>
+ 20.	If we reasonably believe that a User Name and Password are being used / misused in any manner as clarified above, we reserve the right to cancel access rights immediately without notice, and block access to all users from that IP address.
+ <br> <br>
+ 21.	You specifically agree that BlissQuants shall not be responsible for unauthorized access to or alteration of your transmissions or data, any material or data sent or received or not sent or received through the Site.
+ <br> <br>
+ 22.	Specific Prohibited Uses:
+  <br>
+The Site may be used only for lawful purposes by individuals for personal, non-commercial use only. BlissQuants specifically prohibits any other use of the Site, and all Users agree not to do any of the following:
+ <br>• 	Post or submit to the Site any incomplete, false or inaccurate biographical information or information which is not your own;
+ <br>• 	Send unsolicited mail or e-mail, making unsolicited phone calls or send unsolicited faxes regarding promotions and/or advertising of products or services to a user of the Site;
+ <br>• 	Delete or revise any material posted by any other person or entity;
+ <br>• 	Take any action that imposes an unreasonable or disproportionately large load on the Site's infrastructure;
+ <br>• 	Attempt to decipher, decompile, disassemble or reverse engineer any of the software comprising or in any way making up a part of the Site;
+ <br>• 	Aggregate, copy or duplicate in any manner any of the content or information available from the Site; or
+ <br>• 	The Users agree not to use / insert any of the User's URL, weblink, e mail address and website while accessing any material on the Site.
+
+ <br> 
+On non-conformance by users of any of the aforesaid terms, BlissQuants may in its sole discretion, restrict or terminate the offending User's ability to access the Site and determine whether to take any other actions whether to remove or request the removal of the User’s content. BlissQuants shall have no liability or responsibility whatsoever to Users for performance or nonperformance of such activities.
+ <br> <br>
+23.	BlissQuants reserves the right in its sole discretion to investigate and take legal action against anyone who engages in any illegal or prohibited conduct or otherwise violates these Terms of Use, including without limitation, removing the User content from the Site and/or terminating the offending User's ability to access the Site and/or use services therein. BlissQuants may take any other action with respect to User content or User actions that it deems necessary or appropriate in its sole discretion if it believes it may create liability for BlissQuants or may cause BlissQuants to lose (in whole or in part) the services of its ISPs or other suppliers.
+ <br> <br>
+24.	The User hereby specifically agrees to comply with the requirements of the Information Technology Act, 2000 as also rules, regulations, guidelines, bye laws and notifications made thereunder, while on the Site. The user also undertakes that the content provided by him/her is not defamatory, obscene, threatening, abusive or hateful. The User shall alone be responsible for all his acts, deeds and things and that he alone shall be liable for civil and criminal liability there under or under any other law for the time being in force.
+ <br> <br>
+25.	BlissQuants recognizes the receipt, transmission or distribution of spam emails (unsolicited bulk emails) as a major concern and has taken reasonable measures to minimize the transmission and effect of spam emails in its computing environment. All emails received by BlissQuants, are subject to spam check. Any email identified as spam will be rejected with sufficient information to the Sender for taking necessary action. With this measure, along with other technical spam reduction measures, BlissQuants hopes to minimize the effect of spam emails. BlissQuants reserves the right to reject and/or report any suspicious spam emails, to the authorities concerned, for necessary action, from time to time.
+ <br> <br>
+26.	No failure or delay by BlissQuants in exercising any right, power or privilege under the Terms of Use will operate as a waiver of it, nor will any single or partial exercise of it preclude any further exercise or the exercise of any right, power or privilege under the Terms of Use.
+ <br> <br>
+27.	The Site is controlled, operated and administered by BlissQuants from its offices within India. BlissQuants makes no representation that Materials on this site are appropriate or available for use at any other location(s) outside India. Any access to this site from territories where their contents are illegal is prohibited. You may not use the site or export the materials in violation of any applicable export laws and regulations. If you access this site from a location outside India, you are responsible for compliance with all local laws.
+ <br> <br>
+28.	The Terms of Use shall be governed by the Laws of India. The Courts of law at Mumbai shall have exclusive jurisdiction over any disputes arising under the Terms of Use.
+
+ 
+
+   
+
+               
+</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+                
+              
+    		
+			 <div class="modal fade " id="new_message" role="dialog">
+    <div class="modal-dialog ">
+      <div class="modal-content">
+        <div class="modal-header">
+             <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <img src="blissquant2.jpg" alt="Bliss Image" >
+        </div>
+        <div class="modal-body ">
+          
+        <div class="panel-heading title_all text-center">  Disclaimer  </div>     
+
+
+Check out new page
+         
+</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+       </div>
+	
+   
+       

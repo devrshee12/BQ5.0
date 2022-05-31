@@ -1,0 +1,74 @@
+
+#evtcal a:link {font: normal 12pt "Arial", "Helvetica", "Sans Serif"; color: #FFFFFF; text-decoration: none;}		/* unvisited link */
+#evtcal a:visited {font: normal 12pt "Arial", "Helvetica", "Sans Serif"; color: #FFFFFF; text-decoration: none;}	/* visited link */
+#evtcal a:hover {font: normal 12pt "Arial", "Helvetica", "Sans Serif"; color: #FFFFFF; font-weight: bold;}	/* mouse over link */
+#evtcal a:active {font: normal 12pt "Arial", "Helvetica", "Sans Serif"; color: #FFFFFF; text-decoration: none;}		/* selected link */
+.square {
+display: inline-block;
+height: 15px;
+vertical-align: top;
+width: 15px;
+*display: inline;
+
+}
+
+#wall {
+		/*width: 50%;*/
+ 
+    background-color: #4f4d4d;
+    box-shadow: 10px 10px 50px  #000000;
+	
+}
+#calendar {
+	box-shadow: 10px 10px 50px  #000000;
+	border: 2px solid Gray;
+}
+table{
+	table-layout:fixed;
+      
+}
+table.ex1{
+	table-layout: auto;
+       
+}
+table.scroll tbody {
+    height: 370px;
+    width: 320px;
+  
+    zoom: 1;
+
+    *display: inline;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+.control_color_1
+{
+    background-color: #474545!important;
+    color:  rgb(132,194,37);
+    
+    border-color: #474545;
+}
+@media  (min-width: 400px) and (max-width: 2000px){
+    table.scroll tbody {
+    height: 370px;
+    width: auto;
+   
+    zoom: 1;
+
+    *display: inline;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+}
+
+/*#dv3 {
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+     border-radius: 100px;
+      font-family:"Source Sans Pro", Helvetica, Arial, sans-serif;
+    color: #000000;
+    font-size:25px;
+    font-weight:bold;
+    //z-index: 10;
+  }*/

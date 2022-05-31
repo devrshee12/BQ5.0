@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html>
+    <head>
+        <title>BlissCalc  Documentation</title>   
+         <link rel="shortcut icon" href="../bliss_icon.ico" >
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+     
+       <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.4-dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.4-dist/css/custom.css" />
+      <link href="../font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet">
+        <script src="../bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+          <style>
+          
+   
+             </style>
+           
+      
+    </head>
+    <body>         
+            <div class="row wrap">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle  btn-lg" data-toggle="collapse" data-target=".bliss-data-menu">
+                           
+                           
+                             <span class="title_all">Service-Menu</span><span class="glyphicon glyphicon-th"></span>
+                                   
+                        </button>
+                    </div> 
+                    <div class="navbar-collapse collapse bliss-data-menu">
+                     <ul class="nav nav-stacked nav-pills">
+                        <li ><a href="newsticker_doc.html"  >News Ticker</a></li>
+                         <li><a href="indiavixchart_doc.html" >India VIX CHART</a></li>
+                        <li ><a href="companiesresulttable_doc.html" >Companies' Result Table</a></li>  
+                         <li><a href="economicresult_doc.html" >Financial Result Calender And Table</a></li>
+                    
+                       <li><a href="blissproduct.html" >Bliss Product</a></li>     
+                         <li><a href="Blissservices_doc.html" >Bliss Services</a></li> 
+                          <li><a href="BlissAboutus_doc.html" >About Us</a></li> 
+                           <li><a href="worldindices_doc.html">World Indices</a></li>
+                             <li><a href="companychartandtooltip_doc.html" >Chart filtering and tooltip </a></li>
+                     <li><a href="PriceMovementandExpctedTime.html" >Price Movement and Expected Time</a></li>
+                     <li><a href="BlissCalc_doc.html" class="active">BlissCalc</a></li>
+                     <li><a href="Blissapi_doc.html"  >Bliss API'S</a></li>
+                          <li><a href="DBConnectivity.html" >Database Connectivity</a></li>
+                                       <li><a href="DBTables_doc.html"  >Database Tables</a></li>
+                     </ul>
+                         </div>
+                 </div>
+           <div class="col-lg-8 col-md-8 col-sm-8">   
+               <div class="title_all text-center">
+                   <span style="padding-right: 30px">BlissCalc  Documentation</span>  
+                   
+               </div>
+               <div >
+                 
+                 
+                  
+                   <div class="panel-body">BlissCalc is a calculator tool to calculate option greek, profit, loss, etc by creating manual position.BlissCalc is not a webpage, it is an excel application so user can create option strategies manually and calculate its profit/loss, Option Greek etc.
+                   
+                     
+                       
+                   </div>
+                 
+                   <br> 
+                
+                   <div class="row">
+                  
+                   
+                           <div class="col-lg-12">
+                              
+                               
+                        
+                                    <br>
+                                   <div class="row">
+                       <div class="col-lg-4 col-md-4 col-sm-4"><div class="panel-heading ">BlissCalc Parameter </div>   </div>
+                       <br><br>
+                               
+                       <table  class="table table-striped">
+					<thead>
+						<tr>
+							<td class="tr1">Attribute </td>
+							<td class="tr1">Type</td>
+							<td class="tr1">Note </td>
+							<td class="tr1">Formula</td>
+                                                        <td class="tr1">Default</td>
+                                                       
+                            
+						</tr>
+				
+                                            <tr>
+                                                <td>Today</td>
+                                                <td>date</td>
+                                                <td>Show current date</td>
+                                                <td>=TODAY()</td>
+                                                <td>auto calculation</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Expiry</td>
+                                                <td>date</td>
+                                                <td>Show last thursday date of this month</td>
+                                                <td>=IF((TODAY()>=DATE(YEAR(L1),MONTH(L1)+1,1)-1 + CHOOSE(WEEKDAY(DATE(YEAR(L1),MONTH(L1)+1,1)-1),-3,-4,-5,-6,0,-1,-2)), DATE(YEAR(L1),MONTH(L1)+2,1)-1 + CHOOSE(WEEKDAY(DATE(YEAR(L1),MONTH(L1)+2,1)-1),-3,-4,-5,-6,0,-1,-2), DATE(YEAR(L1),MONTH(L1)+1,1)- 1 + CHOOSE(WEEKDAY(DATE(YEAR(L1),MONTH(L1)+1,1)-1),-3,-4,-5,-6,0,-1,-2))</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Days</td>
+                                               <td>Number</td>
+                                                <td>Days left to expiry</td>
+                                                <td>Expiry date - Current date</td>
+                                                <td></td>
+                                            </tr>
+                                             <tr>
+                                                <td>Th. Price</td>
+                                                <td>Decimal</td>
+                                                <td>Theoritical Price</td>
+                                                <td>=IF($A5>0,OptionGeeks.OptionPrice( $B5,$D$1,$A5,$B$1/365,0.01,$E5,0.01),"")</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Delta</td>
+                                              <td>Decimal</td>
+                                                <td>Delta value according to lotan option price is expected to move based on a 1 Rs change in the underlying stock.
+</td>
+                                                <td>=IF($A5 > 0, OptionGeeks.OptionDelta($B5,$D$1,$A5,$B$1/365,0.01,$E5,0.01),"")</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>DeltaVal</td>
+                                               <td>Decimal</td>
+                                                <td>Negative of (Lot size * Delta)</td>
+                                                <td>=IF($A5>0,$G5*-$C5,"")</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Theta</td>
+                                                <td>Decimal</td>
+                                                <td>Time decay, or theta, is enemy number one for the option buyer
+</td>
+                                                <td>=IF($A5>0,OptionGeeks.OptionTheta($B5,$D$1,$A5,$B$1/365,0,$E5,0),"")</td>
+                                                <td></td>
+                                            </tr>
+                                             <tr>
+                                                <td>ThetaVal</td>
+                                                <td>string</td>
+                                                <td>Lot size * Theta </td>
+                                                <td>=IF($A5>0,$I5*$C5,"")</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Vega</td>
+                                              <td>Decimal</td>
+                                                <td>Vega is the amount call and put prices will change</td>
+                                                <td>IF($A5>0,OptionGeeks.Vega($D$1,$A5,$B$1/365,0.01,$E5,0.01),"")</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>VegaVal</td>
+                                                <td>Decimal</td>
+                                                <td>Lot size * Vega</td>
+                                                <td>=IF($A5>0,$K5*$C5,"")</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Gamma</td>
+                                                <td>Decimal</td>
+                                                <td>speed at which option prices change, think of gamma as the acceleration.</td>
+                                                <td>=IF($A5>0,OptionGeeks.Gamma($D$1,$A5,$B$1/365,0.01,$E5,0.01),"")</td>
+                                                <td></td>
+                                            </tr>
+                                             <tr>
+                                                <td>GammaVal</td>
+                                                <td>Decimal</td>
+                                                <td>Gamma * lot size</td>
+                                                <td>=IF($A5,$M5*$C5,"")</td>
+                                                <td></td>
+                                            </tr>
+                                             <tr>
+                                                <td>Premium</td>
+                                                <td>Number</td>
+                                                <td>gain/loss at particular point on expiry</td>
+                                                <td>=OptionPremiums($D$4:$D$23,$C$4:$C$23)</td>
+                                                <td></td>
+                                            </tr>
+                                             <tr>
+                                                <td>Futstk</td>
+                                                <td>Number</td>
+                                                <td>Gain/loss from stock or Future</td>
+                                                <td>FutStkProfits($D$1,$L$27,$M$27)</td>
+                                                <td></td>
+                                            </tr>
+                                             <tr>
+                                                <td>Options</td>
+                                                <td>Number</td>
+                                                <td>Gain/loss from options</td>
+                                                <td>=OptionProfit($D$1,$B$1,$D$4:$D$23,$F$4:$F$23, $C$4:$C$23,$A$4:$A$23,$B$4:$B$23,$E$4:$E$23)	</td>
+                                                <td></td>
+                                            </tr>
+                                             <tr>
+                                                <td>Margin</td>
+                                                <td>Number</td>
+                                                <td> Value used by creating whole position
+                                                </td>
+                                                <td>Optional</td>
+                                                <td></td>
+                                            </tr>
+                                             <tr>
+                                                <td>Interest</td>
+                                                <td>Number</td>
+                                                <td>Interest for using margin	
+					         </td>
+                                                <td>Optional</td>
+                                                <td>	</td>
+                                            </tr>
+                                             <tr>
+                                                <td>Interest</td>
+                                                <td>Number</td>
+                                                <td>Interest for using margin	
+					         </td>
+                                                <td>Optional</td>
+                                                <td>	</td>
+                                            </tr>
+                                             <tr>
+                                                <td>Net Balance</td>
+                                                <td>Number</td>
+                                                <td>Total Gain / Loss after paying interest	
+					         </td>
+                                                <td>=Q7-Q11*((N1-L1)-B1)</td>
+                                                <td>	</td>
+                                            </tr>
+                                            <tr>
+                                                <td>B.E.P.</td>
+                                                <td>Decimal</td>
+                                                <td>Point from where gain/loss start	
+					         </td>
+                                                <td>bep_Click()</td>
+                                                <td>	</td>
+                                            </tr>
+                                            <tr>
+                                                <td>MaxPayOff@Strike</td>
+                                                <td>Number</td>
+                                                <td>Maximum Gain in particular range
+					         </td>
+                                                <td>=ROUND(MAX(AB1:AB524),2)&" @ "&ROUND(INDEX(AA1:AA524, MATCH(MAX(AB1:AB524),AB1:AB524,0)),2)</td>
+                                                <td>	</td>
+                                            </tr>
+                                             <tr>
+                                                <td>Delta Neutral</td>
+                                                <td>Number</td>
+                                                <td>Number of equity to buy/sell to hedge a position
+					         </td>
+                                                <td> =IF($C$2=0,$B$27-$L$27,-(($B$27*C2)+$L$27))</td>
+                                                <td>	</td>
+                                            </tr>
+                                           
+                                        </thead>
+                                        
+			</table>
+                               
+                     </div>
+                                    <br>
+                           
+                       
+                           </div>
+                         
+                    </div>
+                              <div class="row">
+                       <div class="col-lg-4 col-md-4 col-sm-4"><div class="panel-heading ">Internal Functions</div>   </div>
+                       <br><br>
+                               
+                              <table  class="table table-striped">
+					<thead>
+						<tr>
+							<th>Function Name </th>
+							<th>Type</th>
+							<th>Note </th>
+							<th>Parameter</th>
+                                                        <th>Parameter Type</th>
+                                                       
+                            
+						</tr>
+					
+                                            <tr>
+                                                <td>convertToUpper</td>
+                                                <td></td>
+                                                <td>Convert letter to upper case</td>
+                                                <td>1</td>
+                                                <td>String</td>
+                                            </tr>
+                                            <tr>
+                                                <td>OptionPrice(OptionType, s, x, t, r, V, d)</td>
+                                                <td></td>
+                                                <td>return option theoritical price</td>
+                                                <td>7</td>
+                                                <td>string,decimal</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>OptionDelta(OptionType, s, x, t, r, V, d)</td>
+                                               <td></td>
+                                                <td>return delta value</td>
+                                               <td>7</td>
+                                                <td>string,decimal</td>
+                                                
+                                            </tr>
+                                             <tr>
+                                                <td>OptionTheta(OptionType, s, x, t, r, V, d)</td>
+                                                 <td></td>
+                                                <td>return theta value</td>
+                                                <td>7</td>
+                                                <td>string,decimal</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>gamma(s, x, t, r, V, d)</td>
+                                               <td></td>
+                                                <td>return gamma value</td>
+                                                <td>6</td>
+                                                <td>string,decimal</td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <td>vega(s, x, t, r, V, d) </td>
+                                                <td></td>
+                                                <td>return vega price</td>
+                                                <td>6</td>
+                                                <td>string,decimal</td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <td>OptionRho(OptionType, s, x, t, r, V, d)</td>
+                                               <td></td>
+                                                <td>return Rho value</td>
+                                                <td>7</td>
+                                                <td>string,decimal</td>
+                                               
+                                            </tr>
+                                      
+                                            <tr>
+                                                <td>ImpliedVolatility(CallOrPut, s, x, t, r, d, OptionValue)</td>
+                                                 <td></td>
+                                                <td>return Implied Volatality</td>
+                                                <td>7</td>
+                                                <td>string,decimal</td>
+                                              
+                                            </tr>
+                                            <tr>
+                                                <td>OptionProfitonExpiry(s, PremRng As Range, qtyRang As Range, strikeRng As Range, typeRng As Range)</td>
+                                               <td></td>
+                                                <td>Return Options profit on day 0</td>
+                                                <td>5</td>
+                                                <td>Decimal,Cell Range</td>
+                                                
+                                            </tr>
+                                             <tr>
+                                                <td>OptionProfit(s, t, PremRng As Range, priceRng As Range, qtyRang As Range, strikeRng As Range, typeRng As Range, volRng As Range)
+</td>
+                                                <td></td>
+                                                <td>Return Option profit</td>
+                                                <td>8</td>
+                                                <td>Decimal,Cell Range</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>OptionProfitBeforeExpiry(s, t, PremRng As Range, qtyRang As Range, strikeRng As Range, typeRng As Range, volRng As Range)
+</td>
+                                                <td></td>
+                                                <td>Option profit</td>
+                                                <td>7</td>
+                                                <td>Decimal,Cell Range</td>
+                                             
+                                            </tr>
+                                             <tr>
+                                                <td>NetProfit(s, t, fq, fp, PremRng As Range, qtyRang As Range, strikeRng As Range, typeRng As Range, volRng As Range)</td>
+                                                 <td></td>
+                                                <td>Return Net profit</td>
+                                                <td>9</td>
+                                                <td>Decimal,Cell Range</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>OptionPremiums(PremRng As Range, qtyRang As Range)</td>
+                                               <td></td>
+                                                <td>Return total premium on expiry</td>
+                                                <td>2</td>
+                                                <td>Cell Range</td>
+                                            </tr>
+                                                   <tr>
+                                                <td>FutStkProfits(s, fq, fp)</td>
+                                                 <td></td>
+                                                <td>return future stock price by difference of future and spot price , multiply by number of stock</td>
+                                                <td>3</td>
+                                                <td>decimal</td>
+                                              
+                                            </tr>
+                                            <tr>
+                                                <td>SpotPriceMinVal(s, PremRng As Range, qtyRang As Range, strikeRng As Range, typeRng As Range)</td>
+                                               <td></td>
+                                                <td>Return minimum spot price till what calculation is done</td>
+                                                <td>5</td>
+                                                <td>Decimal,Cell Range</td>
+                                                
+                                            </tr>
+                                             <tr>
+                                                <td>SpotPriceMaxVal(s, PremRng As Range, qtyRang As Range, strikeRng As Range, typeRng As Range)
+</td>
+                                                 <td></td>
+                                                <td>Return minimum spot price till what calculation is done</td>
+                                                <td>5</td>
+                                                <td>Decimal,Cell Range</td>
+                                            </tr>
+                                            <tr>
+                                                <td>calcDeltaval(CallOrPut, deltaRng As Range, typeRng As Range, qtyRang As Range)
+</td>
+                                                <td></td>
+                                                <td>Calculate total delta value of whole position</td>
+                                                <td>5</td>
+                                                <td>string,Cell Range</td>
+                                             
+                                            </tr>
+                                             <tr>
+                                                <td>calcDeltaval2(CallOrPut, deltaRng As Range, typeRng As Range, qtyRang As Range, lot_size)
+</td>
+                                                <td></td>
+                                                <td>Calculate total delta value of whole position according to number of lot(if lot size is given by user)
+                                                </td>
+                                                <td>5</td>
+                                                <td>string,Cell Range</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>calcVegaval(CallOrPut, vegaRng As Range, typeRng As Range, qtyRang As Range)</td>
+                                              
+                                                <td></td>
+                                                <td>Calculate total vega value of whole position</td>
+                                                <td>4</td>
+                                                <td>string,Cell Range</td>
+                                            </tr>
+                                             <tr>
+                                                <td>calcGammaval(CallOrPut, gamaRng As Range, typeRng As Range, qtyRang As Range)</td>
+                                                <td></td>
+                                                <td>Calculate total gamma value of whole position</td>
+                                                <td>4</td>
+                                                <td>string,Cell Range</td>
+                                             
+                                            </tr>
+                                             <tr>
+                                                <td>calcThetaval(CallOrPut, thetaRng As Range, typeRng As Range, qtyRang As Range)</td>
+                                                <td></td>
+                                                <td>Calculate total Theta value of whole position   </td>
+                                                <td>4</td>
+                                                <td>string,Cell Range</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>NetStkQty(TodayStkQty, BalStkQty)</td>
+                                              
+                                                <td></td>
+                                                <td>total quantity of stock</td>
+                                                <td>2</td>
+                                                <td>Function</td>
+                                            </tr>
+                                             <tr>
+                                                <td>NetFutQty(TodayFutQty, BalFutQty)</td>
+                                              
+                                                <td></td>
+                                                <td>total quantity of future</td>
+                                                <td>2</td>
+                                                <td>Function</td>
+                                            </tr>
+                                             <tr>
+                                                <td>NetQty(NetStkQty, NetFutQty)</td>
+                                              
+                                                <td></td>
+                                                <td>total quantity of future and stock</td>
+                                                <td>2</td>
+                                                <td>Function</td>
+                                            </tr>
+                                             <tr>
+                                                <td>BalQty(BalStkQty, BalFutQty)</td>
+                                              
+                                                <td></td>
+                                                <td>calculate balance quantity</td>
+                                                <td>2</td>
+                                                <td>Function</td>
+                                            </tr>
+                                             <tr>
+                                                <td>BalTrade(BalStkQty, BalStkTrade, BalFutQty, BalFutTrade, Spot)</td>
+                                              
+                                                <td></td>
+                                                <td>Calculate trade</td>
+                                                <td>5</td>
+                                                <td>Function</td>
+                                            </tr>
+                                             <tr>
+                                                <td>NetStkTrade(TodayStkQty, TodayStkTrade, BalStkQty, BalStkTrade, Spot)</td>
+                                              
+                                                <td></td>
+                                                <td>Calculate Net stock trade trade</td>
+                                                <td>5</td>
+                                                <td>Function, Decimal</td>
+                                            </tr>
+                                             <tr>
+                                                <td>NetFutTrade(TodayFutQty, TodayFutTrade, BalFutQty, BalFutTrade, Spot)</td>
+                                              
+                                                <td></td>
+                                                <td>Calculate Net stock trade trade</td>
+                                                <td>5</td>
+                                                <td>Function, Decimal</td>
+                                            </tr>
+                                             <tr>
+                                                <td>NetTrade(NetStkQty, NetStkTrade, NetFutQty, NetFutTrade, Spot)</td>
+                                              
+                                                <td></td>
+                                                <td>Calculate Net future trade trade</td>
+                                                <td>4</td>
+                                                <td>Function,decimal</td>
+                                            </tr>
+                                             <tr>
+                                                <td>NetStkTrade(TodayStkQty, TodayStkTrade, BalStkQty, BalStkTrade, Spot)</td>                                              
+                                                <td></td>
+                                                <td>Calculate Net stock trade trade</td>
+                                                <td>5</td>
+                                                <td>Function,decimal</td>
+                                            </tr>
+                                        </thead>
+			</table>
+                               
+                     </div>
+                    <div class="row">
+                       <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class=" panel-heading ">Errors</div >   </div>
+                        <br><br>    
+                        <div class="panel-body">
+                                     
+                                    <ul>
+                                        <li>Error will be display if different format value is inserted on cell.</li>
+                                   </ul>
+                                    
+                               
+                            </div>                         
+               
+                
+           
+               </div>
+                   <div class="row">
+                       <div class="col-lg-4 col-md-4 col-sm-4"><div class="panel-heading ">Version Updation </div>   </div>
+                       <br><br>
+                               
+                  
+                               
+                     </div>
+                               <div class="row">
+                       <div class="col-lg-4 col-md-4 col-sm-4">
+                           <div class=" panel-heading ">Scenario </div > </div><br><br>
+                            <div class="panel-body">
+                                    <ul >
+                                    <li>Enter Spot price,option(call/put) volatility,price, lot size, strike of stratagies and BlissCalc return option greek(Delta, Gamma, Theta, Vega), profit/Loss, margin used, interest, chart, Maximum gain.</li>
+                                    <li>User have to change days value to calculate profit/loss, option greek for different days left Before expiry </li>
+                                    <li>Break Even Point can calculate by clicking B.E.P. button</li>
+                                    <li>Chart Can be show/hide by Show/hide toggle button.</li>
+                                     <li>Days can be reset if user has changed days, by reset button</li>
+                                     <li>Save Position by Save As button in Excel 2003 format</li>
+                                      <li>Clear whole Position by Clear button</li>
+                                   
+                                    
+                                </ul>
+                            </div>                         
+               
+                  
+           
+               </div>
+                          <table  class=" table table-striped">
+					<thead>
+						<tr>
+							<th>Version </th>
+							
+							<th>Note </th>
+							
+                                                       
+                            
+						</tr>
+					
+                                            <tr>
+                                                <td>BlissCalc17</td>
+                                               
+                                                <td>Calculator with result of option greek, profit/loss, chart</td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <td>BlissCalc18</td>
+                                                
+                                                <td>Margin and Interest features are added</td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <td>BlissCalc19</td>
+                                              
+                                                <td>key function are changed according to user demand(eg. cursor move of tab and enter button )</td>
+                                                
+                                            </tr>
+                                              <tr>
+                                                <td>BlissCalc20</td>
+                                              
+                                                <td>Hide scroll bar, scroll limit area, formula bar, ribbon etc </td>
+                                               
+                                            </tr>
+                                             <tr>
+                                                <td>BlissCalc21</td>
+                                              
+                                                <td>Add Save As, hide chart button and auto calculate maxpayoff@strike and b.e.p  </td>
+                                               
+                                            </tr>
+                                             <tr>
+                                                <td>BlissCalc22</td>
+                                              
+                                                <td>Add open black screen to display message of macro to enable if macro are disable </td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <td>BlissCalc23</td>
+                                              
+                                                <td>Add B.E.P button to calculate break even point, auto calculate is slowing other calculations</td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <td>BlissCalc24</td>
+                                              
+                                                <td>Remove opening black screen that display message of macro to enable if macro are disable, remove ribbon hiding on workbook open </td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <td>BlissCalc27</td>
+                                              
+                                                <td>Lock all cell that does'nt have user input</td>
+                                               
+                                            </tr>
+                                        </thead>
+			</table>
+               
+                </div>
+            <div class="col-lg-2 col-md-2 col-sm-2">
+
+            </div>
+           </div>
+           </div>
+         <div id="wrapper1" class="footer1 panel-body">
+			
+			
+		</div>
+                     
+      
+</body>
+</html>

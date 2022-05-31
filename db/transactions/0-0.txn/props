@@ -1,0 +1,25 @@
+K 10
+svn:author
+V 5
+BLISS
+K 15
+svn:check-locks
+V 4
+true
+K 8
+svn:date
+V 27
+2017-03-14T09:49:48.695634Z
+K 7
+svn:log
+V 0
+
+K 29
+svn:txn-client-compat-version
+V 5
+1.9.4
+K 18
+svn:txn-user-agent
+V 66
+SVN/1.9.4 (x86-microsoft-windows) ra_local TortoiseSVN-1.9.4.27283
+END

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html>
+    <head>
+        <title>Price Movement and Expected Time Doc</title>   
+         <link rel="shortcut icon" href="../bliss_icon.ico" >
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+       <script src="../js/jquery-1.9.1.js"></script>
+      <!--   <script src="js/jquery-ui.js"></script>-->
+       
+       <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.4-dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.4-dist/css/custom.css" />
+      <link href="../font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet">
+        <script src="../bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+         <script type="text/javascript" language="javascript" src="../bootstrap-3.3.4-dist/js/jquery.carouFredSel-6.0.4-packed.js"></script>
+         <script type="text/javascript" language="javascript" src="../bootstrap-3.3.4-dist/js/news-ticker.js"></script>
+          <style>
+             .table>tbody>tr>th, .table>tbody>tr>td { 
+        color: white;
+        border-top: none !important; 
+        width:20%;
+        font-size: 13px;
+        text-align: left;
+    }
+             </style>
+           
+      
+    </head>
+    <body>         
+            <div class="row wrap">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle  btn-lg" data-toggle="collapse" data-target=".bliss-data-menu">
+                           
+                           
+                             <span class="title_all">Service-Menu</span><span class="glyphicon glyphicon-th"></span>
+                                   
+                        </button>
+                    </div> 
+                    <div class="navbar-collapse collapse bliss-data-menu">
+                     <ul class="nav nav-stacked nav-pills">
+                        <li ><a href="newsticker_doc.html"  >News Ticker</a></li>
+                         <li><a href="indiavixchart_doc.html" >India VIX CHART</a></li>
+                        <li ><a href="companiesresulttable_doc.html"  >Companies' Result Table</a></li>  
+                         <li><a href="economicresult_doc.html" >Financial Result Calender And Table</a></li>
+                   
+                       <li><a href="blissproduct.html" >Bliss Product</a></li>     
+                         <li><a href="Blissservices_doc.html" >Bliss Services</a></li> 
+                          <li><a href="BlissAboutus_doc.html" >About Us</a></li> 
+                           <li><a href="worldindices_doc.html">World Indices</a></li>
+                            <li><a href="companychartandtooltip_doc.html" >Chart filtering and tooltip </a></li>
+                                <li><a href="PriceMovementandExpctedTime.html" class="active">Price Movement and Expected Time</a></li>
+                     <li><a href="BlissCalc_doc.html">BlissCalc</a></li>    
+                     <li><a href="Blissapi_doc.html"  >Bliss API'S</a></li>
+                          <li><a href="DBConnectivity.html" >Database Connectivity</a></li>
+                                       <li><a href="DBTables_doc.html"  >Database Tables</a></li>
+                     </ul>
+                         </div>
+                 </div>
+           <div class="col-lg-8 col-md-8 col-sm-8">   
+               <div class="title_all text-center">
+                   <span style="padding-right: 30px">Price Movement and Expected Time Documentation  </span>  
+                   
+               </div>
+               <div >
+                 
+                 
+                  
+                   <div class="panel-body">Price movement in Companies Result is a movement of stock on Quaterly result day.Movement show range percentage of stock price changes in a day<br>
+                       Expected Time is a time assumption of Quaterly result announcement from historical result time.
+                     
+                       
+                   </div>
+                 
+                   <br> 
+                
+                   <div class="row">
+                  
+                     
+                           <div class="col-lg-12">
+                            
+                               
+                        
+                                    <br>
+                                   <div class="row">
+                       <div class="col-lg-4 col-md-4 col-sm-4"><div class="panel-heading ">Calculation </div>   </div>
+                       <br><br>
+                               
+                              <table  class="table table-striped text-center table-responsive" >
+					<thead>
+						<tr>
+							<th>Attribute </th>
+							<th>formula/ SQL Query</th>
+							<th>Note </th>
+							
+                                                        <th>Page</th>
+						</tr>
+					</thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Movement</td>
+                                                <td>(High - Low) * 100 / Low</td>
+                                                <td>percent change of high price with reference<br> to low price on quarterly result day</td>
+                                                
+                                                <td>earning_upload.php</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Maximum movement</td>
+                                                <td>SELECT name, Max( Abs( movement ) ) AS maxmovForUser<br>
+FROM earning2  where movement <> 0<br>
+GROUP BY name<br>
+)t<br>
+SET max_Movement = ROUND(t.maxmovForUser,1)</td>
+                                                <td>Enable or disable the display of a 'processing' indicator<br>when the table is being processed</td>
+                                                
+                                                <td>earning_upload.php</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Minimum movement</td>
+                                                <td>SELECT name, Min( Abs( movement ) ) AS minmovForUser<br>
+FROM earning2  where movement <> 0<br>
+GROUP BY name<br>
+)t
+SET min_Movement = ROUND(t.minmovForUser,1)</td>
+                                                <td>Enable or disable the display of a 'processing' indicator<br> when the table is being processed</td>
+                                               
+                                                <td>earning_upload.php</td>
+                                            </tr>
+                                           
+                                        </tbody>
+			</table>
+                               
+                     </div>
+                                    <br>
+                           
+                       
+                           </div>
+                         
+                    </div>
+                              <div class="row">
+                       <div class="col-lg-4 col-md-4 col-sm-4"><div class="panel-heading "> Response </div>   </div>
+                       <br><br>
+                               
+                              <table  class=" table table-striped text-center" width="100%">
+					<thead>
+						<tr>
+							<th>Attribute </th>
+							<th>Type</th>
+							<th>Note </th>
+							
+                                                       
+                            
+						</tr>
+					</thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Price Movement</td>
+                                                <td>on filter by time period</td>
+                                                <td>Display max-min movement.</td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <td>Price Movement</td>
+                                                <td>on search by company name</td>
+                                                <td>Display quaterly result day movement.</td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <td>Expected Time</td>
+                                                <td>Upcoming result</td>
+                                                <td>Shows last quarterly result time.</td>
+                                               
+                                            </tr>
+                                             <tr>
+                                                <td>Time</td>
+                                                <td>Announced result</td>
+                                                <td>Shows actual result.</td>
+                                                
+                                            </tr>
+                                            
+                                        </tbody>
+			</table>
+                               
+                     </div>
+                    <div class="row">
+                       <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class=" panel-heading ">Errors</div >   </div>
+                        <br><br>    
+                        <div class="panel-body">
+                                     
+                                    <ul>
+                                        <li>Accuracy of expected time is 50%</li>
+                                   </ul>
+                                    
+                               
+                            </div>                         
+               
+                
+           
+               </div>
+                   
+                     <div class="row">
+                       <div class="col-lg-4 col-md-4 col-sm-4">
+                           <div class=" panel-heading ">Scenario </div > </div><br><br>
+                            <div class="panel-body">
+                                    <ul >
+                                    <li>Movement show in what range price can move or moved on quarterly result day</li>
+                                    <li>when we filter the companies result by time period(today,week etc) then it show minimum and maximum movement of stock till now (eg. "1.1 - 4.4" it means from 2013 to current day stock having minimum quarterly result movement is "1.1" and maximum movement is "4.4". it shows this stock have chances to move minimum 1.1% and maximum 4.4% </li>
+                                    <li>when we search stock name in search bar then table will show result day movement eg: 2.6, it means on that day it moves 2.6%, it shows how much "high value" is greater with respect to "low value" of that day</li>
+                                    <li>Expected time in companies result is a last quarterly result time. its an assumption that result may come on time of last result.</li>
+                                     <li>For more accuracy of upcoming time user can search stock and it will show actual time of past result announcement. from all that result time till now user can assume in what time result may come.</li>
+                                   
+                                    
+                                </ul>
+                            </div>                         
+               
+                  
+           
+               </div>
+              
+               
+                </div>
+            <div class="col-lg-2 col-md-2 col-sm-2">
+
+            </div>
+           </div>
+           </div>
+         <div id="wrapper1" class="footer1 panel-body">
+			
+			<?php
+                        include 'news_ticker_footer.php';
+                        
+                        ?>
+		</div>
+                     
+        <?php
+
+    include("html/footer.html");
+?>  
+</body>
+</html>

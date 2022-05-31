@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html>
+    <head>
+        <title>Bliss API'S</title>   
+         <link rel="shortcut icon" href="../bliss_icon.ico" >
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+       <script src="../js/jquery-1.9.1.js"></script>
+      <!--   <script src="js/jquery-ui.js"></script>-->
+       
+       <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.4-dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.4-dist/css/custom.css" />
+      <link href="../font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet">
+        <script src="../bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+         <script type="text/javascript" language="javascript" src="../bootstrap-3.3.4-dist/js/jquery.carouFredSel-6.0.4-packed.js"></script>
+         <script type="text/javascript" language="javascript" src="../bootstrap-3.3.4-dist/js/news-ticker.js"></script>
+          <style>
+             .table>tbody>tr>th, .table>tbody>tr>td { 
+      
+        color: white;
+        
+        border-top: none !important; 
+        width:20%;
+        font-size: 13px;
+    }
+             </style>
+       
+    </head>
+    <body>         
+            <div class="row wrap">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle  btn-lg" data-toggle="collapse" data-target=".bliss-data-menu">
+                           
+                           
+                             <span class="title_all">Service-Menu</span><span class="glyphicon glyphicon-th"></span>
+                                   
+                        </button>
+                    </div> 
+                    <div class="navbar-collapse collapse bliss-data-menu">
+                      <ul class="nav nav-stacked nav-pills">
+                        <li ><a href="newsticker_doc.html">News Ticker</a></li>
+                         <li><a href="indiavixchart_doc.html"  >India VIX CHART</a></li>
+                        <li ><a href="companiesresulttable_doc.html" >Companies' Result Table</a></li>  
+                        <li><a href="economicresult_doc.html" >Financial Result Calender And Table</a></li>
+                       <li><a href="blissproduct.html" >Bliss Product</a></li>    
+                         <li><a href="Blissservices_doc.html">Bliss Services</a></li> 
+                          <li><a href="BlissAboutus_doc.html" >About Us</a></li> 
+                           <li><a href="worldindices_doc.html">World Indices</a></li>
+                             <li><a href="companychartandtooltip_doc.html" >Chart filtering and tooltip </a></li>
+                           <li><a href="PriceMovementandExpctedTime.html" >Price Movement and Expected Time</a></li>                        
+                     <li><a href="BlissCalc_doc.html">BlissCalc</a></li>
+                        <li><a href="Blissapi_doc.html" class='active' >Bliss API'S</a></li>
+                      </ul>
+                         </div>
+                 </div>
+           <div class="col-lg-8 col-md-8 col-sm-8">   
+               <div class="title_all text-center">
+                   <span style="padding-right: 30px">Bliss API'S Documentation  </span>  
+                   
+               </div>
+               <div >
+                 
+                 
+                  
+                   <div class="panel-body">In BlissQuants.com :-<br>
+                       <div >
+                                <ul>
+                                    <li>In our website we are using various API below are detail about them.</li>
+                                  
+                                </ul>
+                               </div>
+                       
+                   </div>
+                     <table  class=" table table-striped  panel-body" >
+					<thead>
+						<tr>
+							<th>Method </th>
+							<th>URL</th>
+							<th>description </th>
+							
+                                                       
+                            
+						</tr>
+					
+                                      
+                                            <tr>
+                                                <td>Google API</td>
+                                                <td>http://finance.google.com/finance/info?client=ig&q=indeces name.</td>
+                                                <td>Google API is use to take live price of indeces.value for indeces comes from url in form of file and then it is converted to json object and later in array.Eg:-http://finance.google.com/finance/info?client=ig&q=INDEXBOM:sensex returns value of sensex.</td>
+                                              
+                                            </tr>
+                                            <tr>
+                                                <td>Yahoo API</td>
+                                                <td>http://download.finance.yahoo.com/d/quotes.csv?s=$quote&f=l1t1p2c1&e=.csv</td>
+                                                <td>Yahoo API is use to take live prices of indeces.in url we are passing various parameter to get content in file format.To know more about parameter refer this link.<a href="http://internetbandaid.com/2009/03/31/yahoo-stocks-api/" target='_blank'>Yahoo API Documentation</a> </td>
+                                            </tr>
+                                            <tr>
+                                                <td>BootStrap3</td>
+                                                <td><a href="http://getbootstrap.com/getting-started/" target="_blank">bootstrap api</a></td>
+                                                <td>bootstrap framework is use for UI.we are mainly useing two files "bootstrap.min.css","bootstrap.js".refer link to know about bootstrap.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>JSON API(jQuery.parseJSON)</td>
+                                                <td>-</td>
+                                                <td>Takes a well-formed JSON string and returns the resulting JavaScript value.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>JSON API(json_decode)</td>
+                                                <td>-</td>
+                                                <td>Takes a JSON encoded string and converts it into a PHP variable.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>MYSQL Connection(mysqli_connect)</td>
+                                                <td>-</td>
+                                                <td>Use to connect to the database.</td>
+                                            </tr>
+                                             <tr>
+                                                <td>MYSQL Connection(mysqli_select_db)</td>
+                                                <td>-</td>
+                                                <td>Use to select database.</td>
+                                            </tr>
+                                             <tr>
+                                                <td>MYSQL Connection(mysqli_query)</td>
+                                                <td>-</td>
+                                                <td>Use to get or update anything in database.</td>
+                                            </tr>
+                                             <tr>
+                                                <td>MYSQL Connection(mysqli_fetch_array)</td>
+                                                <td>-</td>
+                                                <td>Fetch a result row as an associative array, a numeric array, or both.</td>
+                                            </tr>
+                                             <tr>
+                                                <td>MYSQL Connection(mysqli_close)</td>
+                                                <td>-</td>
+                                                <td>Use to close the mysql connection.</td>
+                                            </tr>
+                                        </thead>
+			</table>
+                   <br> 
+               </div>
+           </div>
+            </div>     
+                     
+    
+</body>
+</html>

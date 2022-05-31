@@ -1,0 +1,14 @@
+
+            #chartdiv_vol {
+	width		: 35%;
+        position        :fixed;
+        z-index         : 10; 
+	height		: 30%;
+      
+        border          : 5px solid;
+        border-color    : white;
+	font-size	: 11px;
+        background-color: rgb(58, 53, 49);  
+        overflow-y:auto;
+         display: none;
+        }

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html>
+    <head>
+        <title>News Ticker</title>   
+         <link rel="shortcut icon" href="../bliss_icon.ico" >
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+       <script src="../js/jquery-1.9.1.js"></script>
+      <!--   <script src="js/jquery-ui.js"></script>-->
+       
+       <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.4-dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.4-dist/css/custom.css" />
+      <link href="../font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet">
+        <script src="../bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+         <script type="text/javascript" language="javascript" src="../bootstrap-3.3.4-dist/js/jquery.carouFredSel-6.0.4-packed.js"></script>
+         <script type="text/javascript" language="javascript" src="../bootstrap-3.3.4-dist/js/news-ticker.js"></script>
+         <style>
+             .table>tbody>tr>th, .table>tbody>tr>td { 
+      
+        color: white;
+        
+        border-top: none !important; 
+        width:20%;
+        font-size: 13px;
+    }
+             </style>
+       
+    </head>
+    <body>         
+            <div class="row wrap">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle  btn-lg" data-toggle="collapse" data-target=".bliss-data-menu">
+                           
+                           
+                             <span class="title_all">Service-Menu</span><span class="glyphicon glyphicon-th"></span>
+                                   
+                        </button>
+                    </div> 
+                    <div class="navbar-collapse collapse bliss-data-menu">
+                      <ul class="nav nav-stacked nav-pills">
+                        <li ><a href="newsticker_doc.html"  class="active">News Ticker</a></li>
+                         <li><a href="indiavixchart_doc.html"  >India VIX CHART</a></li>
+                        <li ><a href="companiesresulttable_doc.html"  >Companies' Result Table</a></li>  
+                  <li><a href="economicresult_doc.html" >Financial Result Calender And Table</a></li>
+                        <li><a href="blissproduct.html" >Bliss Product</a></li>   
+                          <li><a href="Blissservices_doc.html" >Bliss Services</a></li> 
+                           <li><a href="BlissAboutus_doc.html" >About Us</a></li> 
+                            <li><a href="worldindices_doc.html">World Indices</a></li>
+                              <li><a href="companychartandtooltip_doc.html" >Chart filtering and tooltip </a></li>
+                           <li><a href="PriceMovementandExpctedTime.html" >Price Movement and Expected Time</a></li>
+                     <li><a href="BlissCalc_doc.html">BlissCalc</a></li>
+                        <li><a href="Blissapi_doc.html" >Bliss API'S</a></li>
+                             <li><a href="DBConnectivity.html" >Database Connectivity</a></li>
+                                       <li><a href="DBTables_doc.html"  >Database Tables</a></li>
+                      </ul>
+                         </div>
+                 </div>
+           <div class="col-lg-8 col-md-8 col-sm-8">   
+               <div class="title_all text-center">
+                   <span style="padding-right: 30px"> News Ticker Documentation  </span>  
+                   
+               </div>
+               <div >
+                 
+                 
+                  
+                   <div class="panel-body">In Vertical News Ticker :-<br>
+                       <div class="panel-body">
+                                <ul>
+                                    <li>Live price of Sensex , Nifty , BankNifty and India VIX , Gainers and Loosers (Scripts with +/- 5% movement)</li> 
+                                    <li>52 week high and low , Life time high and low , Security in ban period script</li> 
+                                    <li>Companies result(show name of company having result at that day) , Economic Event(show event name for that day)</li> 
+                                </ul>
+                               </div>
+                       
+                   </div>
+                   <div class="panel-body">In Horizontal News Ticker :-<br>
+                       <div >
+                                <ul>
+                                    <li>Live price of Sensex , Nifty , BankNifty , India VIX and Other Sector wise Price, Gainers and Loosers (Scripts with +/- 5% movement)</li> 
+                                    <li>Companies result(show name of company having result at that day) , Economic Event(show event name for that day) , Security in ban period script</li> 
+                                </ul>
+                               </div>
+                       
+                   </div>
+                   <br> 
+                
+                   <div class="row">
+                  
+                       <div class="col-lg-4 col-md-4 col-sm-4 panel-heading">NewsTicker</div>
+                           <div class="col-lg-12 panel-body">
+                               <ul>
+                                   <li>NewsTicker provide quick information about current price of market and other information like companies result,economic result etc.</li>
+                               </ul>
+                               <table  class=" table table-striped text-center panel-body" width="100%">
+					<thead>
+						<tr>
+							<th>Method </th>
+							<th>URL</th>
+							<th>description </th>
+							<th>Page name </th>
+                                                       
+                            
+						</tr>
+					</thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Google API</td>
+                                                <td><a href="Blissapi_doc.html" target="_blank">Google API DOC</a></td>
+                                                <td>Returns live price of script</td>
+                                                <td>newsticker_read.php</td>
+                                            </tr>
+                                            <tr>
+                                                <td>MYSQL Connection</td>
+                                                <td><a href="Blissapi_doc.html" target="_blank">MYSQL Connection API DOC</a></td>
+                                                <td>Returns values according to query fire on MYSQL database</td>
+                                                <td>newsticker_read.php</td>
+                                            </tr>
+                                            <tr>
+                                                <td>JSON API</td>
+                                                <td><a href="Blissapi_doc.html" target="_blank">JSON API DOC</a></td>
+                                                <td>Returns value of scripts In JSON object later converted to array</td>
+                                                <td>newsticker_read.php</td>
+                                            </tr>
+                                             <tr>
+                                                 <td>fopen</td>
+                                                <td>-</td>
+                                                <td>Use to open the file</td>
+                                                <td>newsticker_read.php ,<br>newsticker_upload.php</td>
+                                            </tr>
+                                             <tr>
+                                                <td>fgets</td>
+                                                <td>-</td>
+                                                <td>Returns value from text file</td>
+                                                <td>newsticker_read.php ,<br>newsticker_upload.php</td>
+                                            </tr>
+                                             <tr>
+                                                <td>fwrite</td>
+                                                <td>-</td>
+                                                <td>Use to write value in text file</td>
+                                                <td>newsticker_read.php ,<br>newsticker_upload.php</td>
+                                            </tr>
+                                             <tr>
+                                                 <td>fclose</td>
+                                                <td>-</td>
+                                                <td>Use to close text file</td>
+                                                <td>newsticker_read.php ,<br>newsticker_upload.php</td>
+                                            </tr>
+                                        </tbody>
+			</table>
+                               
+                             
+                                    <br>
+                                   <div class="row">
+                       <div class="col-lg-4 col-md-4 col-sm-4"><div class="panel-heading ">fwrite Request Parameter </div>   </div>
+                       <br><br>
+                       <div class=" panel-body">
+                              <table  class=" table table-striped text-center  panel-body" width="100%">
+					<thead>
+						<tr>
+							<th>Attribute </th>
+							<th>Type</th>
+							<th>Note </th>
+							<th>Required?</th>
+                                                        <th>Default</th>
+                                 
+						</tr>
+					</thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Loosers</td>
+                                                <td>Text</td>
+                                                <td>Script which have 5% or more negative movement on that day </td>
+                                                <td>Optional</td>
+                                                <td>Null</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Gainers</td>
+                                                <td>Text</td>
+                                                <td>Script which have 5% or more positive movement on that day</td>
+                                                <td>Optional</td>
+                                                <td>Null</td>
+                                            </tr>
+                                            <tr>
+                                                <td>52 Week Low</td>
+                                                <td>Text</td>
+                                                <td>Scripts hows price is at 52 week low</td>
+                                                <td>Optional</td>
+                                                <td>Null</td>
+                                            </tr>
+                                             <tr>
+                                                <td>52 Week High</td>
+                                                <td>Text</td>
+                                                <td>Scripts hows price is at 52 week high</td>
+                                                <td>Optional</td>
+                                                <td>Null</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Life time low</td>
+                                                <td>Text</td>
+                                                <td>Scripts hows price is at life time low</td>
+                                                <td>Optional</td>
+                                                <td>Null</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Life time high</td>
+                                                <td>Text</td>
+                                                <td>Scripts hows price is at life time high</td>
+                                                <td>Optional</td>
+                                                <td>Null</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Security in ban period</td>
+                                                <td>Text</td>
+                                                <td> Script has crossed 95% of the market-wide position limit and are currently in the ban period.</td>
+                                                <td>Optional</td>
+                                                <td>Null</td>
+                                            </tr>
+                                        </tbody>
+			</table>
+                       </div>      
+                     </div>
+                             
+                           </div>
+                         
+                    </div>
+                      
+                    <div class="row">
+                       <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class=" panel-heading ">Errors</div >   </div>
+                        <br><br>    
+                        <div class="panel-body">
+                                    <ul >
+                                    <li>Errors occurs in one of this scenario:</li> 
+                                    <ul>
+                                        <li>Internet connection is lost or server pc is not working then error for database connection occur</li>
+                                        <li>If text file is missing</li>
+                                    </ul>
+                                    
+                                </ul>
+                            </div>                         
+               
+                
+           
+               </div>
+                     <div class="row">
+                       <div class="col-lg-4 col-md-4 col-sm-4">
+                           <div class=" panel-heading ">Format </div > </div><br><br>
+                            <div class="panel-body">
+                                    <ul >
+                                    <li>When data is coming from text file it comes in form of array</li> 
+                                    <li>When data is coming from google API it comes in JSON object later it is converted in array</li>
+                                </ul>
+                            </div>                         
+                      
+                  
+               </div>
+                     <div class="row">
+                       <div class="col-lg-4 col-md-4 col-sm-4">
+                           <div class=" panel-heading ">Scenario </div > </div><br><br>
+                            <div class="panel-body">
+                                    <ul >
+                                    <li>When news_ticker_footer.php is called in every page,it make call to newsticker_read.php.</li>
+                                    <li>In newsticker_read.php we are getting data from Database,Google API and text file</li>
+                                    <li>To get data from database query is fire to MySQL Database which gives data from relevant table in form of array which is later split in to string.</li>
+                                    <li>To get data from text file we are using fopen function to open file then fgets() function to get data from text file in array.</li>
+                                    <li>To get data from Google API we first pass script name to Google API which in return provide data for that script in form of JSON objet which is converted in to array.
+                                    </li> 
+                                                                  
+                                </ul>
+                            </div>                         
+               
+                  
+           
+               </div>
+              
+               
+                </div>
+            <div class="col-lg-2 col-md-2 col-sm-2">
+
+            </div>
+           </div>
+           </div>
+         <div id="wrapper1" class="footer1 panel-body">
+			
+			<?php
+                        include 'news_ticker_footer.php';
+                        
+                        ?>
+		</div>
+                     
+        <?php
+
+    include("html/footer.html");
+?>  
+</body>
+</html>
